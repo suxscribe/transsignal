@@ -1,0 +1,24 @@
+.news {
+
+	&_index {
+		margin-bottom: var(--margin-3);
+	}
+
+	&-teaser {
+		padding: var(--margin) var(--margin-15);
+		background: var(--color-light);
+
+		&__date {
+			font-size: var(--text-small);
+			color: var(--color-muted);
+		}
+
+		&__title {
+
+		}
+
+		&__intro {
+
+		}
+	}
+}
