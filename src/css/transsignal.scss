@@ -1,13 +1,20 @@
 :root {
-	--font-size: 14px;
-	--line-height: 1.5em;
-	--text-small: 0.75rem;
+	--font-size: 14px; //14px
+	--line-height: 1.5;
+	--text-small: 12px; // 12px
+	--text-large: 16px; // 16px;
+	--text-lead: 18px;
 	--line-height-small: 1.5em;
 
-	--margin: 18px;
-	--margin-2: 36px;
-	--margin-3: 48px;
-	--margin-15: 24px;
+	--gutter: 16px;
+	--gutter-small: 16px;
+	--gutter-medium: 28px;
+	--gutter-large: 40px;
+
+	--margin: 16px;
+	--margin-2: calc(var(--margin) * 2);
+	--margin-3: calc(var(--margin) * 3);
+	--margin-15: calc(var(--margin) * 1.5);
 
 	--color-black: #000;
 	--color-white: #fff;
@@ -24,11 +31,22 @@
 
 	--radius: 3px;
 
+
 	--transition: 0.2s ease;
+
+	@media (min-width: $breakpoint-small) {
+		--font-size: 14px;
+		--margin: 24px;
+		--gutter: 28px;
+	}
+	@media (min-width: $breakpoint-large) {
+		--gutter: 40px;
+	}
 }
 
+
+
 body{
-	font-family: Helios, sans-serif;
 	font-size: var(--font-size);
 	font-weight: 400;
 	line-height: var(--line-height);
@@ -39,6 +57,7 @@ body{
 
 a {
 	color: var(--color-accent);
+	transition: color var(--transition);
 
 	&:hover {
 		text-decoration: none;
@@ -54,25 +73,64 @@ h1, h2, h3, h4 {
 	font-weight: 700;
 }
 
-h1 {
-	margin-top: var(--margin-3);
-	margin-bottom: var(--margin-2);
+h1, .uk-h1 {
+	margin-top: calc(var(--margin) * 4 + 10px);
+	margin-bottom: calc(var(--margin-3) - 14px);
+	line-height: 1.0667;
+
+	@media (min-width: $breakpoint-small) {
+		font-size: $base-h1-font-size-m;
+		line-height: 1.2;
+	}
 }
 
-h2 {
-	margin-top: var(--margin-2);
-	margin-bottom: var(--margin-15);
+$h2-margin-top: 4.257rem;
+$h2-margin-bottom: 3.429rem; //calc(var(--margin) * 2 - 2px)
+
+h2, .uk-h2 {
+
+	margin-top: $h2-margin-top;
+	margin-bottom: $h2-margin-bottom;
+	line-height: 1.2;
+
+	@media (min-width: $breakpoint-small) {
+		font-size: $base-h2-font-size-m;
+		line-height: 1.143;
+	}
 }
 
 h3 {
 	margin-top: var(--margin-15);
 	margin-bottom: var(--margin);
+
+	font-size: $base-h3-font-size * 0.8;
+	line-height: 1.375;
+
+	@media (min-width: $breakpoint-small) {
+		font-size: $base-h3-font-size;
+		line-height: 1.2;
+
+	}
 }
 
 h4 {
 
 }
 
+
+/* Tablet landscape and bigger */
+// @media (min-width: $breakpoint-small) {
+
+//     h1, .uk-h1 { font-size: $base-h1-font-size-m; }
+//     h2, .uk-h2 { font-size: $base-h2-font-size-m; }
+
+// }
+/* @media (min-width: $breakpoint-medium) {
+
+    h1, .uk-h1 { font-size: $base-h1-font-size-m; }
+    h2, .uk-h2 { font-size: $base-h2-font-size-m; }
+
+} */
 
 .menu {
 	list-style-type:none;
@@ -93,11 +151,31 @@ h4 {
 	justify-content: space-between;
 	align-items: center;
 
+	margin-top: $h2-margin-top;
+	margin-bottom: $h2-margin-bottom;
+
+	&--padding-top {
+		margin-top: 0;
+		padding-top: $h2-margin-top;
+	}
+
 	&__title {
 		flex: 1 0 auto;
+		margin: 0;
 	}
 
 	&__side {
 		flex: 0 0 auto;
+	}
+}
+
+
+.chevron {
+	width: 14px;
+	height: 14px;
+
+	& .svg_chevron {
+		stroke: #fff;
+
 	}
 }

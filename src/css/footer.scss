@@ -2,12 +2,27 @@
 
 	&__navigation {
 		padding: var(--margin) 0 var(--margin) 0;
+		margin: 0 auto;
+
+		@media (min-width: $breakpoint-small) {
+
+		}
+		@media (min-width: $breakpoint-medium) {
+
+		}
+
+	}
+
+	&__phone {
+		font-weight: bold;
+		font-size: 1.143rem;
 
 	}
 
 	&__bottom {
 		position: relative;
-		padding: var(--margin-3) 0 var(--margin-3) 0;
+		padding: var(--gutter-large) 0;
+		align-items: center;
 
 		&:before {
 			content:'';
@@ -29,6 +44,7 @@
 	&__menu {
 
 		& > li {
+			margin-bottom: 11px;
 
 			& > a {
 
@@ -39,34 +55,82 @@
 	&__link {
 		border: 1px solid var(--color-border);
 		display:flex;
+		align-items: stretch;
 		position: relative;
+		transition: box-shadow var(--transition);
+		margin: 0 auto;
+		max-width: 334px;
+
+		@media (min-width: $breakpoint-small) {
+			max-width:none;
+		}
+
 
 		&-text {
-			padding:var(--margin);
+			flex: 1 1 auto;
+			padding:var(--gutter-small);
+			padding-right: 0;
 			font-size: var(--text-small);
+
+			transition: color var(--transition);
 		}
 
 		&-image {
+			flex: 0 0 30%;
 			position: relative;
 			overflow: hidden;
 			cursor: pointer;
 
 			& img {
-				// position: absolute;
-				// right:0;
-				// left: 0;
-				// bottom: -10px;
+				position: absolute;
+				right:0;
+				left: 0;
+				bottom: -15px;
 				width: 100%;
-				margin-top: var(--margin-2);
-				object-fit:cover;
-				transition: margin-top var(--transition);
+				height: 100%;
+				// margin-top: var(--margin-2);
+				object-fit:contain;
+				object-position: bottom;
+				transition: bottom var(--transition);
 			}
 
-			&:hover {
-				& img {
-					margin-top: var(--margin);
-				}
+		}
+		&:hover {
+			box-shadow: 0 10px 50px rgba(0,80,146,0.2);
+
+			.footer__link-text {
+				// color: var(--color-accent-light);
 			}
+			.footer__link-image img {
+				// margin-top: var(--margin);
+				bottom: -5px;
+			}
+
+		}
+	}
+
+	&__copyright {
+
+		text-align: center;
+
+		@media (min-width: $breakpoint-medium) {
+			text-align: left;
+		}
+
+		&-wrap {
+
+			@media (min-width: $breakpoint-medium) {
+				order: -1;
+			}
+		}
+
+	}
+
+	&-margin {
+		margin: 0 0 5px 0;
+
+		&:last-of-type {
+			margin-bottom: 0;
 		}
 	}
 }

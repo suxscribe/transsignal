@@ -2,7 +2,8 @@
 $global-link-color: #DA7D02;
 
 // 2. Import default variables and available mixins.
-@import "uikit/src/scss/variables-theme.scss";
+// @import "uikit/src/scss/variables-theme.scss";
+@import "./variables-theme.scss";
 @import "uikit/src/scss/mixins-theme.scss";
 
 // 3. Your custom mixin overwrites.
@@ -15,34 +16,15 @@ $global-link-color: #DA7D02;
 
 
 // Base
-@import "uikit/src/scss/components/variables.scss";
+// @import "uikit/src/scss/components/variables.scss";
+@import "./variables.scss";
+
 
 // VARIABLES redefine
 
-$breakpoint-small:                              640px !default;  // Phone landscape
-$breakpoint-medium:                             960px !default;  // Tablet Landscape
-$breakpoint-large:                              1200px !default; // Desktop
-$breakpoint-xlarge:                             1600px !default; // Large Screens
-
-$breakpoint-xsmall-max:                         ($breakpoint-small - 1) !default;
-$breakpoint-small-max:                          ($breakpoint-medium - 1) !default;
-$breakpoint-medium-max:                         ($breakpoint-large - 1) !default;
-$breakpoint-large-max:                          ($breakpoint-xlarge - 1) !default;
-
-//
-// Colors
-//
-
-$global-color:                                   #000 !default;
-$global-emphasis-color:                          #333 !default;
-$global-muted-color:                             #cbcbcb !default;
-
-$global-link-color:                              #0074d3 !default;
-$global-link-hover-color:                        #94c2e9 !default;
-
-$global-inverse-color:                           #fff !default;
-
 $dropdown-margin:																 0;
+$offcanvas-bar-background: 												#fff;
+
 
 @import "uikit/src/scss/components/mixin.scss";
 @import "uikit/src/scss/components/base.scss";
@@ -80,7 +62,8 @@ $dropdown-margin:																 0;
 @import "uikit/src/scss/components/search.scss"; // After: Icon
 
 // Navs
-@import "uikit/src/scss/components/nav.scss";
+// @import "uikit/src/scss/components/nav.scss";
+@import "./nav.scss";
 @import "uikit/src/scss/components/navbar.scss"; // After: Card, Grid, Nav, Icon, Search
 @import "uikit/src/scss/components/subnav.scss";
 @import "uikit/src/scss/components/breadcrumb.scss";
@@ -132,10 +115,30 @@ $dropdown-margin:																 0;
 @import "uikit/src/scss/components/position.scss";
 @import "uikit/src/scss/components/transition.scss";
 @import "uikit/src/scss/components/visibility.scss";
-@import "uikit/src/scss/components/inverse.scss";
+// @import "uikit/src/scss/components/inverse.scss"; //inverts offcanvas color
 
 // Need to be loaded last
 @import "uikit/src/scss/components/print.scss";
+
+
+// //////////////////////////////////////////////////////
+
+/* Desktop and bigger */
+@media (max-width: $breakpoint-small - 1) {
+
+    /* Horizontal */
+    .uk-grid { margin-left: (-$grid-small-gutter-horizontal); }
+    .uk-grid > * { padding-left: $grid-small-gutter-horizontal; }
+
+    /* Vertical */
+    .uk-grid + .uk-grid,
+    .uk-grid > .uk-grid-margin,
+    * + .uk-grid-margin { margin-top: $grid-small-gutter-vertical; }
+
+}
+
+
+////////////////////////////////////////////////////////
 
 @import "swiper/swiper.scss";
 
@@ -144,3 +147,6 @@ $dropdown-margin:																 0;
 @import "./footer.scss";
 @import "./index.scss";
 @import "./news.scss";
+@import "./offcanvas.scss";
+@import "./search.scss";
+@import "./fonts.scss";

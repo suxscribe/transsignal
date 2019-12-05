@@ -5,15 +5,29 @@
 	}
 
 	&-teaser {
-		padding: var(--margin) var(--margin-15);
+		padding:  29px $global-gutter;
 		background: var(--color-light);
 
+		@media (min-width: $breakpoint-small) {
+			padding: 29px $global-medium-gutter;
+		}
+
 		&__date {
+			font-family: 'Roboto', sans-serif;
 			font-size: var(--text-small);
 			color: var(--color-muted);
 		}
 
 		&__title {
+			margin-top: calc(var(--margin) - 4px);
+
+			& a {
+				color: var(--color-black);
+
+				&:hover, &:focus {
+					color: var(--color-accent);
+				}
+			}
 
 		}
 

@@ -28,7 +28,8 @@ module.exports = {
 	output: {
 		// mode: 'development', // 'production' = -p key
 		filename: './js/main.js',
-		path: path.resolve(__dirname,'dist')
+		path: path.resolve(__dirname,'dist'),
+		publicPath: 'http://suxscribe.tmweb.ru/transsignal/'
 	},
 	devtool: 'source-map',
 	devServer: {
@@ -128,7 +129,8 @@ module.exports = {
 						}
 					}*/
 				]
-			}
+			},
+			{ test: /\.(woff|woff2|eot|ttf)$/, loader: 'url-loader?limit=100000' }
 		],
 	},
 }

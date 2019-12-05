@@ -14,7 +14,8 @@ import './css/style.scss';
 // UIkit.notification('Hello world.');
 // console.log('hello, world');
 
-window.addEventListener('load', () => {
+
+document.addEventListener('DOMContentLoaded', () => {
 
 	var slideshowMain = new Swiper('.slideshow-main', {
 		loop: false,
@@ -58,5 +59,35 @@ window.addEventListener('load', () => {
 	slideshowBanner.controller.control = slideshowMain;
 
 
-}, false);
+
+	const indexMoveBanner = () => {
+		const bannerTeleport = document.querySelector('.index-banner__teleport');
+		const bannerFirst = document.querySelector('.index-banners__first');
+		const bannerSecond = document.querySelector('.index-banners__second');
+		const bannerBefore = document.querySelector('.index-banners__insertbeforeme')
+
+		if (window.matchMedia("(min-width: 960px)").matches) {
+			if (bannerTeleport.parentNode != bannerFirst) {
+			  bannerFirst.appendChild(
+			  	bannerTeleport
+			  );
+			  bannerTeleport.classList.add('uk-grid-margin');
+				console.log('movedto first');
+			}
+		} else {
+			if (bannerTeleport.parentNode != bannerSecond) {
+				bannerSecond.insertBefore(
+					bannerTeleport,
+					bannerBefore
+				);
+				console.log('movedto second');
+			}
+		}
+	};
+
+	indexMoveBanner();
+	window.addEventListener('resize', indexMoveBanner);
+
+
+});
 
