@@ -1,4 +1,5 @@
 .header {
+	background: var(--color-white);
 
 	&__top {
 		background: var(--color-dark);
@@ -63,12 +64,18 @@
 		margin: var(--font-size);
 		align-items: center;
 
+		height: 64px;
+		margin:0;
+
+
 		@media (min-width: $breakpoint-small) {
-			margin: var(--margin) 0;
+			margin: 0;
+			height: 96px;
 		}
 
 		@media (min-width: $breakpoint-medium) {
 			margin: var(--margin-2) 0 var(--margin);
+			height: 56px;
 		}
 	}
 
@@ -169,21 +176,16 @@
 		transition: background 0.2s ease;
 		right: 0;
 		top: 0;
-		z-index: 1000;
 
-		:hover {
-		  opacity: 0.7;
-		}
 
 		html.uk-modal-page .offcanvas-toggle {
-		  z-index: 10000;
+
 		}
 		html.uk-modal-page body.page-main header.panel {
 		  z-index: auto; /* fix z-index for navbar-toggle */
 		}
 
 		&-link {
-		  z-index: 2000;
 		  height: 100%;
 		  display: flex;
 		  justify-content: center;
@@ -195,10 +197,11 @@
 		  top: 0;
 
 		  transform: rotate(180deg);
-		  transition: transform 0.3s ease 0s;
+		  transition: all 0.3s ease 0s;
 
 		  &:hover {
 			  text-decoration: none;
+			  opacity: 0.7;
 			}
 
 			& span {
@@ -241,28 +244,27 @@
 			}
 
 			/* active state, i.e. menu open */
-			.uk-offcanvas-page & {
-			  transform: rotate(0);
-			  transition-delay: 0.3s;
-			}
-			.uk-offcanvas-page & span {
-			  background: none;
-			  width: 20px;
+			// .uk-offcanvas-page & {
+			//   transform: rotate(0);
+			//   transition-delay: 0.3s;
+			// }
+			// .uk-offcanvas-page & span {
+			//   background: none;
+			//   width: 20px;
 
-			}
-			.uk-offcanvas-page & span:before {
-			  top: 0;
-			  transform: rotate(45deg);
-			}
-			.uk-offcanvas-page & span:after {
-			  bottom: 0;
-			  transform: rotate(-45deg);
-			}
-			.uk-offcanvas-page & span:before,
-			.uk-offcanvas-page & span:after {
-			  transition-delay: 0s, 0.3s;
-			  /*width: 100%;*/
-			}
+			// }
+			// .uk-offcanvas-page & span:before {
+			//   top: 0;
+			//   transform: rotate(45deg);
+			// }
+			// .uk-offcanvas-page & span:after {
+			//   bottom: 0;
+			//   transform: rotate(-45deg);
+			// }
+			// .uk-offcanvas-page & span:before,
+			// .uk-offcanvas-page & span:after {
+			//   transition-delay: 0s, 0.3s;
+			// }
 
 		}
 

@@ -29,7 +29,7 @@ module.exports = {
 		// mode: 'development', // 'production' = -p key
 		filename: './js/main.js',
 		path: path.resolve(__dirname,'dist'),
-		publicPath: 'http://suxscribe.tmweb.ru/transsignal/'
+		// publicPath: 'http://suxscribe.tmweb.ru/transsignal/'
 	},
 	devtool: 'source-map',
 	devServer: {

@@ -7,6 +7,15 @@
 	&-teaser {
 		padding:  29px $global-gutter;
 		background: var(--color-light);
+		display: flex;
+		flex-direction: column;
+		transition: all var(--transition);
+		
+
+		&:hover {
+			background: var(--color-white);
+			box-shadow: var(--box-shadow);
+		}
 
 		@media (min-width: $breakpoint-small) {
 			padding: 29px $global-medium-gutter;
@@ -15,11 +24,13 @@
 		&__date {
 			font-family: 'Roboto', sans-serif;
 			font-size: var(--text-small);
-			color: var(--color-muted);
+			color: rgba(0,0,0,0.6);
+			flex: 0 0 auto;
 		}
 
 		&__title {
 			margin-top: calc(var(--margin) - 4px);
+			flex: 0 0 auto;
 
 			& a {
 				color: var(--color-black);
@@ -32,7 +43,51 @@
 		}
 
 		&__intro {
+			overflow: hidden;
+		  // text-overflow: ellipsis;
+		  display: -webkit-box;
+		  -webkit-box-orient: vertical;
+		  // -webkit-line-clamp: 3; /* number of lines to show */
+		  height: 63px;
+		  flex: 1 0 auto;
+		  position: relative;
+		  font-size: var(--text-small);
 
+		  &:after { //hide bottom line of text
+		  	// content:'';
+		  	position: absolute;
+		  	bottom:0;
+		  	left: 0;
+		  	width: 100%;
+		  	height: 8px;
+		  	background: -moz-linear-gradient(top, rgba(246,247,248,0) 0%, rgba(246,247,248,1) 100%);
+		  	background: -webkit-linear-gradient(top, rgba(246,247,248,0) 0%,rgba(246,247,248,1) 100%);
+		  	background: linear-gradient(to bottom, rgba(246,247,248,0) 0%,rgba(246,247,248,1) 100%);
+		  }
+
+		  @media (min-width: $breakpoint-small) {
+		  	font-size: var(--font-size);
+		  }
+
+		  &-wrap {
+		  	position: absolute;
+		  	left: 0;
+		  	top: 0;
+		  	width: 100%;
+		  	height: 100%;
+
+
+		  }
+		}
+	}
+
+	&__readmore {
+		font-family: 'Roboto Condensed', sans-serif;
+		font-size: var(--text-large);
+		display: none;
+
+		@media (min-width: $breakpoint-small) {
+			display: block;
 		}
 	}
 }

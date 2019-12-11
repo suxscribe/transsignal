@@ -2,20 +2,22 @@
 
 	&__navigation {
 		padding: var(--margin) 0 var(--margin) 0;
-		margin: 0 auto;
 
-		@media (min-width: $breakpoint-small) {
-
-		}
-		@media (min-width: $breakpoint-medium) {
-
+		@media (min-width: $breakpoint-small) and (max-width: $breakpoint-medium - 1) {
+			margin: 0 auto;
 		}
 
+
+	}
+
+	&__contacts {
+		font-size: $base-h3-font-size;
 	}
 
 	&__phone {
 		font-weight: bold;
 		font-size: 1.143rem;
+		margin-bottom: 5px ;
 
 	}
 
@@ -79,7 +81,7 @@
 			flex: 0 0 30%;
 			position: relative;
 			overflow: hidden;
-			cursor: pointer;
+			// cursor: pointer;
 
 			& img {
 				position: absolute;
@@ -95,7 +97,7 @@
 			}
 
 		}
-		&:hover {
+		&:not(.footer__link_current):hover {
 			box-shadow: 0 10px 50px rgba(0,80,146,0.2);
 
 			.footer__link-text {
@@ -106,6 +108,18 @@
 				bottom: -5px;
 			}
 
+		}
+
+		&_current {
+			cursor: default;
+
+			& .footer__link-image img {
+				bottom:0;
+			}
+
+			& .footer__link-text {
+				color: var(--color-dark);
+			}
 		}
 	}
 
@@ -119,15 +133,31 @@
 
 		&-wrap {
 
+			margin-top: 42px;
+
+			@media (min-width: $breakpoint-small) {
+				
+			}
+
 			@media (min-width: $breakpoint-medium) {
+				margin-top: 0;
 				order: -1;
 			}
+		}
+
+		&-line {
+			margin-bottom: var(--margin);
+
+			@media (min-width: $breakpoint-small) {
+				margin-bottom: 4px;
+			}
+
 		}
 
 	}
 
 	&-margin {
-		margin: 0 0 5px 0;
+		margin: 0 0 4px 0;
 
 		&:last-of-type {
 			margin-bottom: 0;

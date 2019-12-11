@@ -11,26 +11,26 @@
 				</ul>
 			</div>
 			<div class="footer__navigation-column uk-visible@s">
-				<h3>Продукция</h3>
+				<h3>О предприятии</h3>
 				<ul class="footer__menu menu">
-					<li class="uk-active"><a href="">Магистральным железным дорогам</a></li>
-					<li class=""><a href="">Промышленным предприятиям</a></li>
-					<li><a href="">Метрополитенам</a></li>
-					<li><a href="">Подвижному составу</a></li>
+					<li class="uk-active"><a href="">Новости</a></li>
+					<li class=""><a href="">Производство</a></li>
+					<li><a href="">Сертификаты</a></li>
+					<li><a href="">Раскрытие информации</a></li>
 				</ul>
 			</div>
 			<div class="footer__navigation-column uk-visible@s">
-				<h3>Продукция</h3>
+				<h3>Услуги</h3>
 				<ul class="footer__menu menu">
-					<li class="uk-active"><a href="">Магистральным железным дорогам</a></li>
-					<li class=""><a href="">Промышленным предприятиям</a></li>
-					<li><a href="">Метрополитенам</a></li>
-					<li><a href="">Подвижному составу</a></li>
+					<li class="uk-active"><a href="">Передача электроэнергии</a></li>
+					<li class=""><a href="">Передача тепловой энергии</a></li>
+					<li><a href="">Холодное водоснабжние</a></li>
+					<li><a href="">Водоотведение</a></li>
 				</ul>
 			</div>
 			<div class="footer__navigation-column">
-				<h3>Контакты</h3>
-				<div class="footer__phone footer-margin">+7 (831) 223-98-01</div>
+				<h3 class="footer__contacts">Контакты</h3>
+				<div class="footer__phone">+7 (831) 223-98-01</div>
 				<div class="footer__schedule uk-text-muted footer-margin">в будни с 8 до 17 часов</div>
 				<div class="footer__address footer-margin">603950, Россия,<br>
 Нижний Новгород, ул Торфяная, 30</div>
@@ -38,28 +38,33 @@
 
 			</div>
 		</div>
-		<div class="footer__bottom" uk-grid>
+		<div class="footer__bottom uk-grid">
 
-			<div class="footer__link-wrap uk-width-1-4@m uk-width-1-2@s uk-width-1-1">
-				<div class="footer__link">
-					<a class="footer__link-text">Светотехническое и электронное железнодорожное оборудование</a>
-					<div class="footer__link-image"><img src="../../assets/footer-bottom-banner-1.png" alt=""></div>
-					<a href="#" class="uk-position-cover"></a>
+			<div class="footer__link-wrap uk-width-1-2@m uk-width-1-1 " >
+				<div class="uk-grid uk-grid-match" uk-grid>
+					<div class=" uk-width-1-2@m uk-width-1-2@s uk-width-1-1">
+						<div class="footer__link footer__link_current">
+							<div class="footer__link-text">Светотехническое и&nbsp;электронное железнодорожное оборудование</div>
+							<div class="footer__link-image"><img src="../../assets/footer-bottom-banner-1.png" alt=""></div>
+							
+						</div>
+					</div>
+					<div class=" uk-width-1-2@m uk-width-1-2@s uk-width-1-1">
+						<div class="footer__link">
+							<a class="footer__link-text">Cтерилизационное оборудование, запасные части и&nbsp;комплектующие</a>
+							<div class="footer__link-image"><img src="../../assets/footer-bottom-banner-2.png" alt=""></div>
+							<a href="#" class="uk-position-cover"></a>
+					
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="footer__link-wrap uk-width-1-4@m uk-width-1-2@s uk-width-1-1">
-				<div class="footer__link">
-					<a class="footer__link-text">Светотехническое и электронное железнодорожное оборудование</a>
-					<div class="footer__link-image"><img src="../../assets/footer-bottom-banner-1.png" alt=""></div>
-					<a href="#" class="uk-position-cover"></a>
 
-				</div>
-			</div>
 			<div class="footer__copyright-wrap uk-width-1-2@m uk-width-1-1@s uk-width-1-1">
 				<div class="footer__copyright">
-					<div class="footer-margin">© 2019 АО «Транс-Сигнал». Разработано в <a href="">Enteragency</a></div>
-					<div class="footer-margin"><a href="">Политика защиты и обработки персональных данных</a></div>
-					<div class="footer-margin"><a href="">Карта сайта</a></div>
+					<div class="footer__copyright-line">© 2019 АО «Транс-Сигнал». Разработано&nbsp;в&nbsp;<a href="">Enteragency</a></div>
+					<div class="footer__copyright-line"><a href="">Политика защиты и обработки персональных данных</a></div>
+					<div class="footer__copyright-line"><a href="">Карта сайта</a></div>
 				</div>
 			</div>
 		</div>
@@ -68,8 +73,10 @@
 
 
 <!-- This is the off-canvas -->
-<div id="burger-menu" class="burger-menu" uk-offcanvas="flip: true">
+<div id="burger-menu" class="burger-menu" uk-offcanvas="flip: true, overlay: true">
 		<div class="burger-menu__bar uk-offcanvas-bar">
+
+        <a href="#burger-menu" class="burger-menu__offcanvas-toggle-link header__offcanvas-toggle-link active uk-offcanvas-close" uk-toggle><span></span></a>
 
 				<div class="burger-menu__title">Меню</div>
 
@@ -107,7 +114,7 @@
 					</div>
 					<div class="burger-menu__language" >
 						<div class="uk-position-relative">
-							<div><a href="#">RU <i class="burger-menu__language-icon icon-arrow-down-small"></i></a></div>
+							<div class="burger-menu__language-current"><a href="#">RU <i class="burger-menu__language-icon icon-arrow-down-small"></i></a></div>
 							<div class="burger-menu__language-dropdown" uk-dropdown="pos:bottom-center">
 								<ul class="uk-nav uk-dropdown-nav">
 									<li class="uk-active"><a href="#">RU</a></li>

@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 	slideshowMain.controller.control = slideshowBanner;
-	slideshowBanner.controller.control = slideshowMain;
+	// slideshowBanner.controller.control = slideshowMain; //testing/ uncomment
 
 
 
@@ -88,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	indexMoveBanner();
 	window.addEventListener('resize', indexMoveBanner);
 
+	// document.querySelector('.clients__title').appendChild(document.querySelector('.clients__nav'));
 
 });
 

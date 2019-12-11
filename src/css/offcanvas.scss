@@ -10,15 +10,30 @@
 	}
 
 
-
 	&__title {
 		font-size: var(--text-small);
 		text-transform: uppercase;
 		// line-height: 58px;
-		padding: 42px 40px;
+		padding: 23px 40px;
 		color: var(--color-accent);
 		letter-spacing: 0.05em;
 		font-family: Roboto,sans-serif;
+		font-weight: 500;
+
+		@media (min-width: $breakpoint-small) {
+			padding: 39px 40px;
+		}
+
+
+	}
+
+	&__search {
+		padding: 0 40px;
+		margin-bottom: calc(var(--margin) * 0.75);
+
+		@media (min-width: $breakpoint-small) {
+			margin-bottom: 0;
+		}
 	}
 
 	&__nav {
@@ -105,8 +120,45 @@
 	&__language {
 		flex: 0 0 auto;
 
+		&-current a {
+			font-weight: 600;
+			color: var(--color-black);
+		}
+
 		&-dropdown {
 			min-width: 0;
+
 		}
 	}
+
+	&__offcanvas-toggle-link {
+		position: absolute;
+    right: 16px;
+    top: 12px;
+    left: auto;
+
+    @media (min-width: $breakpoint-small) {
+    	top:26px;
+    	right: 24px;
+    }
+
+    &.active {
+    	  transform: rotate(0);
+    	
+    	& span {
+    	  background: none;
+    	  width: 20px;
+
+    	}
+    	& span:before {
+    	  top: 0;
+    	  transform: rotate(45deg);
+    	}
+    	& span:after {
+    	  bottom: 0;
+    	  transform: rotate(-45deg);
+    	}
+    }
+	}
+	
 }

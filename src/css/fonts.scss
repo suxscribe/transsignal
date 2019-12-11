@@ -1,7 +1,7 @@
 
 @font-face {
     font-family: 'Roboto';
-    src: local('Roboto'), url('../fonts/subset-Roboto-Thin.woff2') format('woff2'),
+    src: local('Roboto Thin'), local('Roboto-Thin'), url('../fonts/subset-Roboto-Thin.woff2') format('woff2'),
         url('../fonts/subset-Roboto-Thin.woff') format('woff'),
         url('../fonts/subset-Roboto-Thin.ttf') format('truetype');
     font-weight: 100;
@@ -10,7 +10,7 @@
 
 @font-face {
     font-family: 'Roboto';
-    src: local('Roboto'), url('../fonts/subset-Roboto-Light.woff2') format('woff2'),
+    src: local('Roboto Light'), local('Roboto-Light'), url('../fonts/subset-Roboto-Light.woff2') format('woff2'),
         url('../fonts/subset-Roboto-Light.woff') format('woff'),
         url('../fonts/subset-Roboto-Light.ttf') format('truetype');
     font-weight: 300;
@@ -89,12 +89,15 @@
 .icon-chevron-left:before {
   content: "\e900";
 }
+
 .icon-chevron-right:before {
   content: "\e901";
 }
+
 .icon-arrow-down:before {
   content: "\e902";
 }
+
 .icon-arrow-down-small:before {
   content: "\e903";
 }

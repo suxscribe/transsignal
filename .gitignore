@@ -1,6 +1,8 @@
 /node_modules
 /build
+/.vscode
 package-lock.json
 sftp-config.json
 transsignal.sublime-workspace
 transsignal.sublime-project
+transsignal.code-workspace
