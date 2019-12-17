@@ -109,6 +109,17 @@
 			display:inline-block;
 			margin-right: var(--margin);
 
+			&.uk-active a:after {
+				content:'';
+				position: absolute;
+				display:block;
+				width: 100%;
+				left: 0;
+				bottom:0;
+				height: 4px;
+				background: var(--color-black);
+			}
+
 			&:last-of-type {
 				margin-right: 0;
 			}
@@ -127,6 +138,8 @@
 				padding: 0;
 				line-height: calc(var(--font-size) * 4);
 				margin-right: var(--margin-2);
+				position: relative;
+
 
 				&:last-of-type {
 					margin-right: 0;

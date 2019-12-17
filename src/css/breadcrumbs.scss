@@ -1,0 +1,24 @@
+.breadcrumbs {
+	// margin-top: 45px;
+	// margin-bottom: -45px;
+
+	//compensate the title margin
+	position: relative;
+	top:43px;
+	z-index: 1;
+	height: 0;
+
+	&__list {
+		margin-bottom: calc(var(--text-small) * var(--line-height-small) * -1);
+
+	}
+
+	&__item {
+
+		& > * {
+			font-family: Roboto, sans-serif;
+			line-height: var(--line-height-small);
+			font-size: 0.857rem;
+		}
+	}
+}

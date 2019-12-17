@@ -39,6 +39,14 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: './src/html/views/index.html',
 		}),
+		new HtmlWebpackPlugin({
+			filename: 'catalog.html',
+			template: './src/html/views/catalog.html',
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'section.html',
+			template: './src/html/views/section.html',
+		}),
 		new MiniCssExtractPlugin({
 			// Options similar to the same options in webpackOptions.output
 			// all options are optional
