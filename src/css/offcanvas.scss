@@ -1,6 +1,4 @@
-.burger-menu {
-
-
+.burger {
 
 	&__bar {
 		display: flex;
@@ -142,23 +140,51 @@
     	right: 24px;
     }
 
-    &.active {
-    	  transform: rotate(0);
-    	
-    	& span {
-    	  background: none;
-    	  width: 20px;
+		&.active {
+			transform: rotate(0);
+			
+			& span {
+			background: none;
+			width: 20px;
 
-    	}
-    	& span:before {
-    	  top: 0;
-    	  transform: rotate(45deg);
-    	}
-    	& span:after {
-    	  bottom: 0;
-    	  transform: rotate(-45deg);
-    	}
-    }
+			}
+			& span:before {
+			top: 0;
+			transform: rotate(45deg);
+			}
+			& span:after {
+			bottom: 0;
+			transform: rotate(-45deg);
+			}
+		}
 	}
 	
+	// FILTER OFFCANVAS
+	&_filter {
+
+		& .burger__bar {
+			display: flex;
+			flex-direction: column;
+
+			& > * {
+				flex: 0 0 auto;
+			}
+		}
+
+		& .burger__title {
+			background-color: var(--color-light);
+			margin-bottom: 2px;
+		}
+
+		& .filter__row {
+			background: var(--color-light);
+			margin-bottom: 0px;
+		}
+
+		& .burger__bottom {
+			flex: 1 0 auto;
+			border-top: none;
+			background: var(--color-light);
+		}
+	}
 }

@@ -186,14 +186,24 @@ h4 {
 	font-weight: bold;
 	line-height: 56px;
 	white-space: nowrap;
-	transition: background var(--transition);
+	transition: color var(--transition), background var(--transition), border-color var(--transition);
 	display: block;
-	padding: 0 35px;
+	padding: 0 16px;
 	color: var(--color-white);
+	text-align: center;
 
 	&:hover {
 		background: var(--color-accent-light);
 		color: var(--color-white);
 	}
 
+	&_white {
+		background: var(--color-white);
+		color: var(--color-accent);
+		border: 1px solid var(--color-accent);
+
+		&:hover {
+			border-color: var(--color-accent-light);
+		}
+	}
 }

@@ -72,69 +72,137 @@
 </footer>
 
 
-<!-- This is the off-canvas -->
-<div id="burger-menu" class="burger-menu" uk-offcanvas="flip: true, overlay: true">
-		<div class="burger-menu__bar uk-offcanvas-bar">
+<!-- This is mobile menu -->
+<div id="burger" class="burger" uk-offcanvas="flip: true, overlay: true">
+		<div class="burger__bar uk-offcanvas-bar">
 
-        <a href="#burger-menu" class="burger-menu__offcanvas-toggle-link header__offcanvas-toggle-link active uk-offcanvas-close" uk-toggle><span></span></a>
+        <a href="#" class="burger__offcanvas-toggle-link header__offcanvas-toggle-link active uk-offcanvas-close"><span></span></a>
 
-				<div class="burger-menu__title">Меню</div>
+				<div class="burger__title">Меню</div>
 
-				<div class="burger-menu__search search uk-hidden@s">
-					<form action="" class="burger-menu__search-form search__form">
-						<input class="burger-menu__search-form-input search__form-input uk-input" placeholder="Поиск по наименованию и артикулу продукции" type="search" name="search-form-input" value="">
-						<button class="burger-menu__search-form-submit search__form-submit" uk-icon="search" name="search-form-submit"  type="submit"></button>
+				<div class="burger__search search uk-hidden@s">
+					<form action="" class="burger__search-form search__form">
+						<input class="burger__search-form-input search__form-input uk-input" placeholder="Поиск по наименованию и артикулу продукции" type="search" name="search-form-input" value="">
+						<button class="burger__search-form-submit search__form-submit" uk-icon="search" name="search-form-submit"  type="submit"></button>
 					</form>
 				</div>
 
-        <ul class="burger-menu__nav uk-nav-parent-icon" uk-nav>
-            <li class="uk-active"><a class="burger-menu__nav-link uk-h3"  href="#">Главная</a></li>
-            <li class=""><a class="burger-menu__nav-link"  href="#">Продукция</a></li>
-            <li class="uk-parent">
-                <a class="burger-menu__nav-link" href="#">О предприятии</a>
-                <ul class="burger-menu__nav-sub">
-                    <li><a href="#">Sub item</a></li>
-                    <li><a href="#">Sub item</a></li>
+			<ul class="burger__nav uk-nav-parent-icon" uk-nav>
+				<li class="uk-active"><a class="burger__nav-link uk-h3"  href="#">Главная</a></li>
+				<li class=""><a class="burger__nav-link"  href="#">Продукция</a></li>
+				<li class="uk-parent">
+					<a class="burger__nav-link" href="#">О предприятии</a>
+					<ul class="burger__nav-sub">
+						<li><a href="#">Sub item</a></li>
+						<li><a href="#">Sub item</a></li>
 
-                </ul>
-            </li>
-            <li class="uk-parent">
-                <a class="burger-menu__nav-link" href="#">Parent</a>
-                <ul class="burger-menu__nav-sub">
-                    <li><a href="#">Sub item</a></li>
-                    <li><a href="#">Sub item</a></li>
-                </ul>
-            </li>
-        </ul>
+					</ul>
+				</li>
+				<li class="uk-parent">
+					<a class="burger__nav-link" href="#">Parent</a>
+					<ul class="burger__nav-sub">
+						<li><a href="#">Sub item</a></li>
+						<li><a href="#">Sub item</a></li>
+					</ul>
+				</li>
+			</ul>
 
-				<div class="burger-menu__bottom">
-					<div class="burger-menu__contact">
-						<div class="burger-menu__phone"><a href="">+7 (831) 223-98-01</a></div>
-						<div class="burger-menu__callback-link"><a href="">Заказать звонок</a></div>
-					</div>
-					<div class="burger-menu__language" >
-						<div class="uk-position-relative">
-							<div class="burger-menu__language-current"><a href="#">RU <i class="burger-menu__language-icon icon-arrow-down-small"></i></a></div>
-							<div class="burger-menu__language-dropdown" uk-dropdown="pos:bottom-center; mode: click">
-								<ul class="uk-nav uk-dropdown-nav">
-									<li class="uk-active"><a href="#">RU</a></li>
-									<li><a href="#">EN</a></li>
-								</ul>
-							</div>
+			<div class="burger__bottom">
+				<div class="burger__contact">
+					<div class="burger__phone"><a href="">+7 (831) 223-98-01</a></div>
+					<div class="burger__callback-link"><a href="">Заказать звонок</a></div>
+				</div>
+				<div class="burger__language" >
+					<div class="uk-position-relative">
+						<div class="burger__language-current"><a href="#">RU <i class="burger__language-icon icon-arrow-down-small"></i></a></div>
+						<div class="burger__language-dropdown" uk-dropdown="pos:bottom-center; mode: click">
+							<ul class="uk-nav uk-dropdown-nav">
+								<li class="uk-active"><a href="#">RU</a></li>
+								<li><a href="#">EN</a></li>
+							</ul>
 						</div>
 					</div>
 				</div>
+			</div>
 
 		</div>
 </div>
 
-<!-- <div class="svg">
-	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<symbol viewBox="0 0 14 14" id="chevron">
-	    <polyline class="svg_chevron" fill="none" stroke-width="1.1" points="1 4 7 10 13 4" />
-	  </symbol>
-	</svg>
-</div> -->
+
+<!-- This is mobile menu -->
+<div id="filter-menu" class="burger burger_filter" uk-offcanvas="flip: true, overlay: true">
+	<div class="burger__bar uk-offcanvas-bar">
+
+		<a href="#" class="burger__offcanvas-toggle-link header__offcanvas-toggle-link active uk-offcanvas-close"><span></span></a>
+
+		<div class="burger__title">ФИЛЬТР</div>
+
+		<div class="burger__filter filter">
+			<ul class="filter__items" uk-accordion="multiple: true">
+				<li class="filter__item uk-open uk-fieldset">
+					
+						<a class="filter__name uk-accordion-title" href="#">Количество сигналов</a>
+						<div class="filter__params uk-accordion-content">
+							<div class="filter__param-row">
+								<label class="filter__param"><input class="uk-checkbox" type="checkbox"> <span>Однозначные</span></label>
+							</div>
+							<div class="filter__param-row">
+								<label class="filter__param"><input class="uk-checkbox" type="checkbox"><span>Двухзначные</span></label>
+							</div>		
+							<div class="filter__param-row">
+								<label class="filter__param"><input class="uk-checkbox" type="checkbox"><span>Трехзначные</span></label>
+							</div>
+							<div class="filter__param-row">
+								<label class="filter__param"><input class="uk-checkbox" type="checkbox"><span>Занимающие больше одной строки</span></label>
+							</div>						        												
+						</div>
+				</li>
+				<li class="filter__item ">
+					<a class="filter__name uk-accordion-title" href="#">Маршрутые указатели</a>
+					<div class="filter__params uk-accordion-content">
+						<div class="filter__param-row">
+							<label class="filter__param"><input class="uk-checkbox" type="checkbox"> <span>Однозначные</span></label>
+						</div>
+						<div class="filter__param-row">
+							<label class="filter__param"><input class="uk-checkbox" type="checkbox"><span>Двухзначные</span></label>
+						</div>		
+						<div class="filter__param-row">
+							<label class="filter__param"><input class="uk-checkbox" type="checkbox"><span>Трехзначные</span></label>
+						</div>
+						<div class="filter__param-row">
+							<label class="filter__param"><input class="uk-checkbox" type="checkbox"><span>Занимающие больше одной строки</span></label>
+						</div>						        												
+					</div>
+				</li>
+				<li class="filter__item">
+					<a class="filter__name uk-accordion-title" href="#">Доп параметры</a>
+					<div class="filter__params uk-accordion-content">
+						<div class="filter__param-row">
+							<label class="filter__param"><input class="uk-checkbox" type="checkbox"> <span>Однозначные</span></label>
+						</div>
+						<div class="filter__param-row">
+							<label class="filter__param"><input class="uk-checkbox" type="checkbox"><span>Двухзначные</span></label>
+						</div>		
+						<div class="filter__param-row">
+							<label class="filter__param"><input class="uk-checkbox" type="checkbox"><span>Трехзначные</span></label>
+						</div>
+						<div class="filter__param-row">
+							<label class="filter__param"><input class="uk-checkbox" type="checkbox"><span>Занимающие больше одной строки</span></label>
+						</div>						        												
+					</div>
+				</li>
+			</ul>
+			<div class="filter__row filter__apply">
+				<a href="" class="button">Подобрать продукцию</a>
+			</div>
+			
+		</div>
+
+		<div class="burger__bottom"></div>
+
+	</div>
+</div>
+
 
 </body>
 </html>

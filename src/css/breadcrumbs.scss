@@ -7,6 +7,11 @@
 	top:43px;
 	z-index: 1;
 	height: 0;
+	display:none;
+
+	@media (min-width: $breakpoint-small) {
+		display:block;
+	}
 
 	&__list {
 		margin-bottom: calc(var(--text-small) * var(--line-height-small) * -1);

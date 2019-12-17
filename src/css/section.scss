@@ -32,9 +32,14 @@
 	}
 
 	&__description {
-		font-size: 18px;	
-		line-height: 32px;
+		font-size: 16px;
+		// line-height: 32px;
 		margin-bottom: calc(var(--margin) * 3);
+
+		@media (min-width: $breakpoint-small) {
+			font-size: 18px;	
+			line-height: 32px;
+		}
 	}
 
 	&__files {
@@ -142,11 +147,13 @@
 			font-size: var(--font-size);
 			line-height: 1.375;
 			flex: 0 0 auto;
+			margin-bottom: 2px;
 
 			@media (min-width: $breakpoint-small) {
 				flex: 1 0 auto;
 				font-size: $base-h3-font-size;
 				line-height: 1.2;
+				margin-bottom: 0;
 			}
 		}
 
@@ -242,6 +249,16 @@
 
 .filter {
 
+	&__items {
+		margin-bottom: 2px;
+
+		@media (min-width: $breakpoint-medium) {
+			margin-bottom: var(--margin-m);
+		}
+
+
+	}
+
 	&__item {
 		background: var(--color-light);
 	}
@@ -270,7 +287,7 @@
 		}
 	}
 	&__params {
-		padding: 0 var(--gutter-medium) var(--gutter-large) var(--gutter-medium);
+		padding: 0 var(--gutter-large) var(--gutter-large) var(--gutter-large);
 
 		@media (min-width: $breakpoint-medium) {
 			padding: 0 var(--gutter-medium) var(--margin-m) var(--gutter-medium);
@@ -286,22 +303,30 @@
     padding-left: 25px;
     display:block;
 
-    &:hover {
-    	cursor: pointer;
-    }
+		&:hover {
+			cursor: pointer;
+		}
 
-    & input {
-    	position: absolute;
-    	left: 0;
-    	top: 4px;
-    	border-radius: 2px;
-    }
+		& input {
+			position: absolute;
+			left: 0;
+			border-radius: 2px;
+			background: var(--color-white);
+
+			&:checked {
+				border:none;
+			}
+		}
 	}
 
 	&__apply {
 		margin-bottom: 18px;
 	}
 
+	&__row {
+		background: var(--color-light);
+		padding: var(--gutter-medium) var(--gutter-large);
+	}
 	
 
 }
