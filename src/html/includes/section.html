@@ -22,16 +22,16 @@
 					<div class="" >
 						<div class="section__files uk-child-width-1-2@s" uk-grid>
 							<div>
-								<div class="section__file">
-									<div class="section__file-name">Скачать каталог устройств</div>
-									<div class="section__file-size">PDF, 653 Kb</div>
-								</div>
+								<a href="" class="file">
+									<div class="file__name">Скачать каталог устройств</div>
+									<div class="file__size">PDF, 653 Kb</div>
+								</a>
 							</div>
 							<div>
-								<div class="section__file">
-									<div class="section__file-name">Скачать каталог устройств</div>
-									<div class="section__file-size">PDF, 653 Kb</div>
-								</div>
+								<a href="" class="file">
+									<div class="file__name">Скачать каталог устройств</div>
+									<div class="file__size">PDF, 653 Kb</div>
+								</a>
 							</div>
 						</div>
 					</div>
@@ -48,39 +48,52 @@
 
 	</div>
 
-	<div class="uk-container">
-		<h2 class="section__items-title">Каталог продукции</h2>
-		<a class="button button_white" href="#filter-menu" uk-toggle>Фильтр</a>
+	<div class="section__items uk-container">
+		<div class="section__items-title-wrap">
+			<h2 class="section__items-title">Каталог продукции</h2>
+			<a class="section__items-filter-link button button_white button_small uk-hidden@m" href="#filter-menu" uk-toggle>Фильтр</a>
+		</div>
 		<div class="section__list" uk-grid>
 			<div class="uk-width-3-4@m">
 				
 				<div class="section__items-wrap">
-					<div class="section__items-grid">
-						<div class="section__items-column">
-							<ul class="section__items-list">
-								<li class="section__item">
-									<div class="section__item-props">
-										<div class="section__item-type">Чертеж</div>
-										<div class="section__item-id">17670-00-00</div>
-										<div class="section__item-skmtr">СКМТР: 3185641995</div>
-									</div>
-									<div class="section__item-name"><a href="">Светофор двузначный со светодиодными светооптическими системами 17670-00-00 ТУ32 ЦШ 2141-2009 (со светодиодными светооптическими системами НКМР.676636.030ТУ)</a></div>
-									<div class="section__item-image"><img src="../../assets/section-item-01.jpg" alt=""></div>
-								</li>
-								<li class="section__item">
-									<div class="section__item-props">
-										<div class="section__item-type">Чертеж</div>
-										<div class="section__item-id">17670-00-00</div>
-										<div class="section__item-skmtr">СКМТР: 3185641995</div>
-									</div>
-									<div class="section__item-name"><a href="">Светофор двузначный со светодиодными светооптическими системами 17670-00-00 ТУ32 ЦШ 2141-2009 (со светодиодными светооптическими системами НКМР.676636.030ТУ)</a></div>
-									<div class="section__item-image"><img src="../../assets/section-item-01.jpg" alt=""></div>
-								</li>
-							</ul>
-						</div>
-						
+					<ul class="section__items-list">
+						<li class="section__item">
+							<div class="section__item-props">
+								<div class="section__item-type">Чертеж</div>
+								<div class="section__item-id">17670-00-00</div>
+								<div class="section__item-skmtr">СКМТР: 3185641995</div>
+							</div>
+							<div class="section__item-name"><a href="">Светофор двузначный со светодиодными светооптическими системами 17670-00-00 ТУ32 ЦШ 2141-2009 (со светодиодными светооптическими системами НКМР.676636.030ТУ)</a></div>
+							<div class="section__item-image"><img src="../../assets/section-item-01.jpg" alt=""></div>
+						</li>
+						<li class="section__item">
+							<div class="section__item-props">
+								<div class="section__item-type">Чертеж</div>
+								<div class="section__item-id">17670-00-00</div>
+								<div class="section__item-skmtr">СКМТР: 3185641995</div>
+							</div>
+							<div class="section__item-name"><a href="">Светофор двузначный со светодиодными светооптическими системами 17670-00-00 ТУ32 ЦШ 2141-2009 (со светодиодными светооптическими системами НКМР.676636.030ТУ)</a></div>
+							<div class="section__item-image">
+								<img src="../../assets/section-item-01.jpg" alt="">
+							</div>
+						</li>
+					</ul>
 
-					</div>
+				</div>
+
+				<a href="" class="button--show-more">Показать еще</a>
+
+				<div class="section__items-pagination uk-visible@s">
+					<ul class="uk-pagination" >
+					    <li class="uk-active"><span>1</span></li>
+					    <li><a href="#">2</a></li>
+					    <li><a href="#">3</a></li>
+					    <li><a href="#">4</a></li>
+					    <li class="uk-disabled"><span>...</span></li>
+					    <li><a href="#">9</a></li>
+					    <li><a href="#"><span>Вперед</span></a></li>
+					</ul>
 				</div>
 
 			</div>
@@ -89,7 +102,7 @@
 				<div class="section__sidebar">
 					<div class="section__filter filter">
 						<ul class="filter__items" uk-accordion="multiple: true">
-						    <li class="filter__item uk-open uk-fieldset">
+						    <li class="filter__item uk-fieldset">
 						        
 						        	<a class="filter__name uk-accordion-title" href="#">Количество сигналов</a>
 						        	<div class="filter__params uk-accordion-content">

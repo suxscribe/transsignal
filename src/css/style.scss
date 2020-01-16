@@ -3,8 +3,10 @@ $global-link-color: #DA7D02;
 
 // 2. Import default variables and available mixins.
 // @import "uikit/src/scss/variables-theme.scss";
-@import "./variables-theme.scss";
+
 @import "uikit/src/scss/mixins-theme.scss";
+
+@import "abstract/variables-theme";
 
 // 3. Your custom mixin overwrites.
 @mixin hook-card() { color: #000; }
@@ -17,13 +19,14 @@ $global-link-color: #DA7D02;
 
 // Base
 // @import "uikit/src/scss/components/variables.scss";
-@import "./variables.scss";
+@import "abstract/variables";
+
 
 
 // VARIABLES redefine
 
-$dropdown-margin:																 0;
-$offcanvas-bar-background: 												#fff;
+$dropdown-margin:	0;
+$offcanvas-bar-background: #fff;
 
 
 @import "uikit/src/scss/components/mixin.scss";
@@ -50,24 +53,28 @@ $offcanvas-bar-background: 												#fff;
 
 // Common
 @import "uikit/src/scss/components/close.scss"; // After: Icon
-@import "uikit/src/scss/components/spinner.scss"; // After: Icon
-@import "uikit/src/scss/components/totop.scss"; // After: Icon
+// @import "uikit/src/scss/components/spinner.scss"; // After: Icon
+// @import "uikit/src/scss/components/totop.scss"; // After: Icon
 @import "uikit/src/scss/components/marker.scss"; // After: Icon
-@import "uikit/src/scss/components/alert.scss"; // After: Close
+// @import "uikit/src/scss/components/alert.scss"; // After: Close
 // @import "uikit/src/scss/components/badge.scss";
 @import "uikit/src/scss/components/label.scss";
 @import "uikit/src/scss/components/overlay.scss"; // After: Icon
 @import "uikit/src/scss/components/article.scss"; // After: Subnav
-@import "uikit/src/scss/components/comment.scss"; // After: Subnav
+// @import "uikit/src/scss/components/comment.scss"; // After: Subnav
 @import "uikit/src/scss/components/search.scss"; // After: Icon
 
 // Navs
 // @import "uikit/src/scss/components/nav.scss";
-@import "./nav.scss";
+@import "./components/nav.scss"; // uikit nav mod
+
 @import "uikit/src/scss/components/navbar.scss"; // After: Card, Grid, Nav, Icon, Search
 @import "uikit/src/scss/components/subnav.scss";
 @import "uikit/src/scss/components/breadcrumb.scss";
-@import "uikit/src/scss/components/pagination.scss";
+// @import "uikit/src/scss/components/pagination.scss";
+
+@import "components/pagination"; //uikit pagination mod
+
 @import "uikit/src/scss/components/tab.scss";
 @import "uikit/src/scss/components/slidenav.scss"; // After: Icon
 @import "uikit/src/scss/components/dotnav.scss";
@@ -91,12 +98,12 @@ $offcanvas-bar-background: 												#fff;
 
 // Additional
 @import "uikit/src/scss/components/iconnav.scss";
-@import "uikit/src/scss/components/notification.scss";
+// @import "uikit/src/scss/components/notification.scss";
 @import "uikit/src/scss/components/tooltip.scss";
 @import "uikit/src/scss/components/placeholder.scss";
-@import "uikit/src/scss/components/progress.scss";
-@import "uikit/src/scss/components/sortable.scss";
-@import "uikit/src/scss/components/countdown.scss";
+// @import "uikit/src/scss/components/progress.scss";
+// @import "uikit/src/scss/components/sortable.scss";
+// @import "uikit/src/scss/components/countdown.scss";
 
 // Utilities
 @import "uikit/src/scss/components/animation.scss";
@@ -140,17 +147,35 @@ $offcanvas-bar-background: 												#fff;
 
 ////////////////////////////////////////////////////////
 
+// @import "sassline/sassline.scss";
+// @import "sassline/assets/sass/sassline-base/style.scss";
+
+// @import "./baseline.scss"; //test this
+
+@import "transsignal"; //base vars and styles
+
+
 @import "swiper/swiper.scss";
 
-@import "./fonts.scss";
+@import "layouts/fonts";
+@import "layouts/header";
+@import "layouts/footer";
 
-@import "./transsignal.scss";
-@import "./header.scss";
-@import "./footer.scss";
-@import "./index.scss";
-@import "./news.scss";
-@import "./offcanvas.scss";
-@import "./search.scss";
-@import "./catalog.scss";
-@import "./section.scss";
-@import "./breadcrumbs.scss";
+@import "components/news";
+@import "components/offcanvas";
+@import "components/search";
+@import "components/breadcrumbs";
+@import "components/file";
+@import "components/tag";
+
+
+@import "pages/index";
+@import "pages/catalog";
+@import "pages/section";
+@import "pages/product";
+@import "pages/about";
+@import "pages/production";
+@import "pages/certificates";
+@import "pages/contacts";
+@import "pages/404";
+@import "pages/sitemap";

@@ -24,6 +24,9 @@ const CopyWebpackPlugin= require('copy-webpack-plugin');
 // const htmlPlugins = generateHtmlPlugins('./src/html/views')
 
 module.exports = {
+	externals: {
+		// ymaps: 'ymaps'
+	},
 	entry: './src/index.js',
 	output: {
 		// mode: 'development', // 'production' = -p key
@@ -36,6 +39,7 @@ module.exports = {
 		contentBase: './dist'
 	},
 	plugins: [
+
 		new HtmlWebpackPlugin({
 			template: './src/html/views/index.html',
 		}),
@@ -46,6 +50,50 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			filename: 'section.html',
 			template: './src/html/views/section.html',
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'product.html',
+			template: './src/html/views/product.html',
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'about.html',
+			template: './src/html/views/about.html',
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'production.html',
+			template: './src/html/views/production.html',
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'news.html',
+			template: './src/html/views/news.html',
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'content.html',
+			template: './src/html/views/content.html',
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'certificates.html',
+			template: './src/html/views/certificates.html',
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'service.html',
+			template: './src/html/views/service.html',
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'contacts.html',
+			template: './src/html/views/contacts.html',
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'search.html',
+			template: './src/html/views/search.html',
+		}),
+		new HtmlWebpackPlugin({
+			filename: '404.html',
+			template: './src/html/views/404.html',
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'sitemap.html',
+			template: './src/html/views/sitemap.html',
 		}),
 		new MiniCssExtractPlugin({
 			// Options similar to the same options in webpackOptions.output

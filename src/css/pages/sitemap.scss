@@ -1,0 +1,30 @@
+.sitemap {
+    margin-bottom: var(--margin-3);
+
+    &__section-list {
+        
+        // columns: 2;
+
+    }
+
+    &__subsection {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    &__subsection-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        page-break-inside: avoid;
+        break-inside: avoid;
+
+        & li {
+            margin-bottom: 15px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

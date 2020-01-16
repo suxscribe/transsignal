@@ -1,0 +1,23 @@
+.not-found {
+
+    &__content {
+
+        @media (min-width: $breakpoint-small) {
+            max-width: 400px;
+            font-size: 1.256rem;
+        }
+    }
+
+    &__image {
+        height: 162px;
+        position: relative;
+        left: 29%;
+
+        & img {
+            height: 100%;
+            width: auto;
+            object-fit: cover;
+            object-position: left;
+        }
+    }
+}
