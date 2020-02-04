@@ -30,7 +30,8 @@ $offcanvas-bar-background: #fff;
 
 
 @import "uikit/src/scss/components/mixin.scss";
-@import "uikit/src/scss/components/base.scss";
+// @import "uikit/src/scss/components/base.scss";
+@import "components/base";
 
 // Elements
 @import "uikit/src/scss/components/link.scss";
@@ -84,14 +85,14 @@ $offcanvas-bar-background: #fff;
 @import "uikit/src/scss/components/accordion.scss";
 @import "uikit/src/scss/components/drop.scss"; // After: Card
 @import "uikit/src/scss/components/dropdown.scss"; // After: Card
-@import "uikit/src/scss/components/modal.scss"; // After: Close
+// @import "uikit/src/scss/components/modal.scss"; // After: Close
 @import "uikit/src/scss/components/lightbox.scss"; // After: Close
 @import "uikit/src/scss/components/slideshow.scss";
 @import "uikit/src/scss/components/slider.scss";
 @import "uikit/src/scss/components/sticky.scss";
 @import "uikit/src/scss/components/offcanvas.scss";
 @import "uikit/src/scss/components/switcher.scss";
-@import "uikit/src/scss/components/leader.scss";
+// @import "uikit/src/scss/components/leader.scss";
 // Scrollspy
 // Toggle
 // Scroll
@@ -167,6 +168,8 @@ $offcanvas-bar-background: #fff;
 @import "components/breadcrumbs";
 @import "components/file";
 @import "components/tag";
+@import "components/form";
+@import "components/modal";
 
 
 @import "pages/index";

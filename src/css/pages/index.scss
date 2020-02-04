@@ -375,7 +375,6 @@
   // }
 
   &--small {
-
     // &-1 {
     //   grid-area: small-1;
     // }
@@ -383,7 +382,6 @@
     // &-2 {
     //   grid-area: small-2;
     // }
-
 
     @media (min-width: $breakpoint-small) {
       padding-bottom: 300px;
@@ -450,7 +448,6 @@
 
 // common slideshow styles
 .slideshow {
-
   &__nav {
     width: var(--gutter-large);
     height: var(--gutter-large);
@@ -468,7 +465,6 @@
     transition: border-color var(--transition), color var(--transition);
     z-index: 1;
 
-
     &:before {
       transform: rotate(45deg) translateY(-5.5px);
     }
@@ -477,9 +473,11 @@
       transform: rotate(-45deg) translateY(5.5px);
     }
 
-    &:hover {
-      border-color: var(--color-accent-light);
-      color: var(--color-accent-light);
+    &:hover,
+    &:focus {
+      border-color: var(--color-accent);
+      color: var(--color-white);
+      background-color: var(--color-accent);
     }
 
     &_left {
@@ -516,19 +514,16 @@
   $count-lh: 36px;
 
   &__count {
-
-    display:flex;
+    display: flex;
     align-items: center;
-    font: 400 28px  'Roboto Condensed', sans-serif;
+    font: 400 28px "Roboto Condensed", sans-serif;
     line-height: $count-lh;
     margin-right: 18px;
 
     @media (min-width: $breakpoint-small) {
-
     }
 
     @media (min-width: $breakpoint-medium) {
-
     }
 
     @media (min-width: $breakpoint-large) {
@@ -537,7 +532,7 @@
 
     &-current {
       position: relative;
-      list-style-type:none;
+      list-style-type: none;
       margin: 0;
       padding: 0;
       width: 20px;
@@ -561,13 +556,7 @@
       }
     }
   }
-
-
 }
-
-
-
-
 
 .competence {
   overflow: visible; // bg to the edges
@@ -639,8 +628,7 @@
 
     @media (min-width: $breakpoint-small) {
       font-size: var(--text-large);
-      padding: 54px var(--margin-2) 42px
-        var(--margin-2);
+      padding: 54px var(--margin-2) 42px var(--margin-2);
 
       margin-top: 0;
       margin-left: 0;
@@ -665,11 +653,9 @@
     }
 
     &-text {
-
       @media (min-width: $breakpoint-medium) {
         margin-bottom: 63px;
       }
-
     }
 
     &-link {
@@ -757,8 +743,6 @@
   }
 
   &__title {
-
-
     @media (min-width: $breakpoint-small) {
     }
     @media (min-width: $breakpoint-medium) {
@@ -776,11 +760,9 @@
   }
 
   &__slider-container {
-
     @media (min-width: $breakpoint-small) {
       padding: calc(var(--gutter) + 10px) var(--gutter);
-          margin: calc((var(--gutter) + 10px) * -1)
-            calc(var(--gutter) * -1);
+      margin: calc((var(--gutter) + 10px) * -1) calc(var(--gutter) * -1);
     }
 
     padding: calc(var(--gutter-large) + 10px) var(--gutter-large);

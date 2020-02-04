@@ -95,6 +95,10 @@ module.exports = {
 			filename: 'sitemap.html',
 			template: './src/html/views/sitemap.html',
 		}),
+		new HtmlWebpackPlugin({
+			filename: 'form.html',
+			template: './src/html/views/form.html',
+		}),
 		new MiniCssExtractPlugin({
 			// Options similar to the same options in webpackOptions.output
 			// all options are optional

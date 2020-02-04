@@ -4,18 +4,21 @@
 	padding-left: calc(24px + var(--gutter-small));
 	background-image: url("data:image/svg+xml,%3Csvg id='ic_download' xmlns='http://www.w3.org/2000/svg' width='24' height='32' viewBox='0 0 24 32'%3E%3Cpath id='Path_2646' data-name='Path 2646' d='M0,0,14.031.047l9.953,9.969L24,32H0Z' fill='%23439ee8'/%3E%3Cpath id='Path_2644' data-name='Path 2644' d='M0,0,10,10H0Z' transform='translate(14)' fill='%230074d3'/%3E%3Cg id='Group_3221' data-name='Group 3221' transform='translate(-71 -597.5)'%3E%3Cg id='Group_3220' data-name='Group 3220' transform='translate(0.234)'%3E%3Cline id='Line_23' data-name='Line 23' x2='4.75' transform='translate(79.766 618.125) rotate(45)' fill='none' stroke='%23fff' stroke-linecap='round' stroke-width='1.5'/%3E%3Cline id='Line_24' data-name='Line 24' x2='4.75' transform='translate(86.484 618.125) rotate(135)' fill='none' stroke='%23fff' stroke-linecap='round' stroke-width='1.5'/%3E%3C/g%3E%3Cline id='Line_25' data-name='Line 25' y1='9' transform='translate(83.4 611.5)' fill='none' stroke='%23fff' stroke-linecap='round' stroke-width='1.5'/%3E%3C/g%3E%3C/svg%3E%0A");
 	background-repeat: no-repeat;
-	background-position: left 3px;
+	background-position: left 2px;
 	background-size: 24px 32px;
+	height: 34px;
 
 	&__name {
 		color: var(--color-black);
 		transition: color var(--transition);
+		margin-bottom: 9px;
 	}
 
 	&__size {
 		font-size: var(--text-small);
 		font-family: Roboto, sans-serif;
 		color: rgba(0,0,0,0.4);
+		line-height: 0;
 	}
 
 	&:hover &__name {

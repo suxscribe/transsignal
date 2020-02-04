@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -37,7 +37,7 @@
 			<div class="header__search search uk-visible@s">
 				<form action="" class="header__search-form search__form">
 					<input class="header__search-form-input search__form-input uk-input" placeholder="Поиск по наименованию и артикулу продукции" type="search" name="search-form-input" value="">
-					<button class="header__search-form-submit search__form-icon" uk-icon="search" name="search-form-submit"  type="submit"></button>
+					<button class="header__search-form-submit search__form-icon"  name="search-form-submit"  type="submit"></button>
 				</form>
 				<div class="header__search-results">
 					<ul class="search__dropdown">	
@@ -58,9 +58,12 @@
 			</div>
 			<div class="header__phone uk-visible@m">
 				<div class="header__phone-phone"><a class="" href="tel:+78312239801">+7 (831) 223-98-01</a></div>
-				<div class="header__phone-callback"><a href="">Заказать звонок</a></div>
+				<div class="header__phone-callback"><a href="#modal-callback" uk-toggle>Заказать звонок</a></div>
 			</div>
-			<div class="header__offcanvas uk-hidden@m">
+			<div class="header__offcanvas uk-hidden@s">
+				<div class="header__offcanvas-search">
+					<a href="#burger" class="header__offcanvas-search-link" uk-toggle></a>
+				</div>
 				<div class="header__offcanvas-toggle">
 					<a href="#burger" class="header__offcanvas-toggle-link" uk-toggle><span></span></a>
 		    	</div>

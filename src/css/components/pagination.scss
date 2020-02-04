@@ -42,6 +42,7 @@ $pagination-item-disabled-color:                 $global-muted-color !default;
     margin-left: (-$pagination-margin-horizontal);
     /* 3 */
     padding: 0;
+    margin-bottom: 0;
     list-style: none;
     @if(mixin-exists(hook-pagination)) {@include hook-pagination();}
 }
@@ -76,11 +77,13 @@ $pagination-item-disabled-color:                 $global-muted-color !default;
     display: block;
     /* 2 */
     color: $pagination-item-color;
-    padding: 0 12px;
+    padding: 0 10px;
     height: 32px;
 border: 1px solid var(--color-border);
 text-align: center;
 line-height: 32px;
+min-width: 32px;
+font-family: Roboto, sans-serif;
     @if(mixin-exists(hook-pagination-item)) {@include hook-pagination-item();}
 transition: all var(--transition);
 }
@@ -89,7 +92,7 @@ transition: all var(--transition);
 .uk-pagination > * > :hover,
 .uk-pagination > * > :focus {
     // color: $pagination-item-hover-color;
-    color: var(--color-black);
+    color: var(--color-accent);
     text-decoration: $pagination-item-hover-text-decoration;
     // background: var(--color-accent);
     border-color: var(--color-accent);
@@ -100,7 +103,7 @@ transition: all var(--transition);
 .uk-pagination > .uk-active > * {
     color: $pagination-item-active-color;
     background: var(--color-accent);
-    border-color: $pagination-item-active-color;
+    border-color: var(--color-accent);
     @if(mixin-exists(hook-pagination-item-active)) {@include hook-pagination-item-active();}
 }
 

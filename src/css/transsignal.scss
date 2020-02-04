@@ -75,6 +75,7 @@ body{
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
+	box-sizing: border-box;
 
 	@media (min-width: $breakpoint-small) {
 		line-height: var(--line-height);
@@ -85,6 +86,9 @@ main {
 	overflow: hidden;
 }
 
+*, *:after, *:before {
+	box-sizing: inherit; // we made it inherited
+ }
 
 a {
 	color: var(--color-accent);
@@ -290,7 +294,8 @@ blockquote {
 		border: 1px solid var(--color-accent);
 		
 		&:hover {
-			border-color: var(--color-accent-light);
+			background-color: var(--color-accent);
+			border-color: var(--color-accent);
 		}
 	}
 	
@@ -305,6 +310,7 @@ blockquote {
 	}
 	
 	&--show-more {
+		box-sizing: border-box;
 		height: 64px;
 		line-height: 64px;
 		font-size: var(--text-small);
@@ -336,10 +342,11 @@ blockquote {
 		box-sizing: border-box;
 		display: inline-block;
 		width: 100%;
+		margin-bottom: calc(var(--margin-m) * -1);
 		// margin-bottom: calc(var(--margin-m) * -1 - 20px); //20px compensates the :after;
 		
 		&:after {
-			content: '';
+			// content: '';
 			width: 100%;
 			display: inline-block;
 		}
@@ -348,10 +355,17 @@ blockquote {
 			counter-increment: my-awesome-counter;
 			padding-left: 36px;
 			position: relative;
-			margin-bottom: var(--margin-m);
+			margin-bottom: 20px;
 			break-inside: avoid;
 			page-break-inside: avoid;
 			
+			@media (min-width: $breakpoint-small) {
+				margin-bottom: 1.429rem;
+			}
+			@media (min-width: $breakpoint-medium) {
+				margin-bottom: var(--margin-m);
+			}
+
 			&:before {
 				content: counter(my-awesome-counter);
 				width: 20px;
@@ -359,7 +373,7 @@ blockquote {
 				display: block;
 				position: absolute;
 				left: 0;
-				top: 4px;
+				top: 2px;
 				border: 1px solid transparent;
 				border-radius: 50%;
 				box-sizing: border-box;
@@ -507,153 +521,6 @@ blockquote {
 	
 }
 
-
-.form {
-
-	&__panel {
-		box-sizing: border-box;
-		background-color: var(--color-light);
-		padding: 25px $container-padding-horizontal 37px;
-		margin: 0 -#{$container-padding-horizontal};
-		margin-bottom: var(--margin-m);
-		
-		@media (min-width: $breakpoint-small) {
-			padding: 2.857rem;
-			margin: 0;
-			margin-bottom: var(--margin);
-		}
-	}
-
-	&__row {
-		display: flex;
-		margin-bottom: 1.714rem;
-		flex-direction: column;
-
-		@media (min-width: $breakpoint-small) {
-			margin-bottom: 2.286rem;
-			flex-direction: row;
-		}
-
-		&:last-child {
-			margin-bottom: 0;
-		}
-	}
-
-	&__label {
-		font-weight: 700;
-		margin-bottom: 6px;
-		flex: 0 0 auto;
-
-		@media (min-width: $breakpoint-small) {
-			flex: 0 0 172px;
-			font-size: var(--text-large);
-			margin-top: .857rem;
-			margin-right: var(--margin);
-			margin-bottom: 0;
-		
-		}
-		@media (min-width: $breakpoint-medium) {
-			flex: 0 0 236px;
-		
-		}
-	}
-
-	&__input,
-	&__textarea,
-	&__select {
-		height: 3.429rem;
-		vertical-align: middle;
-		max-width: 100%;
-		width: 100%;
-		padding: 0 10px;
-		background:	var(--color-white);
-		color: var(--color-black);
-		border: 1px solid #cbcbcb;
-		border-radius: 2px;
-		box-sizing: border-box;
-
-		transition: 0.2s ease-in-out;
-		transition-property: all;
-		transition-property: color, background-color, border;
-		font-family: 'PT Sans', sans-serif;
-
-		@media (min-width: $breakpoint-small) {
-			font-size: var(--text-large);
-		
-		}
-
-		&:focus {
-			background-color:var(--color-white);
-			color:var(--color-black);
-			border-color:var(--color-accent);
-		}
-
-		&:required {
-			outline: none;
-			box-shadow: none;
-		}
-
-		&.invalid {
-			border-color: var(--color-error);
-		}
-	}
-	&__textarea {
-		height: 128px;
-		padding: 1rem 10px;;
-
-		@media (min-width: $breakpoint-small) {
-			height: auto;
-		
-		}
-	}
-
-
-
-	&__note,
-	.validation-error {
-		margin-top: 10px;
-		font-size: 12px;
-		margin-bottom: -5px;
-		color: var(--color-error);
-
-	}
-
-	&__note {
-		color: var(--color-muted);
-	}
-
-	&__controls {
-		flex: 1 1 auto;
-	}
-
-	&__submit {
-		align-items: center;
-	}
-	&__submit-button {
-		width: 100%;
-		margin-bottom: var(--margin);
-
-		@media (min-width: $breakpoint-small) {
-			width: 160px;
-
-			margin-bottom: 0;
-			margin-right: var(--margin);
-
-		}
-	}
-	&__submit-note {
-		font-size: var(--text-small);
-		line-height: 1.333;
-		color: var(--color-muted);
-		text-align: center;
-
-		@media (min-width: $breakpoint-small) {
-		text-align:left;
-		}
-	}
-
-	.validation-error + &__note {
-		display: none;
-	}
-
+.uk-pagination > * > * {
+	box-sizing: border-box;
 }

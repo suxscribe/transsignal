@@ -155,19 +155,20 @@ document.addEventListener('DOMContentLoaded', () => {
 			keyboard: {
 				enabled: true,
 			},
+			
 			effect: 'slide',
 			breakpoints: {
-			    //
-			    640: {
-			    	slidesPerView: 'auto',
-			    },
-			    960: {
-			    	slidesPerView: 'auto',
-			    },
-			  },
-			  onSlideChangeEnd:function(e){
+				640: {
+					slidesPerView: 'auto',
+				},
+				960: {
+					slidesPerView: 'auto',
+				},
+			},
+			onSlideChangeEnd:function(e){
 		    // sliderAbout1.update(true);
-		  }
+			},
+
 		});
 
 
@@ -184,21 +185,21 @@ document.addEventListener('DOMContentLoaded', () => {
 			},
 			allowTouchMove: true,
 			keyboard: {
-				enabled: true,
+				enabled: false,
 			},
 			effect: 'slide',
 			breakpoints: {
-			    //
-			    640: {
-			    	slidesPerView: 'auto',
-			    },
-			    960: {
-			    	slidesPerView: 'auto',
-			    },
-			  },
-			  onSlideChangeEnd:function(e){
+				640: {
+					slidesPerView: 'auto',
+				},
+				960: {
+					slidesPerView: 'auto',
+				},
+			},
+			onSlideChangeEnd:function(e){
 		    // sliderAbout1.update(true);
-		  }
+			},
+
 		});
 
 
@@ -214,6 +215,9 @@ document.addEventListener('DOMContentLoaded', () => {
 				prevEl: '.slider-about-2-prev',
 			},
 			allowTouchMove: false,
+			keyboard: {
+				enabled: true,
+			},
 			effect: 'fade',
 			fadeEffect: {
 				crossFade: true
@@ -221,33 +225,32 @@ document.addEventListener('DOMContentLoaded', () => {
 			on: {
 				init: function() {
 					updateCurrentIndex(this);
-
 					document.querySelector('.slideshow__count-overall').innerHTML = document.querySelectorAll('.slider-about-2 .swiper-slide:not(.swiper-slide-duplicate)').length;
-				}
+				},
 			}
 		});
-
+		// update current slide number
 		sliderAbout2.on('slideChange', function () {
 			updateCurrentIndex(this);
 		});
-
 		function updateCurrentIndex(slider) {
 			document.querySelector('.slideshow__count-current').innerHTML = slider.realIndex + 1;
 		}
-
-
-
-
-		sliderAbout1.controller.control = sliderAbout2;
-		sliderAbout1.controller.control = sliderAbout3;
-		sliderAbout2.controller.control = sliderAbout1;
-		sliderAbout2.controller.control = sliderAbout3;
+		
+		// control each slider with another
 		sliderAbout3.controller.control = sliderAbout1;
-		// sliderAbout2.controller.control = sliderAbout1;
+		sliderAbout3.controller.control = sliderAbout2;
+		sliderAbout1.controller.control = sliderAbout2;
+		sliderAbout2.controller.control = [sliderAbout3, sliderAbout1]; // i dont know how, but it works!
 
+
+
+
+
+		// sliderAbout2.controller.control = sliderAbout1;
 		function updateSlideWidth() {
 			let slideWidth = document.querySelector('.slider-about-1__item').offsetWidth;
-			// console.log(slideWidth);
+			console.log(slideWidth);
 			document.querySelectorAll('.slider-about-1__item').forEach( el => {
 				el.style.width = slideWidth + 'px';
 				// console.log(el);
@@ -255,15 +258,13 @@ document.addEventListener('DOMContentLoaded', () => {
 			document.querySelector('.slider-about-3').style.width = slideWidth + 'px';
 			sliderAbout3.update();
 			sliderAbout1.update();
+			console.log('updatewidth');
+			
 		}
-
 		updateSlideWidth();
-
 		window.addEventListener('resize', () => {
 			updateSlideWidth();
-
 		});
-
 	} //page--about
 
 	if (document.querySelector('.page--production')) {
@@ -275,27 +276,27 @@ document.addEventListener('DOMContentLoaded', () => {
 			slidesPerView: 'auto',
 			loop: true,
 			freeMode: true,
-      loopedSlides: 0, //looped slides should be the same
-      watchSlidesVisibility: true,
-      watchSlidesProgress: true,
-      // onSlideChangeEnd: function(s) {
-      //     if ( s.slides.length == s.activeIndex+1 ) s.swipeTo(0);
-      //     console.log(s.activeIndex);
-      // }  
-    });
+			loopedSlides: 0, //looped slides should be the same
+			watchSlidesVisibility: true,
+			watchSlidesProgress: true,
+			// onSlideChangeEnd: function(s) {
+			//     if ( s.slides.length == s.activeIndex+1 ) s.swipeTo(0);
+			//     console.log(s.activeIndex);
+			// }  
+		});
 
 		var gallery1Top = new Swiper('.gallery__top_1', {
 			spaceBetween: 20,
 			loop:true,
-      loopedSlides: 0, //looped slides should be the same
-      navigation: {
-      	nextEl: '.gallery__button-next_1',
-      	prevEl: '.gallery__button-prev_1',
-      },
-      thumbs: {
-      	swiper: gallery1Thumbs,
-      },
-    });
+			loopedSlides: 0, //looped slides should be the same
+			navigation: {
+				nextEl: '.gallery__button-next_1',
+				prevEl: '.gallery__button-prev_1',
+			},
+			thumbs: {
+				swiper: gallery1Thumbs,
+			},
+		});
 
 
 		var gallery2Thumbs = new Swiper('.gallery__thumbs_2', {

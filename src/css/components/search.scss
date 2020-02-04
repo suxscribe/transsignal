@@ -1,5 +1,5 @@
 .search {
-	margin-bottom: var(--margin-3);
+	// margin-bottom: var(--margin-3);
 
 	&__title {
 		margin-bottom: calc(var(--margin-2) - 0.429rem);
@@ -14,7 +14,7 @@
 
 		&-input {
 			line-height: var(--margin-2);
-			padding-left: var(--margin-2);
+			padding-left: var(--gutter-large);
 			width: 100%;
 			border: 1px solid var(--color-border);
 			border-radius: var(--radius);
@@ -23,15 +23,36 @@
 			&:focus + .search__form-icon {
 				color: var(--color-accent);
 			}
+
+			@media (min-width: $breakpoint-small) {
+				padding-left: var(--margin-2);
+
+			}
 		}
 
 		&-icon {
 			position: absolute;
 			left: 0;
 			top: 0;
-			width: var(--margin-2);
+			width: var(--gutter-large);
+			
 			height: 100%;
+
+			background: none;
+			border:none;
+			padding: 0;
+
 			transition: color var(--transition);
+
+			@media (min-width: $breakpoint-small) {
+				width: var(--margin-2);
+			}
+
+			&:before {
+				font-family: icomoon;
+				content: "\e904";
+				font-size: 20px;
+			}
 		}
 
 		&--box {

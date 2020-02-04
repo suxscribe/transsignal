@@ -64,10 +64,26 @@
         opacity: 0;
         transition: opacity var(--transition);
 
+        &:before {
+            content:'';
+            display: block;
+            width: 48px;
+            height: 48px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cg id='Group_1444' data-name='Group 1444' transform='translate(-953.459 -1829)'%3E%3Ccircle id='Ellipse_114' data-name='Ellipse 114' cx='24' cy='24' r='24' transform='translate(953.459 1829)' fill='%230074d3'/%3E%3Cg id='Group_1105' data-name='Group 1105' transform='translate(-7209 1)'%3E%3Crect id='Rectangle_900' data-name='Rectangle 900' width='2' height='24' transform='translate(8185.459 1840)' fill='%23fff'/%3E%3Crect id='Rectangle_901' data-name='Rectangle 901' width='2' height='24' transform='translate(8174.459 1853) rotate(-90)' fill='%23fff'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+            background-repeat: no-repeat;
+            background-size: contain;
+            z-index: 1;
+        }
+
         & img {
             width: 100%;
             height: 100%;
             object-fit: contain;
+            opacity: 0.5;
         }
     }
 }
