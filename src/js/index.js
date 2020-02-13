@@ -2,7 +2,7 @@
 import UIkit from 'uikit';
 import Icons from 'uikit/dist/js/uikit-icons';
 import Swiper from 'swiper';
-// import ymaps from 'ymaps';
+import ymaps from 'ymaps';
 // import $ from "jquery";
 import Inputmask from "inputmask";
 import ValidForm from '@pageclip/valid-form';
@@ -13,7 +13,7 @@ UIkit.use(Icons);
 
 // components can be called from the imported UIkit reference
 // import 'uikit/dist/css/uikit.min.css';
-import './css/style.scss';
+import '../scss/style.scss';
 
 
 // UIkit.notification('Hello world.');
@@ -366,7 +366,81 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	if (document.querySelector('.page--contacts')) {
 
-		let ymaps = require('ymaps');
+		// let ymaps = require('ymaps');
+		// let mapCenter;
+
+		// const getMapCenter = () => {
+		// 	// variables.scss
+		// 	// $breakpoint-small: 640px;  // Phone landscape
+		// 	// $breakpoint-medium: 960px;  // Tablet Landscape
+		// 	// $breakpoint-large:1200px; // Desktop
+		// 	// $breakpoint-xlarge:1600px; // Large Screens
+
+		// 	if (window.innerWidth >= 1200) {
+		// 		mapCenter = [56.349619, 43.798270];
+		// 	} else if (window.innerWidth >= 640) {
+		// 		mapCenter = [56.349619, 43.803270];
+		// 	} else {
+		// 		mapCenter = [56.351919, 43.807270];
+		// 	};
+		// 	console.log(mapCenter);
+		// 	return mapCenter;
+		// };
+
+
+		// ymaps.ready(init);
+		// function init() {
+		// 	var myMap = new ymaps.Map('map', {
+		// 			center: getMapCenter(),
+		// 			zoom: 16,
+		// 			controls: []
+		// 		}),
+		// 		// collection = new ymaps.GeoObjectCollection(),
+		// 		// bounds = myMap.getBounds();
+		// 	myMap.controls.add('zoomControl', {
+		// 		left: 5,
+		// 		top: 60
+		// 	});
+		// 	myMap.behaviors.disable('scrollZoom')
+		// 	add('mapTools', {
+		// 		left: 35,
+		// 		top: 60
+		// 	})
+		// 	var myPlacemark1 = new ymaps.Placemark([56.349619, 43.807270], 
+		// 		{
+		// 			hintContent: 'ул. Торфяная, 30',
+		// 			balloonContent: '603139, г. Нижний Новгород, ул.Торфяная, 30 '}, 
+		// 		{
+		// 			iconLayout: 'default#image',
+		// 			iconImageHref: '../assets/icon_geo@2x.png',
+		// 			iconImageSize: [48, 58],
+		// 			iconImageOffset: [-24, -58]
+		// 		});
+		// 	myMap.geoObjects.add(myPlacemark1);
+		// };
+
+		
+		// /* PHONE */
+
+		// let inputPhone = document.querySelector('.form__input--phone');
+
+		// // Inputmask({"mask": "+7 (999) 999-9999", autoclear: false, showMaskOnHover: false}).mask(inputPhone);
+		// // inputPhone.removeAttribute('required');
+		
+		// var forms = document.querySelectorAll('.form');
+		// forms.forEach(function (form) {
+		// 	ValidForm(form, {
+
+		// 		errorPlacement: 'after',
+		// 		customMessages: {
+		// 			valueMissing: "Обязательное поле",
+		// 			// Special mismatches for different input types: `${type}Mismatch`
+		// 			emailMismatch: "Пожалуйста введите правильный email"
+		// 		}
+		// 	});
+		// });
+
+
 		let mapCenter;
 
 		const getMapCenter = () => {
@@ -383,30 +457,27 @@ document.addEventListener('DOMContentLoaded', () => {
 			} else {
 				mapCenter = [56.351919, 43.807270];
 			};
-			console.log(mapCenter);
+			// console.log(mapCenter);
 			return mapCenter;
 		};
+	
 
-
-		ymaps.ready(init);
-		function init() {
-			var myMap = new ymaps.Map('map', {
-					center: getMapCenter(),
-					zoom: 16,
-					controls: []
-				}),
-				collection = new ymaps.GeoObjectCollection(),
-				bounds = myMap.getBounds();
-			myMap.controls.add('zoomControl', {
-				left: 5,
-				top: 60
-			});
+	ymaps
+	  .load('https://api-maps.yandex.ru/2.1/?apikey=7831c6db-8a7f-49d5-a7b7-c567b1e05675&lang=ru_RU')
+	  .then(maps => {
+	    const myMap = new maps.Map('map', {
+	      center: getMapCenter(),
+	      zoom: 16,
+	      controls: []
+	    })
+	    ;
+	    myMap.controls.add('zoomControl', {
+	    	left: 5,
+	    	top: 60
+	    });
 			myMap.behaviors.disable('scrollZoom')
-			/*add('mapTools', {
-				left: 35,
-				top: 60
-			})*/
-			var myPlacemark1 = new ymaps.Placemark([56.349619, 43.807270], 
+
+	    var myPlacemark1 = new maps.Placemark([56.349619, 43.807270], 
 				{
 					hintContent: 'ул. Торфяная, 30',
 					balloonContent: '603139, г. Нижний Новгород, ул.Торфяная, 30 '}, 
@@ -417,28 +488,8 @@ document.addEventListener('DOMContentLoaded', () => {
 					iconImageOffset: [-24, -58]
 				});
 			myMap.geoObjects.add(myPlacemark1);
-		};
-
-		
-		/* PHONE */
-
-		let inputPhone = document.querySelector('.form__input--phone');
-
-		// Inputmask({"mask": "+7 (999) 999-9999", autoclear: false, showMaskOnHover: false}).mask(inputPhone);
-		// inputPhone.removeAttribute('required');
-		
-		var forms = document.querySelectorAll('.form');
-		forms.forEach(function (form) {
-			ValidForm(form, {
-
-				errorPlacement: 'after',
-				customMessages: {
-					valueMissing: "Обязательное поле",
-					// Special mismatches for different input types: `${type}Mismatch`
-					emailMismatch: "Пожалуйста введите правильный email"
-				}
-			});
-		});
-	
+	  
+	  })
+	  .catch(error => console.log('Failed to load Yandex Maps', error));
 	}
 });

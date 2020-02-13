@@ -128,7 +128,12 @@
 		}
 	}
 
-	
+
+	&__line {
+		list-style-type:none;
+		padding: 0;
+	}
+
 
 	&__list {
 		list-style-type:none;

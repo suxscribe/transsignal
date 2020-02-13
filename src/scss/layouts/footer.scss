@@ -17,10 +17,19 @@
 			@media (min-width: $breakpoint-small) {
 				max-width: 35.857rem;
 				margin: 2rem auto 4.786rem auto;
-
 			}
+
 			@media (min-width: $breakpoint-medium) {
-			
+				max-width: none;
+				margin: 31px 0 65px;
+			}
+
+			.page--contacts + .footer & { // hide footer contacts on contacts page 
+				display:none;
+
+				@media (min-width: $breakpoint-small) {
+					display:block;
+				}
 			}
 		}
 
@@ -35,7 +44,7 @@
 				margin-bottom: 1.857rem;
 			}
 			@media (min-width: $breakpoint-medium) {
-				margin-bottom: inherit;
+				margin-bottom: 24px;
 			}
 		}
 

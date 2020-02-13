@@ -3,82 +3,92 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+	
 	
 	<title>Транс Сигнал</title>
-
+	
 </head>
 <body>
-
-<header class="header" >
-	<div class="uk-container">
-		<div class="header__top uk-visible@m">
-			<ul class="header__top-menu menu">
-				<li class="uk-active"><a href="">О предприятии</a></li>
-				<li><a href="">Новости</a></li>
-				<li><a href="">Услуги</a></li>
-				<li><a href="">Контакты</a></li>
-			</ul>
-			<ul class="header__top-menu menu uk-flex-right">
-				<li><a href="">Лицензии и сертификаты</a></li>
-				<li><a class="header__top-language" href="#">RU <i class=" header__top-language-icon icon-arrow-down-small"></i></a>
-					<div class="header__top-language-dropdown" uk-dropdown="pos:bottom-center; mode: click">
-						<ul class="uk-nav uk-dropdown-nav">
-							<li class="uk-active"><a href="#">RU</a></li>
-							<li><a href="#">EN</a></li>
-						</ul>
-					</div>
-				</li>
-			</ul>
-		</div>
-		<div class="header__main">
-			<div class="header__logo"><a href="/"><img src="../../assets/logo.svg" width="116" alt=""></a></div>
-			<div class="header__description uk-visible@m">Производитель светотехнического и&nbsp;электронного железнодорожного оборудования</div>
-			<div class="header__search search uk-visible@s">
-				<form action="" class="header__search-form search__form">
-					<input class="header__search-form-input search__form-input uk-input" placeholder="Поиск по наименованию и артикулу продукции" type="search" name="search-form-input" value="">
-					<button class="header__search-form-submit search__form-icon"  name="search-form-submit"  type="submit"></button>
-				</form>
-				<div class="header__search-results">
-					<ul class="search__dropdown">	
-						<li class="search__dropdown-item">
-							<a href=""><span class="search__match">Светофор трехзн</span>ачный с маршрутным указателем 17673-00-00 ТУ32 ЦШ</a>
-						</li>		
-						<li class="search__dropdown-item">
-							<a href=""><span class="search__match">Светофор трехзн</span>ачный светодиодный 17665-00-00 с маршрутным указателем на мостиках и консолях</a>
-						</li>		
-						<li class="search__dropdown-item">
-							<a href=""><span class="search__match">Светофор трехзн</span>ачный с маршрутным указателем 17673-00-00 ТУ32 ЦШ</a>
-						</li>		
-						<li class="search__dropdown-item">
-							<a href=""><span class="search__match">Светофор трехзн</span>ачный светодиодный 17777-00-00 ТУ32 ЦШ 2141-2009</a>
-						</li>		
+	
+	<header class="header" >
+		<!-- <div class="uk-container"> -->
+			<div class="header__top uk-visible@m">
+				<div class="header__container uk-container">
+					<ul class="header__top-menu menu">
+						<li class="uk-active"><a href="about.html">О предприятии</a></li>
+						<li><a href="news.html">Новости</a></li>
+						<li><a href="service.html">Услуги</a></li>
+						<li><a href="contacts.html">Контакты</a></li>
+					</ul>
+					<ul class="header__top-menu menu uk-flex-right">
+						<li><a href="certificates.html">Лицензии и сертификаты</a></li>
+						<li><a class="header__top-language" href="#">RU <i class=" header__top-language-icon icon-arrow-down-small"></i></a>
+							<div class="header__top-language-dropdown" uk-dropdown="pos:bottom-center; mode: click">
+								<ul class="uk-nav uk-dropdown-nav">
+									<li class="uk-active"><a href="#">RU</a></li>
+									<li><a href="#">EN</a></li>
+								</ul>
+							</div>
+						</li>
 					</ul>
 				</div>
 			</div>
-			<div class="header__phone uk-visible@m">
-				<div class="header__phone-phone"><a class="" href="tel:+78312239801">+7 (831) 223-98-01</a></div>
-				<div class="header__phone-callback"><a href="#modal-callback" uk-toggle>Заказать звонок</a></div>
-			</div>
-			<div class="header__offcanvas uk-hidden@s">
-				<div class="header__offcanvas-search">
-					<a href="#burger" class="header__offcanvas-search-link" uk-toggle></a>
+			<div class="header__main" uk-sticky="media: @m"> <!--  -->
+				<div class="header__container uk-container">
+					<div class="header__logo"><a href="/"><img src="../../assets/logo.svg" width="116" alt=""></a></div>
+					<div class="header__description uk-visible@m">
+						<div class="header__description-inner">
+						Производитель светотехнического и&nbsp;электронного железнодорожного оборудования
+						</div>
+					</div>
+					<div class="header__search search uk-visible@s">
+						<form action="" class="header__search-form search__form">
+							<input class="header__search-form-input search__form-input uk-input" placeholder="Поиск по наименованию и артикулу продукции" type="search" name="search-form-input" value="">
+							<button class="header__search-form-submit search__form-icon"  name="search-form-submit"  type="submit"></button>
+						</form>
+						<div class="header__search-results">
+							<ul class="search__dropdown">	
+								<li class="search__dropdown-item">
+									<a href="product.html"><span class="search__match">Светофор трехзн</span>ачный с маршрутным указателем 17673-00-00 ТУ32 ЦШ</a>
+								</li>		
+								<li class="search__dropdown-item">
+									<a href="product.html"><span class="search__match">Светофор трехзн</span>ачный светодиодный 17665-00-00 с маршрутным указателем на мостиках и консолях</a>
+								</li>		
+								<li class="search__dropdown-item">
+									<a href="product.html"><span class="search__match">Светофор трехзн</span>ачный с маршрутным указателем 17673-00-00 ТУ32 ЦШ</a>
+								</li>		
+								<li class="search__dropdown-item">
+									<a href="product.html"><span class="search__match">Светофор трехзн</span>ачный светодиодный 17777-00-00 ТУ32 ЦШ 2141-2009</a>
+								</li>		
+							</ul>
+						</div>
+					</div>
+					<div class="header__phone uk-visible@m">
+						<div class="header__phone-phone"><a class="" href="tel:+78312239801">+7 (831) 223-98-01</a></div>
+						<div class="header__phone-callback"><a href="#modal-callback" uk-toggle>Заказать звонок</a></div>
+					</div>
+					<div class="header__offcanvas uk-hidden@s">
+						<div class="header__offcanvas-search">
+							<a href="#burger" class="header__offcanvas-search-link" uk-toggle></a>
+						</div>
+						<div class="header__offcanvas-toggle">
+							<a href="#burger" class="header__offcanvas-toggle-link" uk-toggle><span></span></a>
+						</div>
+					</div>
 				</div>
-				<div class="header__offcanvas-toggle">
-					<a href="#burger" class="header__offcanvas-toggle-link" uk-toggle><span></span></a>
-		    	</div>
 			</div>
-		</div>
-		<nav class="header__nav uk-visible@m">
-		    <div class="">
-		        <ul class="header__nav-menu menu">
-		            <li class="uk-active"><a href="">Магистральным железным дорогам</a></li>
-		            <li class=""><a href="">Промышленным предприятиям</a></li>
-		            <li><a href="">Метрополитенам</a></li>
-		            <li><a href="">Подвижному составу</a></li>
-		        </ul>
-		    </div>
-		</nav>
-
-	</div>
-</header>
+			<nav class="header__nav uk-visible@m" uk-sticky="show-on-up: true; offset: 88; animation: uk-animation-slide-top"> <!--  -->
+				<div class="header__container uk-container">
+					<div class="">
+						<ul class="header__nav-menu menu">
+							<li class="uk-active"><a href="catalog.html">Магистральным железным дорогам</a></li>
+							<li class=""><a href="catalog.html">Промышленным предприятиям</a></li>
+							<li><a href="catalog.html">Метрополитенам</a></li>
+							<li><a href="catalog.html">Подвижному составу</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			
+			<!-- </div> -->
+		</header>

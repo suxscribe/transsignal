@@ -1,10 +1,11 @@
 <% var data = {
 	title: "Заголовок | Проект",
+	ymap: false
 }; %>
-<%= _.template(require('./../includes/header.html'))(data) %>
+<%= _.template(require('./../includes/header.html').default)(data) %>
 
-<%= _.template(require('./../includes/content.html'))(data) %>
+<%= _.template(require('./../includes/content.html').default)(data) %>
 
-<%= _.template(require('./../includes/footer.html'))(data) %>
+<%= _.template(require('./../includes/footer.html').default)(data) %>
 
 

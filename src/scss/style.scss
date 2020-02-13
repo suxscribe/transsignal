@@ -36,27 +36,27 @@ $offcanvas-bar-background: #fff;
 // Elements
 @import "uikit/src/scss/components/link.scss";
 @import "uikit/src/scss/components/heading.scss";
-@import "uikit/src/scss/components/divider.scss";
+// @import "uikit/src/scss/components/divider.scss";
 @import "uikit/src/scss/components/list.scss";
 @import "uikit/src/scss/components/description-list.scss";
 @import "uikit/src/scss/components/table.scss";
 @import "uikit/src/scss/components/icon.scss";
-@import "uikit/src/scss/components/form-range.scss";
+// @import "uikit/src/scss/components/form-range.scss";
 @import "uikit/src/scss/components/form.scss"; // After: Icon, Form Range
 @import "uikit/src/scss/components/button.scss";
 
 // Layout
-@import "uikit/src/scss/components/section.scss";
+// @import "uikit/src/scss/components/section.scss";
 @import "uikit/src/scss/components/container.scss";
 @import "uikit/src/scss/components/grid.scss";
-@import "uikit/src/scss/components/tile.scss";
-@import "uikit/src/scss/components/card.scss";
+// @import "uikit/src/scss/components/tile.scss";
+// @import "uikit/src/scss/components/card.scss";
 
 // Common
 @import "uikit/src/scss/components/close.scss"; // After: Icon
 // @import "uikit/src/scss/components/spinner.scss"; // After: Icon
 // @import "uikit/src/scss/components/totop.scss"; // After: Icon
-@import "uikit/src/scss/components/marker.scss"; // After: Icon
+// @import "uikit/src/scss/components/marker.scss"; // After: Icon
 // @import "uikit/src/scss/components/alert.scss"; // After: Close
 // @import "uikit/src/scss/components/badge.scss";
 @import "uikit/src/scss/components/label.scss";
@@ -98,10 +98,10 @@ $offcanvas-bar-background: #fff;
 // Scroll
 
 // Additional
-@import "uikit/src/scss/components/iconnav.scss";
+// @import "uikit/src/scss/components/iconnav.scss";
 // @import "uikit/src/scss/components/notification.scss";
-@import "uikit/src/scss/components/tooltip.scss";
-@import "uikit/src/scss/components/placeholder.scss";
+// @import "uikit/src/scss/components/tooltip.scss";
+// @import "uikit/src/scss/components/placeholder.scss";
 // @import "uikit/src/scss/components/progress.scss";
 // @import "uikit/src/scss/components/sortable.scss";
 // @import "uikit/src/scss/components/countdown.scss";
@@ -109,17 +109,17 @@ $offcanvas-bar-background: #fff;
 // Utilities
 @import "uikit/src/scss/components/animation.scss";
 @import "uikit/src/scss/components/width.scss";
-@import "uikit/src/scss/components/height.scss";
+// @import "uikit/src/scss/components/height.scss";
 @import "uikit/src/scss/components/text.scss";
 @import "uikit/src/scss/components/column.scss";
 @import "uikit/src/scss/components/cover.scss";
 @import "uikit/src/scss/components/background.scss";
-@import "uikit/src/scss/components/align.scss";
+// @import "uikit/src/scss/components/align.scss";
 @import "uikit/src/scss/components/svg.scss";
 @import "uikit/src/scss/components/utility.scss";
 @import "uikit/src/scss/components/flex.scss"; // After: Utility
 @import "uikit/src/scss/components/margin.scss";
-@import "uikit/src/scss/components/padding.scss";
+// @import "uikit/src/scss/components/padding.scss";
 @import "uikit/src/scss/components/position.scss";
 @import "uikit/src/scss/components/transition.scss";
 @import "uikit/src/scss/components/visibility.scss";
@@ -151,17 +151,18 @@ $offcanvas-bar-background: #fff;
 // @import "sassline/sassline.scss";
 // @import "sassline/assets/sass/sassline-base/style.scss";
 
-// @import "./baseline.scss"; //test this
-
-@import "transsignal"; //base vars and styles
-
 
 @import "swiper/swiper.scss";
+
+@import "components/transsignal"; //base vars and styles
 
 @import "layouts/fonts";
 @import "layouts/header";
 @import "layouts/footer";
 
+@import "components/headings";
+@import "components/button";
+@import "components/list";
 @import "components/news";
 @import "components/offcanvas";
 @import "components/search";
@@ -170,6 +171,7 @@ $offcanvas-bar-background: #fff;
 @import "components/tag";
 @import "components/form";
 @import "components/modal";
+@import "components/table";
 
 
 @import "pages/index";

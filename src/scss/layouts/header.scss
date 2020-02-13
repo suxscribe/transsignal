@@ -3,6 +3,12 @@
 	background: var(--color-white);
 	border-bottom: 1px solid var(--color-border);
 	
+	&__container {
+		display:flex;
+		width: 100%;
+		justify-content: flex-start;
+	}
+
 	&__top {
 		background: var(--color-dark);
 		color: #fff;
@@ -31,6 +37,7 @@
 			padding: 0;
 			margin: 0;
 			display: flex;
+			flex: 1 1 auto;
 			
 			
 			& > li {
@@ -86,22 +93,33 @@
 	&__main {
 		display:flex;
 		justify-content: space-between;
-		margin: var(--font-size);
+		padding: var(--font-size);
+		box-sizing: content-box;
 		align-items: center;
 		
 		height: 63px;
 		margin:0;
-		
+
+		background-color: var(--color-white);
+		transition: padding var(--transition);
 		
 		@media (min-width: $breakpoint-small) {
-			margin: 0;
+			padding: 0;
 			height: 95px;
 		}
 		
 		@media (min-width: $breakpoint-medium) {
-			margin: var(--margin-2) 0 16px;
+			padding: var(--margin-2) 0 16px;
 			height: 56px;
 			align-items: flex-start;
+		}
+
+		&.uk-active {
+			padding: 20px 0 12px;
+			z-index: 990;
+			border:1px solid var(--color-border);
+
+
 		}
 	}
 	
@@ -109,6 +127,8 @@
 		flex: 0 0 75px;
 		margin-right: var(--margin-2);
 		
+
+
 		@media (min-width: $breakpoint-small) {
 			flex: 0 0 100px;
 			margin-right: var(--margin);
@@ -118,19 +138,60 @@
 			flex: 0 0 116px;
 			margin-right: var(--margin);
 			margin-top: -8px;
+			line-height: 60px;
 		}
+
+		.header__main.uk-active & {
+
+			@media (min-width: $breakpoint-medium) {
+				flex-basis: 100px;
+
+			}
+		}
+
+		& img {
+			transition: width var(--transition);
+
+			.header__main.uk-active & {
+				width: 84px;
+				line-height: 60px;
+			}
+		}
+
+
 	}
 	
 	&__description {
-		flex: 0 0 20%;
+		flex: 0 0 auto;
+		width: 210px;
 		font-size: var(--text-small);
 		line-height: 16px;
 		margin-right: 29px;
 		font-family: 'Roboto', sans-serif;
 		margin-top: -1px;
 		margin-left: -1px;
+		transition: all 0.2s var(--transition);
+		overflow: hidden;
+
+		&-inner {
+			width: 210px;
+		}
+
+		.header__main.uk-active & {
+			width: 0;
+			margin-right: 0;
+		}
 	}
 	
+	&__nav {
+		background-color: var(--color-white);
+
+		&.uk-active {
+			border-bottom: 1px solid var(--color-border);
+		}
+
+	}
+
 	&__nav-menu {
 		margin:0;
 		margin-bottom: -1px;
@@ -185,6 +246,10 @@
 		position: relative;
 		// margin-right: var(--margin-2);
 		
+		&-form {
+
+		}
+
 		&-results {
 			position: absolute;
 			left: 0;
@@ -239,13 +304,14 @@
 	}
 	
 	&__offcanvas {
-		flex: 0 0 auto;
+		flex: 1 0 auto;
 		margin-left: var(--gutter-large);
-		justify-self: flex-end;
+		justify-content: flex-end;
 		display: flex;
 	}
 	
 	&__offcanvas-toggle {
+		flex: 0 0 auto;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;

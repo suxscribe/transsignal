@@ -27,7 +27,8 @@
 
 	&--big {
 		background: none;
-		padding: 0;;
+		padding: 0;
+		height: auto;
 
 		& .file__name {
 			font-size: var(--text-large);
@@ -41,6 +42,7 @@
 			background-repeat: no-repeat;
 			background-position: left 16px;
 			background-size: 24px 32px;
+			line-height: inherit;
 
 			@media (min-width: $breakpoint-small) {
 				padding: 26px 0 20px 2.25rem;
