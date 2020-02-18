@@ -156,6 +156,10 @@
 				max-width: none;
 			
 			}
+
+			.product__header--steril & {
+				object-position: center;
+			}
 		}
 	}
 
@@ -331,11 +335,15 @@
 					display: block;
 					width: 100%;
 					height: 100%;
-					max-height: 400px;
+					max-height: 430px;
 					overflow: hidden;
+					top:0;
 					bottom: 0;
 					position: absolute;	
 
+					.product__main--steril & {
+						padding: 40px;
+					}
 				}
 
 				& img {
@@ -345,7 +353,9 @@
 					object-position: bottom;
 					height: 100%;
 
-				
+					.product__main--steril & {
+						object-position: center;
+					}
 				}
 			}
 		}
@@ -366,6 +376,7 @@
 					width: 44px;
 					height: 44px;
 					background: var(--color-white);
+					text-align: center;
 
 
 					& > img {
@@ -373,6 +384,9 @@
 						height: 100%;
 						object-fit: contain;
 
+						.product__main--steril & {
+							width: 90%;
+						}
 					}
 				}
 			}
@@ -618,55 +632,111 @@
 				transition-delay: 0.2s;
 			}
 		}
-	}
 
-	&__description + &__modifications {
-
-		&:before {
-			content:'';
-			display: block;
-			position: absolute;
-			top:-1px;
-			left: calc(50% - 50vw);
-			right: calc(50% - 50vw);
+		.product__main--steril & {
+			margin-bottom: 30px;
 
 			@media (min-width: $breakpoint-small) {
-				border-top: 1px solid var(--color-border);
+				margin-bottom: var(--margin-3);
+			
 			}
+			
 			@media (min-width: $breakpoint-medium) {
-				border-top: none;
-			}
-		}
-
-
-		@media (min-width: $breakpoint-small) {
-			border-top: 1px solid var(--color-border);
-		}
-		@media (min-width: $breakpoint-medium) {
-			border-top: none;
-		}
-	}
-
-	&__modifications {
-		position: relative;
-		margin-bottom: var(--margin-3);
-
-		&-title {
-			margin-bottom: 26px;
-
-			@media (min-width: $breakpoint-small) {
-				
-				margin-bottom: 2.714rem;
-			}
-		}
-
-		&-items {
-
-			@media (min-width: $breakpoint-small) {
-				margin-bottom: 0;
+				margin-bottom: 53px;
 			
 			}
 		}
+	}
+
+	&__bottom {
+		font-size: var(--text-large);
+
+		& ul {
+            list-style-type: none;
+
+            & > li {
+                position: relative;
+                margin-bottom: 10px;
+
+                @media (min-width: $breakpoint-small) {
+                    margin-bottom: 12px;
+                }
+
+                &:before {
+                    content:'—';
+                    position: absolute;
+                    left: -#{$base-list-padding-left};
+                    top: 0;
+                    color: var(--color-accent);
+                }
+
+                & > ul {
+                    margin-top: 0.857rem;
+
+                    @media (min-width: $breakpoint-small) {
+                        padding-left: $base-list-padding-left + 16px;
+                    
+                    }
+                }
+
+                & table {
+                    margin-left: -#{$base-list-padding-left};
+                }
+            }
+        }
+
+        & ol {
+            list-style-type: none;
+            counter-reset: olCounter;
+
+
+            & > li {
+                position: relative;
+                margin-bottom: 10px;
+
+                @media (min-width: $breakpoint-small) {
+                    margin-bottom: 12px;
+                
+                }
+                counter-increment: olCounter;
+
+                &:before {
+                    // content: counter(olCounter) ". ";
+                    content: counters(olCounter, ".") ".";
+                    color: var(--color-accent);
+                    position: absolute;
+                    left: -#{$base-list-padding-left};
+                    top: 0;
+                }
+
+                & > ol {
+                    margin-top: 0.857rem;
+                    padding-left: $base-list-padding-left + 5px;
+
+                    @media (min-width: $breakpoint-small) {
+                        padding-left: $base-list-padding-left + 16px;
+                    }
+
+                    & > li {
+                        &:before {
+                            left: -5 -$base-list-padding-left;
+                        }
+                    }
+				}
+            }
+
+		}
+		
+		& a {
+
+				@include link-text-decoration;
+		}
+	}
+
+	
+
+	&--steril {
+		margin-bottom: 50px;
 	}
 }
 

@@ -7,7 +7,10 @@
     "dev": "webpack -d",
     "build": "webpack --mode production && prettier --parser html --write dist/*.html",
     "watch": "webpack --mode development --watch",
-    "start": "webpack-dev-server --mode development --open"
+    "start": "webpack-dev-server --mode development --open",
+    "watch-steril": "webpack --config webpack-steril.config.js --mode development --watch",
+    "build-steril": "webpack --config webpack-steril.config.js --mode production && prettier --parser html --write dist-steril/*.html",
+    "start-steril": "webpack-dev-server --config webpack-steril.config.js --mode development --open"
   },
   "keywords": [],
   "author": "",

@@ -1,5 +1,40 @@
 .list {
 	
+	&--dashed {
+		list-style-type: none;
+
+		& > li {
+			position: relative;
+			margin-bottom: 10px;
+
+			@media (min-width: $breakpoint-small) {
+				margin-bottom: 12px;
+			}
+
+			&:before {
+				content:'—';
+				position: absolute;
+				left: -#{$base-list-padding-left};
+				top: 0;
+				color: var(--color-accent);
+			}
+
+			& > ul {
+				margin-top: 0.857rem;
+
+				@media (min-width: $breakpoint-small) {
+					padding-left: $base-list-padding-left + 16px;
+				
+				}
+			}
+
+			& table {
+				margin-left: -#{$base-list-padding-left};
+			}
+		}
+	}	
+
+
 	&_numbered {
 		
 		list-style:none;
@@ -62,4 +97,6 @@
 			}
 		}
 	}
+
+
 }

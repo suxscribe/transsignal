@@ -27,7 +27,8 @@ const htmlPlugins = generateHtmlPlugins("./src/html/views");
 const config = {
   entry: ["./src/js/index.js", "./src/scss/style.scss"],
   output: {
-    filename: "./js/bundle.js"
+    filename: "./js/bundle.js",
+	// publicPath: 'http://suxscribe.tmweb.ru/transsignal/'
   },
   devtool: "source-map",
   mode: "production",
@@ -41,7 +42,7 @@ const config = {
   // },
   module: {
     rules: [
-
+      
       {
         test: /\.(sass|scss)$/,
         include: path.resolve(__dirname, "src/scss"),

@@ -13,7 +13,7 @@ UIkit.use(Icons);
 
 // components can be called from the imported UIkit reference
 // import 'uikit/dist/css/uikit.min.css';
-import '../scss/style.scss';
+// import '../scss/style.scss';
 
 
 // UIkit.notification('Hello world.');
