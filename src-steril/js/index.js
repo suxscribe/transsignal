@@ -1,12 +1,20 @@
+import '@babel/polyfill';
 
 import UIkit from 'uikit';
 import Icons from 'uikit/dist/js/uikit-icons';
-import Swiper from 'swiper';
+import Swiper from 'swiper/js/swiper.js';
 import ymaps from 'ymaps';
 // import $ from "jquery";
-import Inputmask from "inputmask";
-import ValidForm from '@pageclip/valid-form';
+// import Inputmask from "inputmask";
 
+import cssVars from 'css-vars-ponyfill';
+import objectFitImages from 'object-fit-images';
+
+window.UIkit = UIkit; // fix not difined bug
+
+cssVars({
+	// Options...
+});
 
 // loads the Icon plugin
 UIkit.use(Icons);
@@ -19,6 +27,13 @@ UIkit.use(Icons);
 // UIkit.notification('Hello world.');
 // console.log('hello, world');
 
+const isIE = () => {
+	if (!!window.MSInputMethodContext && !!document.documentMode) return true;
+}
+
+if (window.NodeList && !NodeList.prototype.forEach) {
+	NodeList.prototype.forEach = Array.prototype.forEach;
+} // ie 11 foreach
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -35,26 +50,125 @@ document.addEventListener('DOMContentLoaded', () => {
 		searchResults.classList.remove('header__search-results--show')
 	});
 
+	// validate forms
+	var contactForm = document.querySelectorAll('.form');
+	
+	if (contactForm) {
+		contactForm.forEach( form => {
+			
+			form.querySelectorAll('.validate--empty').forEach( input => {
+				input.addEventListener('focusout', () => {
+					if (checkIfEmpty(input)) return;
+					return true;
+				});
+			});
+
+			const inputEmail = form.querySelector('.validate--email');
+			if (inputEmail) {
+				inputEmail.addEventListener('focusout', () => {
+					if (checkIfEmpty(inputEmail)) return;
+					if(checkIfEmail(inputEmail)) return;
+					return true;
+				});
+			}
+			
+			const inputPhone = form.querySelector('.validate--phone')
+			if (inputPhone) {
+				inputPhone.addEventListener('focusout', () => {
+					if (checkIfEmpty(inputPhone)) return;
+					if (checkIfOnlyDigits(inputPhone)) return;
+					return true;
+				});
+			}
+		});
+
+		document.addEventListener('invalid', (function(){
+			return function(e) {
+				//prevent the browser from showing default error bubble / hint
+				e.preventDefault();
+				// optionally fire off some custom validation handler
+				// myValidation();
+			};
+		})(), true);
+
+		const checkIfEmpty = (field) => {
+			if (isEmpty(field.value.trim())) {
+				setInvalid(field, "Обязательное поле");
+				return true;
+			} else {
+				setValid(field);
+				return false;
+			}
+		}
+
+		const isEmpty = (value) => {
+			if (value === '') return true;
+			return false;
+		}
+
+		const setInvalid = (field, message) => {
+			field.classList.add('invalid');
+			field.nextElementSibling.innerHTML = message;
+			field.nextElementSibling.className = 'form__note form__note--red';
+		}
+		const setValid = (field) => {
+			field.classList.remove('invalid');
+			field.nextElementSibling.innerHTML = '';
+			field.nextElementSibling.className = 'form__note';
+		}
+
+		const checkIfOnlyLetters = (field) => {
+			if(/^[a-zA-Z ]+$/.test(field.value)) {
+				setValid(field);
+				return true;
+			} else {
+				setInvalid(field, "Должно содержать только буквы")
+			}
+		}
+		const checkIfOnlyDigits = (field) => {
+			if(/\+(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\d{1,14}$/.test(field.value)) {
+				setValid(field);
+				return true;
+			} else {
+				setInvalid(field, "Пожалуйста введите номер телефона в формате +XXXXXXXXXX")
+			}
+		}
+		const checkIfEmail = (field) => {
+			if(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(field.value)) {
+				setValid(field);
+				return true;
+			} else {
+				setInvalid(field, "Должно быть в формате email@domain.dom")
+			}
+		}
+
+		
+	}
+
+	// HOVER ON MAP LINKS OR MARKERS
+	const mapHover = () => {
+		if (!isIE()) {
+			document.querySelectorAll('.map a[data-hover]').forEach( (el) => {
+				const regionCode = el.dataset.hover;
+				el.setAttribute('href', document.querySelector(`.map__regions a[data-hover=${regionCode}]`).href);
+				el.addEventListener("mouseenter", function() {
+					document.querySelectorAll(`[data-hover=${el.dataset.hover}]`).forEach( (link) => {
+						link.classList.add("hover");
+					});
+
+				})
+				el.addEventListener("mouseout", function() {
+					document.querySelectorAll(`[data-hover=${el.dataset.hover}]`).forEach( (link) => {
+						link.classList.remove("hover");
+					});
+				});
+			});
+		}
+	}
+
 	// for index page only
 	if (document.querySelector('.page--index')) {
-		var slideshowMain = new Swiper('.slideshow-main', {
-			loop: false,
-			loopedSlides: 6,
-			slidesPerView: '1',
-			grabCursor: true,
-			// clickable: true, //zrx photoswipe
-			// Navigation arrows
-			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev',
-			},
-			allowTouchMove: true,
-			keyboard: {
-				enabled: true,
-			},
-			effect: 'slide',
 
-		});
 
 		var slideshowBanner = new Swiper('.slideshow-banner', {
 			loop: false,
@@ -75,38 +189,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 
 
-		slideshowMain.controller.control = slideshowBanner;
-		slideshowBanner.controller.control = slideshowMain;
 
-
-		// Move 2nd banner to another column on resize
-		const indexMoveBanner = () => {
-			const bannerTeleport = document.querySelector('.index-banner__teleport');
-			const bannerFirst = document.querySelector('.index-banners__first');
-			const bannerSecond = document.querySelector('.index-banners__second');
-			const bannerBefore = document.querySelector('.index-banners__insertbeforeme')
-
-			if (window.matchMedia("(min-width: 960px)").matches) {
-				if (bannerTeleport.parentNode != bannerFirst) {
-					bannerFirst.appendChild(
-						bannerTeleport
-						);
-					bannerTeleport.classList.add('uk-grid-margin');
-					console.log('movedto first');
-				}
-			} else {
-				if (bannerTeleport.parentNode != bannerSecond) {
-					bannerSecond.insertBefore(
-						bannerTeleport,
-						bannerBefore
-						);
-					console.log('movedto second');
-				}
-			}
-		};
-
-		indexMoveBanner();
-		window.addEventListener('resize', indexMoveBanner);
+		if (document.querySelector('.map')) {
+			mapHover();
+		}
 
 		// document.querySelector('.clients__title').appendChild(document.querySelector('.clients__nav'));
 	}
@@ -140,131 +226,212 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	if (document.querySelector('.page--about')) {
 
-		var sliderAbout1 = new Swiper('.slider-about-1', {
-			loop: true,
-			loopedSlides: 6,
-			slidesPerView: '1',
-			grabCursor: true,
-			// clickable: true, //zrx photoswipe
-			// Navigation arrows
-			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev',
-			},
-			allowTouchMove: true,
-			keyboard: {
-				enabled: true,
-			},
+		if (!isIE()) {
+			var sliderAbout1 = new Swiper('.slider-about-1', {
+				loop: true,
+				loopedSlides: 6,
+				slidesPerView: '1',
+				grabCursor: true,
+				// clickable: true, //zrx photoswipe
+				// Navigation arrows
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				},
+				allowTouchMove: true,
+				keyboard: {
+					enabled: true,
+				},
+				effect: 'slide',
+				breakpoints: {
+					640: {
+						slidesPerView: 'auto',
+					},
+					960: {
+						slidesPerView: 'auto',
+					},
+				},
+				onSlideChangeEnd:function(e){
+				// sliderAbout1.update(true);
+				},
+			});
+
+			var sliderAbout3 = new Swiper('.slider-about-3', {
+				loop: true,
+				loopedSlides: 6,
+				slidesPerView: '1',
+				grabCursor: true,
+				// clickable: true, //zrx photoswipe
+				// Navigation arrows
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				},
+				allowTouchMove: true,
+				keyboard: {
+					enabled: false,
+				},
+				effect: 'slide',
+				breakpoints: {
+					640: {
+						slidesPerView: 'auto',
+						spaceBetween: 28
+					},
+					960: {
+						slidesPerView: 'auto',
+						spaceBetween: 40
+					},
+				},
+				onSlideChangeEnd:function(e){
+					// sliderAbout1.update(true);
+				},
+			});
+
+			var sliderAbout2 = new Swiper('.slider-about-2', {
+				loop: true,
+				loopedSlides: 6,
+				slidesPerView: '1',
+				grabCursor: false,
+				// clickable: true, //zrx photoswipe
+				// Navigation arrows
+				navigation: {
+					nextEl: '.slider-about-2-next',
+					prevEl: '.slider-about-2-prev',
+				},
+				allowTouchMove: false,
+				keyboard: {
+					enabled: true,
+				},
+				effect: 'fade',
+				fadeEffect: {
+					crossFade: true
+				},
+				on: {
+					init: function() {
+						updateCurrentIndex(this);
+						document.querySelector('.slideshow__count-overall').innerHTML = document.querySelectorAll('.slider-about-2 .swiper-slide:not(.swiper-slide-duplicate)').length;
+					},
+				}
+			});
+
 			
-			effect: 'slide',
-			breakpoints: {
-				640: {
-					slidesPerView: 'auto',
-				},
-				960: {
-					slidesPerView: 'auto',
-				},
-			},
-			onSlideChangeEnd:function(e){
-		    // sliderAbout1.update(true);
-			},
-
-		});
-
-
-		var sliderAbout3 = new Swiper('.slider-about-3', {
-			loop: true,
-			loopedSlides: 6,
-			slidesPerView: '1',
-			grabCursor: true,
-			// clickable: true, //zrx photoswipe
-			// Navigation arrows
-			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev',
-			},
-			allowTouchMove: true,
-			keyboard: {
-				enabled: false,
-			},
-			effect: 'slide',
-			breakpoints: {
-				640: {
-					slidesPerView: 'auto',
-				},
-				960: {
-					slidesPerView: 'auto',
-				},
-			},
-			onSlideChangeEnd:function(e){
-		    // sliderAbout1.update(true);
-			},
-
-		});
-
-
-		var sliderAbout2 = new Swiper('.slider-about-2', {
-			loop: true,
-			loopedSlides: 6,
-			slidesPerView: '1',
-			grabCursor: false,
-			// clickable: true, //zrx photoswipe
-			// Navigation arrows
-			navigation: {
-				nextEl: '.slider-about-2-next',
-				prevEl: '.slider-about-2-prev',
-			},
-			allowTouchMove: false,
-			keyboard: {
-				enabled: true,
-			},
-			effect: 'fade',
-			fadeEffect: {
-				crossFade: true
-			},
-			on: {
-				init: function() {
-					updateCurrentIndex(this);
-					document.querySelector('.slideshow__count-overall').innerHTML = document.querySelectorAll('.slider-about-2 .swiper-slide:not(.swiper-slide-duplicate)').length;
-				},
+			// update current slide number
+			sliderAbout2.on('slideChange', function () {
+				updateCurrentIndex(this);
+			});
+			function updateCurrentIndex(slider) {
+				document.querySelector('.slideshow__count-current').innerHTML = slider.realIndex + 1;
 			}
-		});
-		// update current slide number
-		sliderAbout2.on('slideChange', function () {
-			updateCurrentIndex(this);
-		});
-		function updateCurrentIndex(slider) {
-			document.querySelector('.slideshow__count-current').innerHTML = slider.realIndex + 1;
+			
+			// control each slider with another
+			sliderAbout3.controller.control = sliderAbout1;
+			sliderAbout3.controller.control = sliderAbout2;
+			sliderAbout1.controller.control = sliderAbout2;
+			sliderAbout2.controller.control = [sliderAbout3, sliderAbout1]; // i dont know how, but it works!
+
+			// sliderAbout2.controller.control = sliderAbout1;
+			function updateSlideWidth() {
+				let slideWidth = document.querySelector('.slider-about-1__item').offsetWidth;
+				// console.log(slideWidth);
+				// document.querySelectorAll('.slider-about-1__item').forEach( el => {
+				// 	el.style.width = slideWidth + 'px';
+				// 	// console.log(el);
+				// });
+				document.querySelector('.slider-about-3').style.width = slideWidth + 'px';
+				sliderAbout3.update();
+				sliderAbout1.update();
+				// console.log('updatewidth');
+				
+			}
+
+
+			updateSlideWidth();
+			window.addEventListener('resize', () => {
+				updateSlideWidth();
+			});
+
+		} else { // if ie
+
+			var sliderAbout1 = new Swiper('.slider-about-1', {
+				loop: true,
+				loopedSlides: 6,
+				slidesPerView: '1',
+				grabCursor: true,
+				// clickable: true, //zrx photoswipe
+				// Navigation arrows
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				},
+				allowTouchMove: true,
+				keyboard: {
+					enabled: true,
+				},
+				effect: 'fade',
+				fadeEffect: {
+					crossFade: true
+				},
+				breakpoints: {
+					640: {
+						slidesPerView: 'auto',
+					},
+					960: {
+						slidesPerView: 'auto',
+					},
+				},
+				onSlideChangeEnd:function(e){
+				// sliderAbout1.update(true);
+				},
+			});
+
+			var sliderAbout2 = new Swiper('.slider-about-2', {
+				loop: true,
+				loopedSlides: 6,
+				slidesPerView: '1',
+				grabCursor: false,
+				// clickable: true, //zrx photoswipe
+				// Navigation arrows
+				navigation: {
+					nextEl: '.slider-about-2-next',
+					prevEl: '.slider-about-2-prev',
+				},
+				allowTouchMove: false,
+				keyboard: {
+					enabled: true,
+				},
+				effect: 'fade',
+				fadeEffect: {
+					crossFade: true
+				},
+				on: {
+					init: function() {
+						updateCurrentIndex(this);
+						document.querySelector('.slideshow__count-overall').innerHTML = document.querySelectorAll('.slider-about-2 .swiper-slide:not(.swiper-slide-duplicate)').length;
+					},
+				}
+			});
+
+			
+			// update current slide number
+			sliderAbout2.on('slideChange', function () {
+				updateCurrentIndex(this);
+			});
+			function updateCurrentIndex(slider) {
+				document.querySelector('.slideshow__count-current').innerHTML = slider.realIndex + 1;
+			}
+			
+			// control each slider with another
+			// sliderAbout3.controller.control = sliderAbout1;
+			// sliderAbout3.controller.control = sliderAbout2;
+			sliderAbout1.controller.control = sliderAbout2;
+			sliderAbout2.controller.control = [sliderAbout3, sliderAbout1]; // i dont know how, but it works!
+
+		} // if isie
+
+		if (document.querySelector('.map')) {
+			mapHover();
 		}
 		
-		// control each slider with another
-		sliderAbout3.controller.control = sliderAbout1;
-		sliderAbout3.controller.control = sliderAbout2;
-		sliderAbout1.controller.control = sliderAbout2;
-		sliderAbout2.controller.control = [sliderAbout3, sliderAbout1]; // i dont know how, but it works!
-
-
-
-
-
-		// sliderAbout2.controller.control = sliderAbout1;
-		function updateSlideWidth() {
-			let slideWidth = document.querySelector('.slider-about-1__item').offsetWidth;
-			console.log(slideWidth);
-			document.querySelectorAll('.slider-about-1__item').forEach( el => {
-				el.style.width = slideWidth + 'px';
-				// console.log(el);
-			});
-			document.querySelector('.slider-about-3').style.width = slideWidth + 'px';
-			sliderAbout3.update();
-			sliderAbout1.update();
-			console.log('updatewidth');
-			
-		}
-		updateSlideWidth();
-		window.addEventListener('resize', () => {
-			updateSlideWidth();
-		});
 	} //page--about
 
 	if (document.querySelector('.page--production')) {
@@ -417,4 +584,21 @@ document.addEventListener('DOMContentLoaded', () => {
 	  })
 	  .catch(error => console.log('Failed to load Yandex Maps', error));
 	}
+
+	if (document.querySelector('.page--dealers')) {
+		var theHash = location.hash;
+		console.log(theHash);
+		
+    // add offset for any hash
+    if (theHash) {
+        window.scrollBy(0, -110);
+    }
+
+	}
+
+	// polyfill for ie
+	if (isIE()) {
+		objectFitImages();
+	}
+
 });

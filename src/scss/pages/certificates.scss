@@ -63,6 +63,7 @@
         box-sizing: border-box;
         opacity: 0;
         transition: opacity var(--transition);
+        pointer-events: none;
 
         &:before {
             content:'';
@@ -84,6 +85,9 @@
             height: 100%;
             object-fit: contain;
             opacity: 0.5;
+
+            @include object-fit-ie(contain);
+
         }
     }
 }

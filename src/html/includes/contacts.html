@@ -1,7 +1,7 @@
 <main class="page page--contacts">
 	
 	<div class="contacts uk-container">
-		<div class="breadcrumbs">
+		<div class="breadcrumbs contacts__breadcrumbs">
 			<ul class="breadcrumbs__list uk-breadcrumb">
 				<li class="breadcrumbs__item"><a href="" class="breadcrumb__link">Главная</a></li>
 				<li class="breadcrumbs__item"><a href="" class="breadcrumb__link">О предприятии</a></li>
@@ -12,7 +12,7 @@
 		<h1 class="contacts__title">Контакты предприятия</h1>
 		
 		<div class="contacts__map">
-			<div id="map" class="contacts__map-map">
+			<div id="map" class="contacts__map-map" data-longitude="56.349619" data-latitude="43.798270" data-coordinates='[56.349619, 43.798270]'>
 				
 			</div>
 			<div class="contacts__map-panel">
@@ -144,15 +144,13 @@
 							<label class="form__label" for="contacts-phone">Контактный телефон*</label>
 							<div class="form__controls">
 								<input name="contacts-phone" class="form__input form__input--phone" id="contacts-phone" type="text" placeholder="" required>
-								<div class="form__note">По этому телефону менеджер сможет связаться с вами
-								</div>
+								<div class="form__note">По этому телефону менеджер сможет связаться с вами</div>
 							</div>
 						</div>
 						<div class="form__row">
 							<label class="form__label" for="contacts-phone">Электронная почта*</label>
 							<div class="form__controls form__controls--invalid">
-								<input name="contacts-phone" class="form__input" id="contacts-phone" type="email" placeholder="" required>
-
+								<input name="contacts-phone" class="form__input" id="contacts-email" type="email" placeholder="" required>
 							</div>
 						</div>
 						<div class="form__row">

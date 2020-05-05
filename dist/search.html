@@ -64,13 +64,14 @@
                 name="search-form-input"
                 value=""
               />
+              <!-- <input type="submit" class="header__search-form-submit search__form-icon"  name="search-form-submit"  type="submit"/> -->
               <button
                 class="header__search-form-submit search__form-icon"
                 name="search-form-submit"
                 type="submit"
               ></button>
             </form>
-            <div class="header__search-results">
+            <div class="header__search-results header__search-results--hide">
               <ul class="search__dropdown">
                 <li class="search__dropdown-item">
                   <a href="product.html"
@@ -108,8 +109,8 @@
               <a href="#modal-callback" uk-toggle>Заказать звонок</a>
             </div>
           </div>
-          <div class="header__offcanvas uk-hidden@s">
-            <div class="header__offcanvas-search">
+          <div class="header__offcanvas uk-hidden@m">
+            <div class="header__offcanvas-search uk-hidden@s">
               <a
                 href="#burger"
                 class="header__offcanvas-search-link"
@@ -159,83 +160,81 @@
           </ul>
         </div>
 
-        <div class="uk-grid" uk-grid>
-          <div class="uk-width-3-4@m">
-            <h1 class="search__title">Результаты поиска</h1>
+        <div class="uk-width-3-4@m">
+          <h1 class="search__title">Результаты поиска</h1>
 
-            <div class="search__box">
-              <form action="" class="search__form search__form--box">
-                <input
-                  class="search__form-input uk-input"
-                  placeholder="Поиск по наименованию и артикулу продукции"
-                  type="search"
-                  name="search-form-input"
-                  value=""
-                />
-                <div class="search__form-icon" uk-icon="search"></div>
-                <button class="search__form-button button" type="submit">
-                  Искать
-                </button>
-              </form>
-            </div>
+          <div class="search__box">
+            <form action="" class="search__form search__form--box">
+              <input
+                class="search__form-input uk-input"
+                placeholder="Поиск по наименованию и артикулу продукции"
+                type="search"
+                name="search-form-input"
+                value=""
+              />
+              <div class="search__form-icon"></div>
+              <button class="search__form-button button" type="submit">
+                Искать
+              </button>
+            </form>
+          </div>
 
-            <div class="search__results ">
-              <h2 class="search__results-title">
-                В каталоге найдено 189 товаров
-              </h2>
+          <div class="search__results ">
+            <h2 class="search__results-title">
+              В каталоге найдено 189 товаров
+            </h2>
 
-              <ul class="search__results-list">
-                <li class="section__item">
-                  <div class="section__item-props">
-                    <div class="section__item-type">Чертеж</div>
-                    <div class="section__item-id">17670-00-00</div>
-                    <div class="section__item-skmtr">СКМТР: 3185641995</div>
-                  </div>
-                  <div class="section__item-name">
-                    <a href=""
-                      >Светофор двузначный со светодиодными светооптическими
-                      системами 17670-00-00 ТУ32 ЦШ 2141-2009 (со светодиодными
-                      светооптическими системами НКМР.676636.030ТУ)</a
-                    >
-                  </div>
-                  <div class="section__item-image">
-                    <img src="assets/section-item-01.jpg" alt="" />
-                  </div>
-                </li>
-                <li class="section__item">
-                  <div class="section__item-props">
-                    <div class="section__item-type">Чертеж</div>
-                    <div class="section__item-id">17670-00-00</div>
-                    <div class="section__item-skmtr">СКМТР: 3185641995</div>
-                  </div>
-                  <div class="section__item-name">
-                    <a href=""
-                      >Светофор двузначный со светодиодными светооптическими
-                      системами 17670-00-00 ТУ32 ЦШ 2141-2009 (со светодиодными
-                      светооптическими системами НКМР.676636.030ТУ)</a
-                    >
-                  </div>
-                  <div class="section__item-image">
-                    <img src="assets/section-item-01.jpg" alt="" />
-                  </div>
+            <ul class="search__results-list">
+              <li class="section__item">
+                <div class="section__item-props">
+                  <div class="section__item-type">Чертеж</div>
+                  <div class="section__item-id">17670-00-00</div>
+                  <div class="section__item-skmtr">СКМТР: 3185641995</div>
+                </div>
+                <div class="section__item-name">
+                  <a href=""
+                    >Светофор двузначный со светодиодными светооптическими
+                    системами 17670-00-00 ТУ32 ЦШ 2141-2009 (со светодиодными
+                    светооптическими системами НКМР.676636.030ТУ)</a
+                  >
+                </div>
+                <div class="section__item-image">
+                  <img src="assets/section-item-01.jpg" alt="" />
+                </div>
+              </li>
+              <li class="section__item">
+                <div class="section__item-props">
+                  <div class="section__item-type">Чертеж</div>
+                  <div class="section__item-id">17670-00-00</div>
+                  <div class="section__item-skmtr">СКМТР: 3185641995</div>
+                </div>
+                <div class="section__item-name">
+                  <a href=""
+                    >Светофор двузначный со светодиодными светооптическими
+                    системами 17670-00-00 ТУ32 ЦШ 2141-2009 (со светодиодными
+                    светооптическими системами НКМР.676636.030ТУ)</a
+                  >
+                </div>
+                <div class="section__item-image">
+                  <img src="assets/section-item-01.jpg" alt="" />
+                </div>
+              </li>
+            </ul>
+
+            <a href="" class="button--show-more">Показать еще</a>
+
+            <div class="section__items-pagination uk-visible@s">
+              <ul class="uk-pagination">
+                <li class="uk-active"><span>1</span></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li class="uk-disabled"><span>...</span></li>
+                <li><a href="#">9</a></li>
+                <li>
+                  <a href="#"><span>Вперед</span></a>
                 </li>
               </ul>
-
-              <a href="" class="button--show-more">Показать еще</a>
-
-              <div class="section__items-pagination uk-visible@s">
-                <ul class="uk-pagination">
-                  <li class="uk-active"><span>1</span></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li class="uk-disabled"><span>...</span></li>
-                  <li><a href="#">9</a></li>
-                  <li>
-                    <a href="#"><span>Вперед</span></a>
-                  </li>
-                </ul>
-              </div>
             </div>
           </div>
         </div>
@@ -391,7 +390,9 @@
           <li class="uk-active">
             <a class="burger__nav-link uk-h3" href="#">Главная</a>
           </li>
-          <li class=""><a class="burger__nav-link" href="#">Продукция</a></li>
+          <li class="">
+            <a class="burger__nav-link" href="/catalog/">Продукция</a>
+          </li>
           <li class="uk-parent">
             <a class="burger__nav-link" href="#">О предприятии</a>
             <ul class="burger__nav-sub">
@@ -577,6 +578,135 @@
             </div>
           </div>
         </form>
+      </div>
+    </div>
+
+    <!-- This is filter mobile block -->
+    <div
+      id="filter-menu"
+      class="burger burger_filter"
+      uk-offcanvas="flip: true, overlay: true"
+    >
+      <div class="burger__bar uk-offcanvas-bar">
+        <a
+          href="#"
+          class="burger__offcanvas-toggle-link header__offcanvas-toggle-link active uk-offcanvas-close"
+          ><span></span
+        ></a>
+
+        <div class="burger__title">ФИЛЬТР</div>
+
+        <div class="burger__filter filter">
+          <div class="smartfilter">
+            <ul class="filter__items" uk-accordion="multiple: true">
+              <li class="filter__item uk-open uk-fieldset">
+                <a class="filter__name uk-accordion-title" href="#"
+                  >Количество сигналов</a
+                >
+                <div class="filter__params uk-accordion-content">
+                  <div class="filter__param-row">
+                    <label class="filter__param"
+                      ><input class="uk-checkbox" type="checkbox" />
+                      <span>Однозначные</span></label
+                    >
+                  </div>
+                  <div class="filter__param-row">
+                    <label class="filter__param"
+                      ><input class="uk-checkbox" type="checkbox" /><span
+                        >Двухзначные</span
+                      ></label
+                    >
+                  </div>
+                  <div class="filter__param-row">
+                    <label class="filter__param"
+                      ><input class="uk-checkbox" type="checkbox" /><span
+                        >Трехзначные</span
+                      ></label
+                    >
+                  </div>
+                  <div class="filter__param-row">
+                    <label class="filter__param"
+                      ><input class="uk-checkbox" type="checkbox" /><span
+                        >Занимающие больше одной строки</span
+                      ></label
+                    >
+                  </div>
+                </div>
+              </li>
+              <li class="filter__item ">
+                <a class="filter__name uk-accordion-title" href="#"
+                  >Маршрутые указатели</a
+                >
+                <div class="filter__params uk-accordion-content">
+                  <div class="filter__param-row">
+                    <label class="filter__param"
+                      ><input class="uk-checkbox" type="checkbox" />
+                      <span>Однозначные</span></label
+                    >
+                  </div>
+                  <div class="filter__param-row">
+                    <label class="filter__param"
+                      ><input class="uk-checkbox" type="checkbox" /><span
+                        >Двухзначные</span
+                      ></label
+                    >
+                  </div>
+                  <div class="filter__param-row">
+                    <label class="filter__param"
+                      ><input class="uk-checkbox" type="checkbox" /><span
+                        >Трехзначные</span
+                      ></label
+                    >
+                  </div>
+                  <div class="filter__param-row">
+                    <label class="filter__param"
+                      ><input class="uk-checkbox" type="checkbox" /><span
+                        >Занимающие больше одной строки</span
+                      ></label
+                    >
+                  </div>
+                </div>
+              </li>
+              <li class="filter__item">
+                <a class="filter__name uk-accordion-title" href="#"
+                  >Доп параметры</a
+                >
+                <div class="filter__params uk-accordion-content">
+                  <div class="filter__param-row">
+                    <label class="filter__param"
+                      ><input class="uk-checkbox" type="checkbox" />
+                      <span>Однозначные</span></label
+                    >
+                  </div>
+                  <div class="filter__param-row">
+                    <label class="filter__param"
+                      ><input class="uk-checkbox" type="checkbox" /><span
+                        >Двухзначные</span
+                      ></label
+                    >
+                  </div>
+                  <div class="filter__param-row">
+                    <label class="filter__param"
+                      ><input class="uk-checkbox" type="checkbox" /><span
+                        >Трехзначные</span
+                      ></label
+                    >
+                  </div>
+                  <div class="filter__param-row">
+                    <label class="filter__param"
+                      ><input class="uk-checkbox" type="checkbox" /><span
+                        >Занимающие больше одной строки</span
+                      ></label
+                    >
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div class="filter__row filter__apply burger__filter-row">
+              <a href="" class="button">Подобрать продукцию</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 

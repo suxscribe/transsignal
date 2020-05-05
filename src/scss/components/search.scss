@@ -2,6 +2,7 @@
 	// margin-bottom: var(--margin-3);
 
 	&__title {
+		// margin-top: 45px;
 		margin-bottom: calc(var(--margin-2) - 0.429rem);
 
         @media (min-width: $breakpoint-small) {
@@ -19,6 +20,7 @@
 			border: 1px solid var(--color-border);
 			border-radius: var(--radius);
 			height: 48px;
+			// font-size: 18px;
 
 			&:focus + .search__form-icon {
 				color: var(--color-accent);
@@ -92,6 +94,7 @@
 	}
 
 	&__box {
+		// margin: var(--margin-2) 0;
 
 		@media (min-width: $breakpoint-small) {
 			box-shadow: var(--box-shadow);
@@ -101,6 +104,7 @@
 	}
 
 	&__results {
+		// margin-bottom: var(--margin-3);
 
 		&-list {
 			padding: 0;
@@ -119,6 +123,11 @@
 			&:hover, &:focus {
 				border-bottom-color: var(--color-accent-light);
 			}
+
+			& b {
+				color: var(--color-accent);
+				font-weight: 400;
+			}
 		}
 
 		&-item {
@@ -135,4 +144,8 @@
 		color: var(--color-accent);
 	}
 
+}
+
+.title-search-result { //bitrix style 
+	z-index: 1000;
 }

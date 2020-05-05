@@ -1,0 +1,151 @@
+.search {
+	// margin-bottom: var(--margin-3);
+
+	&__title {
+		margin-top: 45px;
+		margin-bottom: calc(var(--margin-2) - 0.429rem);
+
+        @media (min-width: $breakpoint-small) {
+            margin-bottom: 2.714rem;
+        }
+	}
+
+	&__form {
+		position: relative;
+
+		&-input {
+			line-height: var(--margin-2);
+			padding-left: var(--gutter-large);
+			width: 100%;
+			border: 1px solid var(--color-border);
+			border-radius: var(--radius);
+			height: 56px;
+			font-size: 18px;
+
+			&:focus + .search__form-icon {
+				color: var(--color-accent);
+			}
+
+			@media (min-width: $breakpoint-small) {
+				padding-left: var(--margin-2);
+
+			}
+		}
+
+		&-icon {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: var(--gutter-large);
+			
+			height: 100%;
+
+			background: none;
+			border:none;
+			padding: 0;
+
+			transition: color var(--transition);
+
+			@media (min-width: $breakpoint-small) {
+				width: var(--margin-2);
+			}
+
+			&:before {
+				font-family: icomoon;
+				content: "\e904";
+				font-size: 16px;
+			}
+		}
+
+		&--box {
+			display:flex;
+			position: relative;
+
+
+			& .search__form-input {
+				height: 56px;
+				padding-left: 46px;
+				
+				font-size: 1.286rem;
+				flex: 1 1 auto;
+
+				@media (min-width: $breakpoint-small) {
+					margin-right: var(--margin);	
+				}
+			}
+
+			& .search__form-button {
+				display: none;
+
+				@media (min-width: $breakpoint-small) {
+					flex: 0 0 auto;
+					width: 160px;
+					display: block;
+				}
+			}
+
+			& .search__form-icon {
+				text-align: center;
+				line-height: 56px;
+				width: 50px;
+			}
+
+		}
+	}
+
+	&__box {
+		margin: var(--margin-2) 0;
+
+		@media (min-width: $breakpoint-small) {
+			box-shadow: var(--box-shadow);
+			padding: calc(var(--margin) * 1.333) calc(var(--margin) * 1.333) calc(var(--margin) * 1.333) var(--margin-15) ;
+		}
+
+	}
+
+	&__results {
+		margin-bottom: var(--margin-3);
+
+		&-list {
+			padding: 0;
+		}
+	}
+
+	&__dropdown {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+
+		& a {
+			color: var(--color-black);
+			border-bottom: 1px solid transparent;
+
+			&:hover, &:focus {
+				border-bottom-color: var(--color-accent-light);
+			}
+
+			& b {
+				color: var(--color-accent);
+				font-weight: 400;
+			}
+		}
+
+		&-item {
+			margin-bottom: 16px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+	}
+
+	&__match {
+		color: var(--color-accent);
+	}
+
+}
+
+.title-search-result { //bitrix style 
+	z-index: 1000;
+}

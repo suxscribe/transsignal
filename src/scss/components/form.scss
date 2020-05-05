@@ -37,6 +37,7 @@
 		margin-bottom: 6px;
 		flex: 0 0 auto;
 
+
 		@media (min-width: $breakpoint-small) {
 			flex: 0 0 172px;
 			font-size: var(--text-large);
@@ -64,6 +65,7 @@
 		border: 1px solid #cbcbcb;
 		border-radius: 2px;
 		box-sizing: border-box;
+		box-shadow: none;
 
 		transition: 0.2s ease-in-out;
 		transition-property: all;
@@ -178,14 +180,15 @@
             margin-left: var(--gutter-small);
             font-size: 12px;
             position: absolute;
-            top:0;
+						top:0;
+						pointer-events: none;
 
             opacity: 0;
             visibility: hidden;
         }
 
-        & .form__input:placeholder-shown + .form__label,
-        & .form__textarea:placeholder-shown + .form__label {
+        & .form__input:placeholder-shown ~ .form__label,
+        & .form__textarea:placeholder-shown ~ .form__label {
             opacity: 1;
             visibility: visible;
             font-size: var(--text-large);
@@ -194,4 +197,8 @@
     }
 }
 
-
+.form-table { //bitrix
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}

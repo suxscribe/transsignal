@@ -64,13 +64,14 @@
                 name="search-form-input"
                 value=""
               />
+              <!-- <input type="submit" class="header__search-form-submit search__form-icon"  name="search-form-submit"  type="submit"/> -->
               <button
                 class="header__search-form-submit search__form-icon"
                 name="search-form-submit"
                 type="submit"
               ></button>
             </form>
-            <div class="header__search-results">
+            <div class="header__search-results header__search-results--hide">
               <ul class="search__dropdown">
                 <li class="search__dropdown-item">
                   <a href="product.html"
@@ -108,8 +109,8 @@
               <a href="#modal-callback" uk-toggle>Заказать звонок</a>
             </div>
           </div>
-          <div class="header__offcanvas uk-hidden@s">
-            <div class="header__offcanvas-search">
+          <div class="header__offcanvas uk-hidden@m">
+            <div class="header__offcanvas-search uk-hidden@s">
               <a
                 href="#burger"
                 class="header__offcanvas-search-link"
@@ -151,7 +152,7 @@
     <main class="page page--catalog">
       <div class="catalog__header ">
         <div class="catalog__background">
-          <img src="assets/catalog-bg.jpg" alt="" />
+          <img src="assets/catalog-bg.jpg" alt="" uk-parallax="y: -100, 100" />
         </div>
 
         <div class="catalog__header-content uk-container">
@@ -184,10 +185,23 @@
           uk-grid
         >
           <li>
+            <a href="" class="section_teaser">
+              <div class="section_teaser__image">
+                <div class="section_teaser__image-link" href="">
+                  <img src="assets/section_teaser-image-01.png" alt="" />
+                </div>
+                <div class="section_teaser__total">28 позиций</div>
+              </div>
+              <div href="" class="section_teaser__name">
+                Светофоры мачтовые cветодиодные
+              </div>
+            </a>
+          </li>
+          <li>
             <div class="section_teaser">
               <div class="section_teaser__image">
                 <a class="section_teaser__image-link" href=""
-                  ><img src="assets/section_teaser-image-01.jpg" alt=""
+                  ><img src="assets/section_teaser-image-01.png" alt=""
                 /></a>
                 <div class="section_teaser__total">28 позиций</div>
               </div>
@@ -200,7 +214,7 @@
             <div class="section_teaser">
               <div class="section_teaser__image">
                 <a class="section_teaser__image-link" href=""
-                  ><img src="assets/section_teaser-image-01.jpg" alt=""
+                  ><img src="assets/section_teaser-image-01.png" alt=""
                 /></a>
                 <div class="section_teaser__total">28 позиций</div>
               </div>
@@ -213,7 +227,7 @@
             <div class="section_teaser">
               <div class="section_teaser__image">
                 <a class="section_teaser__image-link" href=""
-                  ><img src="assets/section_teaser-image-01.jpg" alt=""
+                  ><img src="assets/section_teaser-image-01.png" alt=""
                 /></a>
                 <div class="section_teaser__total">28 позиций</div>
               </div>
@@ -226,7 +240,7 @@
             <div class="section_teaser">
               <div class="section_teaser__image">
                 <a class="section_teaser__image-link" href=""
-                  ><img src="assets/section_teaser-image-01.jpg" alt=""
+                  ><img src="assets/section_teaser-image-01.png" alt=""
                 /></a>
                 <div class="section_teaser__total">28 позиций</div>
               </div>
@@ -239,20 +253,7 @@
             <div class="section_teaser">
               <div class="section_teaser__image">
                 <a class="section_teaser__image-link" href=""
-                  ><img src="assets/section_teaser-image-01.jpg" alt=""
-                /></a>
-                <div class="section_teaser__total">28 позиций</div>
-              </div>
-              <a href="" class="section_teaser__name"
-                >Светофоры мачтовые cветодиодные</a
-              >
-            </div>
-          </li>
-          <li>
-            <div class="section_teaser">
-              <div class="section_teaser__image">
-                <a class="section_teaser__image-link" href=""
-                  ><img src="assets/section_teaser-image-01.jpg" alt=""
+                  ><img src="assets/section_teaser-image-01.png" alt=""
                 /></a>
                 <div class="section_teaser__total">28 позиций</div>
               </div>
@@ -279,11 +280,16 @@
                 >
               </div>
               <div>
-                <a class="contact-block__link" href="">Заказать звонок</a>
+                <a class="contact-block__link" href="#modal-callback" uk-toggle
+                  >Заказать звонок</a
+                >
               </div>
             </div>
             <div class="contact-block__send">
-              <a href="" class="button contact-block__button"
+              <a
+                href="#modal-request"
+                class="button contact-block__button"
+                uk-toggle
                 >Отправить заявку</a
               >
             </div>
@@ -441,7 +447,9 @@
           <li class="uk-active">
             <a class="burger__nav-link uk-h3" href="#">Главная</a>
           </li>
-          <li class=""><a class="burger__nav-link" href="#">Продукция</a></li>
+          <li class="">
+            <a class="burger__nav-link" href="/catalog/">Продукция</a>
+          </li>
           <li class="uk-parent">
             <a class="burger__nav-link" href="#">О предприятии</a>
             <ul class="burger__nav-sub">
@@ -627,6 +635,135 @@
             </div>
           </div>
         </form>
+      </div>
+    </div>
+
+    <!-- This is filter mobile block -->
+    <div
+      id="filter-menu"
+      class="burger burger_filter"
+      uk-offcanvas="flip: true, overlay: true"
+    >
+      <div class="burger__bar uk-offcanvas-bar">
+        <a
+          href="#"
+          class="burger__offcanvas-toggle-link header__offcanvas-toggle-link active uk-offcanvas-close"
+          ><span></span
+        ></a>
+
+        <div class="burger__title">ФИЛЬТР</div>
+
+        <div class="burger__filter filter">
+          <div class="smartfilter">
+            <ul class="filter__items" uk-accordion="multiple: true">
+              <li class="filter__item uk-open uk-fieldset">
+                <a class="filter__name uk-accordion-title" href="#"
+                  >Количество сигналов</a
+                >
+                <div class="filter__params uk-accordion-content">
+                  <div class="filter__param-row">
+                    <label class="filter__param"
+                      ><input class="uk-checkbox" type="checkbox" />
+                      <span>Однозначные</span></label
+                    >
+                  </div>
+                  <div class="filter__param-row">
+                    <label class="filter__param"
+                      ><input class="uk-checkbox" type="checkbox" /><span
+                        >Двухзначные</span
+                      ></label
+                    >
+                  </div>
+                  <div class="filter__param-row">
+                    <label class="filter__param"
+                      ><input class="uk-checkbox" type="checkbox" /><span
+                        >Трехзначные</span
+                      ></label
+                    >
+                  </div>
+                  <div class="filter__param-row">
+                    <label class="filter__param"
+                      ><input class="uk-checkbox" type="checkbox" /><span
+                        >Занимающие больше одной строки</span
+                      ></label
+                    >
+                  </div>
+                </div>
+              </li>
+              <li class="filter__item ">
+                <a class="filter__name uk-accordion-title" href="#"
+                  >Маршрутые указатели</a
+                >
+                <div class="filter__params uk-accordion-content">
+                  <div class="filter__param-row">
+                    <label class="filter__param"
+                      ><input class="uk-checkbox" type="checkbox" />
+                      <span>Однозначные</span></label
+                    >
+                  </div>
+                  <div class="filter__param-row">
+                    <label class="filter__param"
+                      ><input class="uk-checkbox" type="checkbox" /><span
+                        >Двухзначные</span
+                      ></label
+                    >
+                  </div>
+                  <div class="filter__param-row">
+                    <label class="filter__param"
+                      ><input class="uk-checkbox" type="checkbox" /><span
+                        >Трехзначные</span
+                      ></label
+                    >
+                  </div>
+                  <div class="filter__param-row">
+                    <label class="filter__param"
+                      ><input class="uk-checkbox" type="checkbox" /><span
+                        >Занимающие больше одной строки</span
+                      ></label
+                    >
+                  </div>
+                </div>
+              </li>
+              <li class="filter__item">
+                <a class="filter__name uk-accordion-title" href="#"
+                  >Доп параметры</a
+                >
+                <div class="filter__params uk-accordion-content">
+                  <div class="filter__param-row">
+                    <label class="filter__param"
+                      ><input class="uk-checkbox" type="checkbox" />
+                      <span>Однозначные</span></label
+                    >
+                  </div>
+                  <div class="filter__param-row">
+                    <label class="filter__param"
+                      ><input class="uk-checkbox" type="checkbox" /><span
+                        >Двухзначные</span
+                      ></label
+                    >
+                  </div>
+                  <div class="filter__param-row">
+                    <label class="filter__param"
+                      ><input class="uk-checkbox" type="checkbox" /><span
+                        >Трехзначные</span
+                      ></label
+                    >
+                  </div>
+                  <div class="filter__param-row">
+                    <label class="filter__param"
+                      ><input class="uk-checkbox" type="checkbox" /><span
+                        >Занимающие больше одной строки</span
+                      ></label
+                    >
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div class="filter__row filter__apply burger__filter-row">
+              <a href="" class="button">Подобрать продукцию</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 

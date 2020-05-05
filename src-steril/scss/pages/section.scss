@@ -18,6 +18,7 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
+			@include object-fit-ie(cover);
 		}
 	}
 
@@ -28,12 +29,23 @@
 	}
 
 	&__header-info {
-		padding-bottom: calc(var(--margin-2) - 6px);
+		// padding-bottom: calc(var(--margin-2) - 6px);
 	}
 
 	&__title {
-		margin-bottom: 1.786rem;
+		margin-top: 67px;
+		margin-bottom: 15px;
 
+		@media (min-width: $breakpoint-small) {
+			margin-top: 45px;
+			margin-bottom: 28px;
+	
+		}
+		@media (min-width: $breakpoint-medium) {
+			margin-top: 29px;
+			margin-bottom: 1.786rem;
+
+		}
 	}
 
 	&__description {
@@ -43,6 +55,10 @@
 		margin-bottom: 4.426rem;
 
 		@media (min-width: $breakpoint-small) {
+			font-size: 16px;
+			line-height: 24px;
+		}
+		@media (min-width: $breakpoint-medium) {
 			font-size: 18px;
 			line-height: 2rem;
 		}
@@ -51,9 +67,9 @@
 	&__files {
 		margin-bottom: var(--margin-2);
 
-		&:last-child {
-			margin-bottom: 0;
-		}
+		// &:last-child {
+		// 	margin-bottom: 0;
+		// }
 	}
 
 
@@ -75,6 +91,7 @@
 			width: 100%;
 			object-fit: contain;
 			object-position:bottom;
+			@include object-fit-ie(contain,bottom);
 		}
 	}
 
@@ -133,6 +150,16 @@
 				}
 			}
 		}
+
+		& > * + .uk-grid-margin {
+
+			@media (min-width: $breakpoint-small) {
+				margin-top: 24px;
+			}
+			@media (min-width: $breakpoint-medium) {
+				margin-top: 28px;
+			}
+		}
 		
 	}
 
@@ -148,11 +175,12 @@
 
 		@media (min-width: $breakpoint-small) {
 			flex-direction: row;
-			padding: 40px 24px 22px;
+			padding: 40px 24px 10px;
 		}
 		@media (min-width: $breakpoint-medium) {
 			flex-direction: column;
-		
+			padding-bottom: 46px;
+
 		}
 
 		&:hover,
@@ -215,7 +243,7 @@
 				flex: 0 0 30%;
 				margin-bottom: 0;
 				height: 196px;
-				margin-top: -18px;
+				margin-top: -26px;
 			}
 
 			@media (min-width: $breakpoint-medium) {
@@ -230,6 +258,7 @@
 				height: 100%;
 				object-fit: contain;
 				object-position: center;
+				@include object-fit-ie(contain,center);
 
 				@media (min-width: $breakpoint-small) {
 				}

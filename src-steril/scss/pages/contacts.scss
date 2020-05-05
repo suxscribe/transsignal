@@ -11,7 +11,8 @@
         margin-bottom: calc(var(--margin-2) - 0.429rem);
 
         @media (min-width: $breakpoint-small) {
-            margin-bottom: 2.714rem;
+            margin-bottom: 62px;
+            margin-top: 29px;
         }
     }
 
@@ -20,7 +21,7 @@
         padding: var(--margin-3) 0 calc(var(--margin) * 14.125) 0;
 
         @media (min-width: $breakpoint-small) {
-            padding: var(--margin-3) 0;
+            padding: 0;
         }
 
         &-map {
@@ -80,7 +81,7 @@
             @media (min-width: $breakpoint-medium) {
             flex: 0 0 360px;
                 font-size: var(--text-large);
-                padding: 3.071rem 3.429rem;
+                padding: 38px 40px;
             
             }
         }
@@ -90,7 +91,7 @@
         margin-bottom: calc(var(--margin) * 1.25);
 
         @media (min-width: $breakpoint-small) {
-            margin-bottom: 1.071rem;
+            margin-bottom: 17px;
         
         }
 
@@ -98,9 +99,11 @@
             margin-bottom: 0;
         }
     }
+
     &__type {
         font-weight: 700;
     }
+    
     &__value {
 
         & p {
@@ -116,6 +119,8 @@
     }
     &__schedule {
         color: var(--color-muted);
+        font-size: 14px;
+        line-height: 18px;
     }
 
     &__content {

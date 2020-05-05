@@ -18,6 +18,7 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
+			@include object-fit-ie(cover);
 		}
 	}
 
@@ -32,6 +33,7 @@
 	}
 
 	&__title {
+		margin-top: 45px;
 		margin-bottom: 1.786rem;
 
 	}
@@ -66,7 +68,10 @@
 	&__image {
 
     position: absolute;
-    height: 100%;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;	
     overflow: hidden;
 
 		& img {
@@ -75,6 +80,7 @@
 			width: 100%;
 			object-fit: contain;
 			object-position:bottom;
+			@include object-fit-ie(contain,bottom);
 		}
 	}
 
@@ -297,6 +303,7 @@
 				object-fit: contain;
 				object-position: bottom right;
 				max-height: 133px;
+				@include object-fit-ie(contain,bottom right);
 
 				@media (min-width: $breakpoint-small) {
 					max-height: 160px;
@@ -360,6 +367,7 @@
 .filter {
 
 	&__items {
+		margin-top: 0;
 		margin-bottom: 2px;
 
 		@media (min-width: $breakpoint-medium) {
@@ -371,6 +379,7 @@
 
 	&__item {
 		background: var(--color-light);
+		position: relative;
 	}
 
 	&__name {
@@ -427,16 +436,65 @@
 				border:none;
 			}
 		}
+
+		&-count {
+			color: var(--color-muted);
+			font-size: var(--text-small);
+		}
 	}
 
 	&__apply {
 		margin-bottom: 18px;
+
+		& input {
+			width: 100%;
+		}
+	}
+
+	&__reset {
+
+		&-button {
+			font-family: $global-font-family;
+			font-size: var(--font-size);
+			color: var(--color-accent);
+			cursor: pointer;
+			background: none;
+			border:none;
+			border-radius: 0;
+			padding: 0;
+			transition: all var(--transition);
+
+			&:hover {
+				color: var(--color-accent-light);
+			}
+		}
 	}
 
 	&__row {
-		background: var(--color-light);
-		padding: var(--gutter-medium) var(--gutter-large);
+		// padding: var(--gutter-medium) var(--gutter-large);
 	}
 
 
+}
+
+.bx-filter-popup-result {
+	position: absolute;
+	right: 100%;
+	top: 20px;
+	width: 140px;
+	background: var(--color-white);
+	padding: 10px 20px;
+	box-shadow: var(--box-shadow);
+}
+.bx-filter-popup-result:after {
+	content: '';
+	display: block;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background: var(--color-white);
+	left: calc(100% - 15px);
+	top: 0px;
+	transform: rotate(45deg);
+	top: calc(50% - 20px);
 }

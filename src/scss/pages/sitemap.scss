@@ -1,15 +1,41 @@
 .sitemap {
     margin-bottom: var(--margin-3);
 
-    &__section-list {
+    &__section {
         
-        // columns: 2;
+        &-title {
 
+            & a {
+                color: var(--color-black);
+
+                &:hover, &:focus {
+                    color: var(--color-accent);
+                }
+            }
+        }
+        // columns: 2;
+        &-list {
+
+            & > div {
+                overflow: auto; // fix collapsed margin issue
+            }
+        }
     }
 
     &__subsection {
         page-break-inside: avoid;
         break-inside: avoid;
+
+        &-title {
+            
+            & a {
+                color: var(--color-black);
+
+                &:hover, &:focus {
+                    color: var(--color-accent);
+                }
+            }
+        }
     }
 
     &__subsection-list {

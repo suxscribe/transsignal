@@ -1,5 +1,5 @@
 .not-found {
-
+    margin-bottom: var(--margin-3);
     &__content {
 
         @media (min-width: $breakpoint-small) {
@@ -18,6 +18,13 @@
             width: auto;
             object-fit: cover;
             object-position: left;
+
+            @include object-fit-ie(cover,left);
+
         }
+    }
+
+    &__banners {
+        
     }
 }

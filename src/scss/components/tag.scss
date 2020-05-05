@@ -38,7 +38,8 @@
             
         }
         
-        &--active a {
+        &--active a,
+        &.uk-active a {
             background-color: var(--color-light);
             border-color: var(--color-light);
             line-height: 2.268rem;

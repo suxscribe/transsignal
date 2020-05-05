@@ -10,11 +10,12 @@ $slider-about-gap: 200px; //gap between active and next slide
     }
 
     &__breadcrumbs {
-        top:32px;
+        // top:32px;
+        margin-top: 27px;
     }
 
     &__sidebar {
-        margin-top: 104px;
+        margin-top: 128px;
         width: 25%;
         box-sizing: border-box;
     }
@@ -72,6 +73,7 @@ $slider-about-gap: 200px; //gap between active and next slide
     }
 
     &__title {
+        margin-top: 54px;
 
         &--mb2 {
             margin-bottom: var(--margin-2);
@@ -272,6 +274,17 @@ $slider-about-gap: 200px; //gap between active and next slide
                 margin-top: 4px;
 
             }
+
+            &--noshift {
+                height: auto;
+
+                & img {
+                    position: static ;
+                    max-width: 100% ;
+                    width: 100%;
+                }
+            }
+
         }
 
         &-tabs {
@@ -294,6 +307,10 @@ $slider-about-gap: 200px; //gap between active and next slide
             & > li {
                 padding-left: var(--margin-m);
                 margin-right: 0;
+
+                &:before {
+                    display: none;
+                }
 
                 &:last-child {
                     padding-right: var(--margin-m);
@@ -325,6 +342,16 @@ $slider-about-gap: 200px; //gap between active and next slide
 
                 &.uk-active a {
                     border-bottom: 2px solid var(--color-black);
+                }
+            }
+        }
+
+        &-items {
+
+            & > li {
+
+                &:before {
+                    display: none;
                 }
             }
         }
@@ -480,6 +507,10 @@ $slider-about-gap: 200px; //gap between active and next slide
         }
     }
 
+    .page--about & {
+        margin-bottom: 0;
+    }
+
 }
 
 
@@ -500,6 +531,11 @@ $slider-about-gap: 200px; //gap between active and next slide
 
         @media (min-width: $breakpoint-medium) {
             overflow: visible;
+        }
+
+        @media all and (-ms-high-contrast:none)
+        {
+            overflow:hidden;
         }
 
         &__wrapper {
@@ -524,13 +560,23 @@ $slider-about-gap: 200px; //gap between active and next slide
 
             }
             @media (min-width: $breakpoint-medium) {
-                padding-right: var(--gutter);
+                padding-right: var(--gutter-medium); //ie fix. was --gutter
+            }
+            @media (min-width: $breakpoint-large) {
+                padding-right: var(--gutter-large); //ie fix. was --gutter
+            }
+
+            @media all and (-ms-high-contrast:none) {
+                padding-right: 0; 
             }
 
             & img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
+
+                @include object-fit-ie(cover,center);
+
 
             }
 
@@ -564,6 +610,10 @@ $slider-about-gap: 200px; //gap between active and next slide
             display: block;
         }
 
+        @media all and (-ms-high-contrast:none) { //hide on ie totally
+            display: none; 
+        }
+
         &__wrapper {
                 left: -100%;
 
@@ -594,6 +644,7 @@ $slider-about-gap: 200px; //gap between active and next slide
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
+                @include object-fit-ie(cover,center);
 
             }
 

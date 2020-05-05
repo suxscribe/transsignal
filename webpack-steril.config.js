@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CopyWebpackPlugin= require('copy-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
 function generateHtmlPlugins(templateDir) {
   const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
@@ -26,6 +27,9 @@ const htmlPlugins = generateHtmlPlugins("./src-steril/html/views");
 
 const config = {
   entry: ["./src-steril/js/index.js", "./src-steril/scss/steril.scss"],
+  node: {
+    fs: "empty"
+  },
   output: {
     path: __dirname + "/dist-steril",
     filename: "./js/bundle.js"
@@ -42,7 +46,12 @@ const config = {
   // },
   module: {
     rules: [
-      
+      { 
+        test: /\.js$/, 
+        exclude: [/node_modules[\/\\](?!(swiper|dom7|ssr-window)[\/\\])/], 
+        loader: "babel-loader" 
+      },
+
       {
         test: /\.(sass|scss)$/,
         include: path.resolve(__dirname, "src-steril/scss"),
@@ -65,6 +74,9 @@ const config = {
               ident: "postcss",
               sourceMap: true,
               plugins: () => [
+                autoprefixer(
+                  { grid: true }
+                ),
                 require("cssnano")({
                   preset: [
                     "default",

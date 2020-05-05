@@ -1,0 +1,17 @@
+@mixin link-text-decoration {
+	text-decoration-color: rgba($global-primary-background, 0.0);
+	text-underline-offset: 4px;
+	transition: all var(--transition);
+
+	&:hover,
+	&:focus {
+		color:var(--color-accent);
+		text-decoration: underline;
+		text-decoration-color: rgba($global-primary-background, 0.2);
+	}
+}
+
+
+@mixin object-fit-ie($fit,$position : center) {
+	font-family: 'object-fit: #{$fit}, object-position: #{$position}';
+}

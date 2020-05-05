@@ -9,12 +9,16 @@
 	&__container {
         display: flex;
         width: 100%;
-        justify-content: flex-start;
+        justify-content: space-between;
 		height: $header-height-s;
 		align-items: center;
 		
 		@media (min-width: $breakpoint-small) {
 			height: $header-height;
+		}
+
+		&-wrap {
+			width: 100%;
 		}
     }
 
@@ -113,10 +117,9 @@
 	}
 	
 	&__logo {
-		flex: 0 0 75px;
+		flex: 1 0 auto;
 		margin-right: var(--margin-2);
 		
-
 
 		@media (min-width: $breakpoint-small) {
 			flex: 0 0 100px;
@@ -137,7 +140,12 @@
 		}
 
 		& img {
+			width: 75px;
 			transition: width var(--transition);
+
+			@media (min-width: $breakpoint-small) {
+				width: 100px;
+			}
 
 			.header__main.uk-active & {
 				// width: 84px;
@@ -297,9 +305,9 @@
             position: absolute;
             top:-12px;
             right: 0;
-            width: 400px;
-            opacity: 0;
-            visibility: hidden;
+            width: 57vw;
+            // opacity: 0;
+            // visibility: hidden;
             padding: 0;
             background: transparent;
 
@@ -311,8 +319,18 @@
         }
 
 		&-form {
-            position: absolute;
-            
+            // position: absolute;
+			
+			&-reset {
+				position: absolute;
+				right: 0;
+				border: none;
+				z-index: 1;
+				top: 0;
+				height: 100%;
+				width: 40px;
+				background: none;
+			}
 		}
 
 		&-results {
@@ -326,9 +344,9 @@
 			padding: 26px 43px;
 			z-index: 20;
 			
-			opacity: 0;
-			visibility: hidden;
-			transform: translateY(-20px);
+			// opacity: 0;
+			// visibility: hidden;
+			// transform: translateY(-20px);
 			transition: all var(--transition);
 			
 			&--show {
@@ -347,6 +365,10 @@
         margin-top: 4px;
         position: relative;
 		
+		&-small-link {
+			font-size: 30px;
+		}
+
 		&-phone {
 			font-family: 'Roboto Condensed', sans-serif;
 			font-size: var(--text-large);
@@ -372,13 +394,14 @@
 	}
 	
 	&__offcanvas {
-		flex: 1 0 auto;
-		margin-left: var(--gutter-large);
+		flex: 0 0 auto;
+		margin-left: 26px;
 		justify-content: flex-end;
 		display: flex;
 
 		@media (min-width: $breakpoint-small) {
 			flex: 0 0 auto;
+			margin-left: var(--gutter-large);
 		
 		}
 	}

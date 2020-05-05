@@ -1,0 +1,35 @@
+.breadcrumbs {
+	// margin-top: 45px;
+	// margin-bottom: -45px;
+
+	//compensate the title margin
+	position: relative;
+	// top:40px;
+	margin-top: 40px;
+	z-index: 1;
+	// height: 0;
+	display:none;
+
+	@media (min-width: $breakpoint-small) {
+		display:block;
+  }
+  
+  @media (min-width: $breakpoint-medium) {
+	  margin-top: 56px;
+  
+  }
+
+	&__list {
+		margin-bottom: calc(var(--text-small) * var(--line-height-small) * -1);
+
+	}
+
+	&__item {
+
+		& > * {
+			font-family: Roboto, sans-serif;
+			line-height: var(--line-height-small);
+			font-size: 0.857rem;
+		}
+	}
+}

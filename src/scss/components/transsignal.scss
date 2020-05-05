@@ -46,6 +46,19 @@
 	@media (min-width: $breakpoint-large) {
 		--gutter: 40px;
 	}
+
+	--product-desc-slider-width: auto;
+
+	@media (min-width: $breakpoint-small) {
+		--product-desc-slider-width: auto;
+	}
+	@media (min-width: $breakpoint-medium) {
+		--product-desc-slider-width: 23vw;
+	}
+	@media (min-width: $breakpoint-large) {
+		--product-desc-slider-width: 360px;
+	}
+	
 }
 
 
@@ -84,6 +97,7 @@ body{
 main {
 	flex: 1 1 auto;
 	overflow: hidden;
+	width: 100%;
 }
 
 *, *:after, *:before {

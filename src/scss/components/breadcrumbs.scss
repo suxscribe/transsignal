@@ -4,9 +4,10 @@
 
 	//compensate the title margin
 	position: relative;
-	top:40px;
+	// top:40px;
+	margin-top: 40px;
 	z-index: 1;
-	height: 0;
+	// height: 0;
 	display:none;
 
 	@media (min-width: $breakpoint-small) {

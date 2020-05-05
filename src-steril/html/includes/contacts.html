@@ -140,32 +140,37 @@
 					<h2>Обратная связь</h2>
 					
 					<div class="contacts__form">
-						<form class="form form--horizontal" action="">
+						<form class="form form--horizontal" action=""  >
 							<div class="form__panel">
 								<div class="form__row">
 									<label class="form__label" for="contacts-message">Сообщение или вопрос*</label>
 									<div class="form__controls">
-										<textarea name="contacts-message" id="contacts-message" cols="30" rows="4" class="form__textarea" required></textarea>
+										<textarea name="contacts-message" id="contacts-message" cols="30" rows="4" class="form__textarea validate--empty" required></textarea>
+											<div class="form__note"></div>
+
 									</div>
 								</div>
 								<div class="form__row">
 									<label class="form__label" for="contacts-name">Вас зовут*</label>
 									<div class="form__controls">
-										<input name="contacts-name" class="form__input" id="contacts-name" type="text" placeholder="" required>
+										<input name="contacts-name" class="form__input validate--empty" id="contacts-name" type="text" placeholder="" required >
+											<div class="form__note"></div>
+
 									</div>
 								</div>
 								<div class="form__row">
 									<label class="form__label" for="contacts-phone">Контактный телефон*</label>
 									<div class="form__controls">
-										<input name="contacts-phone" class="form__input form__input--phone" id="contacts-phone" type="text" placeholder="" required>
-										<div class="form__note">По этому телефону менеджер сможет связаться с вами
-										</div>
+										<input name="contacts-phone" class="form__input form__input--phone validate--phone" id="contacts-phone" type="text" placeholder="" required>
+										<div class="form__note">По этому телефону менеджер сможет связаться с вами</div>
 									</div>
 								</div>
 								<div class="form__row">
 									<label class="form__label" for="contacts-phone">Электронная почта*</label>
 									<div class="form__controls form__controls--invalid">
-										<input name="contacts-phone" class="form__input" id="contacts-phone" type="email" placeholder="" required>
+										<input name="contacts-phone" class="form__input validate--email" id="contacts-email" type="email" placeholder="" required>
+											<div class="form__note"></div>
+
 		
 									</div>
 								</div>
@@ -173,6 +178,8 @@
 									<label class="form__label" for="contacts-company">Компания</label>
 									<div class="form__controls">
 										<input name="contacts-company" class="form__input" id="contacts-company" type="text" placeholder="">
+											<div class="form__note"></div>
+
 									</div>
 								</div>
 							</div>

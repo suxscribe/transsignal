@@ -1,3 +1,9 @@
+input[type=button],
+input[type=submit] {
+	// font-family: 'Roboto Condensed', sans-serif;
+}
+
+
 .button {
 	height: 56px;
 	background: var(--color-accent);
@@ -8,7 +14,7 @@
 	white-space: nowrap;
 	transition: color var(--transition), background var(--transition), border-color var(--transition);
 	display: block;
-	padding: 0 16px;
+	padding: 0 35px;
 	color: var(--color-white);
 	text-align: center;
 	border:none;
@@ -53,6 +59,7 @@
 		display: block;
 		text-align: center;
 		transition: border-color var(--transition), color var(--transition);
+		cursor: pointer;
 		
 		&:hover, &:focus {
 			color: var(--color-accent);
@@ -61,3 +68,5 @@
 	}
 	
 }
+
+

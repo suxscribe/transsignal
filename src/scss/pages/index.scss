@@ -11,6 +11,7 @@
 
   &__item {
     height: calc(var(--margin) * 16.5);
+    overflow: hidden;
 
     @media (min-width: $breakpoint-small) {
       height: 536px;
@@ -18,8 +19,11 @@
 
     & img {
       width: 100%;
-      height: 100%;
+      height: calc(100% + 100px); //parallax
       object-fit: cover;
+
+      @include object-fit-ie(cover,center);
+
     }
   }
 }
@@ -91,11 +95,6 @@
 			padding-bottom: 60%;
 		} */
 
-    &:hover {
-      .index-banner__title {
-        color: var(--color-accent);
-      }
-    }
   }
 }
 
@@ -126,6 +125,7 @@
     bottom: 0;
     z-index: 0;
     background-color: var(--color-light);
+    overflow: hidden;
 
     &:before {
       content: "";
@@ -136,12 +136,16 @@
       bottom: 0;
       display: block;
       background: rgba(0, 0, 0, 0.2);
+      z-index: 1;
     }
 
     & > img {
       object-fit: cover;
       width: 100%;
-      height: 100%;
+      height: calc(100% + #{$parallax-height});
+
+      @include object-fit-ie(cover,center);
+
     }
   }
 
@@ -241,7 +245,7 @@
       text-align: left;
       max-width: 0;
       overflow: hidden;
-      transition: max-width 0.3s ease;
+      transition: max-width 0.3s ease, color 0.3s ease;
       z-index: 1;
       position: relative;
 
@@ -260,6 +264,8 @@
       text-align: center;
       position: relative;
       z-index: 0;
+      transition: color 0.3s ease;
+
 
       &:before {
         content: "\e901";
@@ -293,8 +299,17 @@
     box-shadow: var(--box-shadow);
   }
 
+  &--first:hover &__title {
+      color: var(--color-accent);
+  }
+
   &:hover &__readmore-text {
     max-width: 150px;
+    color: var(--color-accent-light);
+  }
+
+  &:hover &__readmore-icon {
+    color: var(--color-accent-light);
   }
 
   &:hover &__readmore-icon:after {
@@ -429,6 +444,10 @@
   &__item {
     transition-property: transform, opacity;
     height: auto;
+
+    &.swiper-slide-active {
+      z-index: 1;
+    }
   }
 
   &__nav {
@@ -689,13 +708,15 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
+
+      @include object-fit-ie(contain,bottom);
     }
   }
 
   &__item {
     color: var(--color-accent);
     font-family: Roboto, sans-serif;
-    flex: 0;
+    flex: 0 0 0;
 
     &-number {
       font-size: 3.42rem;
@@ -811,6 +832,7 @@
     margin-bottom: var(--margin);
     flex: 1 0 auto;
     padding: 0 11px;
+    width: 100%;
 
     & img {
       width: 100%;
@@ -818,6 +840,9 @@
       object-fit: contain;
       object-position: center;
       max-height: 87px;
+
+      @include object-fit-ie(contain,center);
+
     }
   }
 
@@ -826,5 +851,7 @@
     flex: 0 0 auto;
     font-family: "PT Sans", sans-serif;
     font-size: var(--font-size);
+
+    width: 100%; //ie11
   }
 }

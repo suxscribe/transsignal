@@ -89,6 +89,13 @@
 		position: relative;
 		top:1px;
 
+		& a {
+			color: var(--color-black);
+
+			&:hover, &:focus {
+				color: var(--color-accent);
+			}
+		}
 	}
 
 	&__schedule {
@@ -207,6 +214,9 @@
 				object-fit:contain;
 				object-position: bottom;
 				transition: bottom var(--transition);
+
+				@include object-fit-ie(contain,bottom);
+
 			}
 
 		}

@@ -2,6 +2,7 @@
 
 $file-icon-bg: 439EE8;
 $file-icon-bg-2: 0074D3;
+$parallax-height: 100px;
 
 // 2. Import default variables and available mixins.
 // @import "uikit/src/scss/variables-theme.scss";
@@ -156,6 +157,7 @@ $offcanvas-bar-background: #fff;
 
 @import "swiper/swiper.scss";
 
+@import "abstract/mixins"; //
 @import "components/transsignal"; //base vars and styles
 
 @import "layouts/fonts";

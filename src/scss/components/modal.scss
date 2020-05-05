@@ -75,9 +75,11 @@
         padding: 0;
         top: 0;
         right: calc(var(--margin) * -2);
+        transition: background-color var(--transition);
     
         &:hover {
-            color: var(--color-accent-light);
+            background-color: var(--color-accent-light);
+            color: var(--color-white);
         }
     
         & svg {

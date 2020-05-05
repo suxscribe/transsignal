@@ -104,15 +104,15 @@
 			display: block;
 
 			&:first-child {
-				padding-top: 1.143rem;
+				padding-top: 25px;
 			}
 			&:last-child {
-				padding-bottom: 1.357rem;
+				padding-bottom: 28px;
 				margin-bottom: 0;
 			}
 
 			@media (min-width: $breakpoint-small) {
-				padding: 1.857rem 8px 2.071rem 0;
+				padding: 27px 8px 30px 0;
 				font-size: var(--text-large);
 				display: table-cell;
 				margin-bottom: 0;
