@@ -148,4 +148,17 @@
 
 .title-search-result { //bitrix style 
 	z-index: 1000;
+	position: absolute;
+	width: 100%;
+	transition: all 0.4s cubic-bezier(.215,.61,.355,1);
+	// overflow: hidden;
+	transform: translateY(-20px);
+	opacity: 0;
+	pointer-events: none;
+
+	&--active {
+		opacity: 1;
+		transform: translateY(0);
+		pointer-events: all;
+	}
 }

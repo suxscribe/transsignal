@@ -120,7 +120,6 @@ $offcanvas-bar-background: #fff;
 // @import "uikit/src/scss/components/align.scss";
 @import "uikit/src/scss/components/svg.scss";
 @import "uikit/src/scss/components/utility.scss";
-@import "uikit/src/scss/components/flex.scss"; // After: Utility
 @import "uikit/src/scss/components/margin.scss";
 // @import "uikit/src/scss/components/padding.scss";
 @import "uikit/src/scss/components/position.scss";
@@ -176,6 +175,8 @@ $offcanvas-bar-background: #fff;
 @import "components/form";
 @import "components/modal";
 @import "components/table";
+
+@import "uikit/src/scss/components/flex.scss"; // After: Utility, modal
 
 
 @import "pages/index";
