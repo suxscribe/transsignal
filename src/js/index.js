@@ -254,11 +254,6 @@ document.addEventListener('DOMContentLoaded', () => {
       // 	el.innerHTML = i+1;
       // });
 
-      console.log(
-        document.querySelectorAll('.product__description-slider-current > li')
-          .length
-      );
-
       document.querySelector(
         '.product__description-slider-overall'
       ).innerHTML = document.querySelectorAll(
@@ -266,7 +261,20 @@ document.addEventListener('DOMContentLoaded', () => {
       ).length;
     };
 
-    slidesetNav();
+    //slidesetNav(); // disable product slide nav
+
+    //wrap table in description tab with responsive handler
+    const descriptionTable = document.querySelector(
+      '.product__description-right table'
+    );
+    const descriptionTableWrapper = document.createElement('div');
+    descriptionTableWrapper.classList.add('uk-overflow-auto');
+    descriptionTable.parentNode.insertBefore(
+      descriptionTableWrapper,
+      descriptionTable
+    );
+    descriptionTableWrapper.appendChild(descriptionTable);
+
     // UIkit.lightbox('.product__gallery-items', {
     // 	animation: 'fade'
     // });

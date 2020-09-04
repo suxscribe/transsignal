@@ -76,6 +76,7 @@
       background-color: var(--color-white);
       color: var(--color-black);
       border-color: var(--color-accent);
+      outline: 0px solid transparent;
     }
 
     &:required {

@@ -12,11 +12,36 @@
     bottom: 0;
     z-index: 0;
 
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      background-color: var(--color-accent);
+      opacity: 1;
+      mix-blend-mode: multiply;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      background-color: var(--color-accent);
+      opacity: 0.55;
+    }
+
     & img {
       width: 100%;
       height: calc(100% + #{$parallax-height});
       object-fit: cover;
       @include object-fit-ie(cover, center);
+      filter: grayscale(100);
     }
   }
 
@@ -127,8 +152,8 @@
       max-width: 100%;
       position: absolute;
       right: 0;
-      object-fit: cover;
-      padding: 10px 10px 0 10px;
+      // object-fit: cover;
+      padding: 0px 10px;
     }
   }
 
@@ -162,6 +187,12 @@
     @media (min-width: $breakpoint-small) {
       font-size: 18px;
       line-height: 1.333;
+    }
+  }
+
+  &--alt {
+    & .section_teaser__image-link img {
+      padding: 10px;
     }
   }
 }

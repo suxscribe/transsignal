@@ -1,0 +1,130 @@
+
+.filter {
+  &__items {
+    margin-top: 0;
+    margin-bottom: 2px;
+
+    @media (min-width: $breakpoint-medium) {
+      margin-bottom: var(--margin-m);
+    }
+  }
+
+  &__item {
+    background: var(--color-light);
+    position: relative;
+  }
+
+  &__name {
+    padding: var(--gutter-medium) var(--gutter-large);
+    font-size: 18px;
+    line-height: 24px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+
+    &:before {
+      content: '\e903';
+      font-family: icomoon;
+      font-weight: normal;
+      transition: transform var(--transition);
+      text-align: center;
+
+      .uk-open > & {
+        transform: rotate(180deg);
+      }
+    }
+
+    @media (min-width: $breakpoint-medium) {
+      padding: var(--gutter-medium) var(--margin-m);
+    }
+  }
+  &__params {
+    padding: 0 var(--gutter-large) var(--gutter-large) var(--gutter-large);
+
+    @media (min-width: $breakpoint-medium) {
+      padding: 0 var(--gutter-medium) var(--margin-m) var(--gutter-medium);
+    }
+  }
+
+  &__param-row {
+    margin-bottom: 15px;
+  }
+
+  &__param {
+    position: relative;
+    padding-left: 25px;
+    display: block;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    & input {
+      position: absolute;
+      left: 0;
+      border-radius: 2px;
+      background: var(--color-white);
+
+      &:checked {
+        border: none;
+      }
+    }
+
+    &-count {
+      color: var(--color-muted);
+      font-size: var(--text-small);
+    }
+  }
+
+  &__apply {
+    margin-bottom: 18px;
+
+    & input {
+      width: 100%;
+    }
+  }
+
+  &__reset {
+    &-button {
+      font-family: $global-font-family;
+      font-size: var(--font-size);
+      color: var(--color-accent);
+      cursor: pointer;
+      background: none;
+      border: none;
+      border-radius: 0;
+      padding: 0;
+      transition: all var(--transition);
+
+      &:hover {
+        color: var(--color-accent-light);
+      }
+    }
+  }
+
+  &__row {
+    // padding: var(--gutter-medium) var(--gutter-large);
+  }
+
+}
+
+.bx-filter-popup-result {
+  position: absolute;
+  right: 100%;
+  top: 20px;
+  width: 140px;
+  background: var(--color-white);
+  padding: 10px 20px;
+  box-shadow: var(--box-shadow);
+}
+.bx-filter-popup-result:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: var(--color-white);
+  left: calc(100% - 15px);
+  top: 0px;
+  transform: rotate(45deg);
+  top: calc(50% - 20px);
+}

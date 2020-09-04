@@ -25,6 +25,7 @@
       @include object-fit-ie(cover, center);
     }
   }
+  
 }
 
 .index-banners {
@@ -133,7 +134,7 @@
       right: 0;
       bottom: 0;
       display: block;
-      background: rgba(0, 0, 0, 0.2);
+      background: rgba(0, 0, 0, 0.3);
       z-index: 1;
     }
 
@@ -318,7 +319,7 @@
 
   &:hover &__readmore-icon:after {
     transform: scale(24);
-    opacity: 0.5;
+    opacity: 0.85;
     transition: all 0.2s ease-in;
 
     // transition-delay: 0.15s;

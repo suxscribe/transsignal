@@ -1,100 +1,98 @@
 // 1. Your custom variables and variable overwrites.
 
-$file-icon-bg: 439EE8;
-$file-icon-bg-2: 0074D3;
+$file-icon-bg: 439ee8;
+$file-icon-bg-2: 0074d3;
 $parallax-height: 100px;
 
 // 2. Import default variables and available mixins.
 // @import "uikit/src/scss/variables-theme.scss";
 
-@import "uikit/src/scss/mixins-theme.scss";
+@import 'uikit/src/scss/mixins-theme.scss';
 
-@import "abstract/variables-theme";
+@import 'abstract/variables-theme';
 
 // 3. Your custom mixin overwrites.
-@mixin hook-card() { color: #000; }
+@mixin hook-card() {
+  color: #000;
+}
 
 // 4. Import UIkit.
 // @import "theme/_import.scss";
 
 // @import "components/_import.scss";
 
-
 // Base
 // @import "uikit/src/scss/components/variables.scss";
-@import "abstract/variables";
-
-
+@import 'abstract/variables';
 
 // VARIABLES redefine
 
-$dropdown-margin:	0;
+$dropdown-margin: 0;
 $offcanvas-bar-background: #fff;
 
-
-@import "uikit/src/scss/components/mixin.scss";
+@import 'uikit/src/scss/components/mixin.scss';
 // @import "uikit/src/scss/components/base.scss";
-@import "components/base";
+@import 'components/base';
 
 // Elements
-@import "uikit/src/scss/components/link.scss";
-@import "uikit/src/scss/components/heading.scss";
+// @import "uikit/src/scss/components/link.scss";// 2007
+@import 'uikit/src/scss/components/heading.scss';
 // @import "uikit/src/scss/components/divider.scss";
-@import "uikit/src/scss/components/list.scss";
-@import "uikit/src/scss/components/description-list.scss";
-@import "uikit/src/scss/components/table.scss";
-@import "uikit/src/scss/components/icon.scss";
+// @import 'uikit/src/scss/components/list.scss';// 2007
+// @import 'uikit/src/scss/components/description-list.scss';// 2007
+// @import 'uikit/src/scss/components/table.scss';// 2007
+@import 'uikit/src/scss/components/icon.scss';
 // @import "uikit/src/scss/components/form-range.scss";
-@import "uikit/src/scss/components/form.scss"; // After: Icon, Form Range
-@import "uikit/src/scss/components/button.scss";
+@import 'uikit/src/scss/components/form.scss'; // After: Icon, Form Range
+// @import 'uikit/src/scss/components/button.scss'; //// 2007
 
 // Layout
 // @import "uikit/src/scss/components/section.scss";
-@import "uikit/src/scss/components/container.scss";
-@import "uikit/src/scss/components/grid.scss";
+@import 'uikit/src/scss/components/container.scss';
+@import 'uikit/src/scss/components/grid.scss';
 // @import "uikit/src/scss/components/tile.scss";
 // @import "uikit/src/scss/components/card.scss";
 
 // Common
-@import "uikit/src/scss/components/close.scss"; // After: Icon
+@import 'uikit/src/scss/components/close.scss'; // After: Icon
 // @import "uikit/src/scss/components/spinner.scss"; // After: Icon
 // @import "uikit/src/scss/components/totop.scss"; // After: Icon
 // @import "uikit/src/scss/components/marker.scss"; // After: Icon
 // @import "uikit/src/scss/components/alert.scss"; // After: Close
 // @import "uikit/src/scss/components/badge.scss";
-@import "uikit/src/scss/components/label.scss";
-@import "uikit/src/scss/components/overlay.scss"; // After: Icon
-@import "uikit/src/scss/components/article.scss"; // After: Subnav
+@import 'uikit/src/scss/components/label.scss';
+@import 'uikit/src/scss/components/overlay.scss'; // After: Icon
+// @import 'uikit/src/scss/components/article.scss'; // After: Subnav // 2007
 // @import "uikit/src/scss/components/comment.scss"; // After: Subnav
-@import "uikit/src/scss/components/search.scss"; // After: Icon
+// @import 'uikit/src/scss/components/search.scss'; // After: Icon// 2007
 
 // Navs
 // @import "uikit/src/scss/components/nav.scss";
-@import "./components/nav.scss"; // uikit nav mod
+@import './components/nav.scss'; // uikit nav mod
 
-@import "uikit/src/scss/components/navbar.scss"; // After: Card, Grid, Nav, Icon, Search
-@import "uikit/src/scss/components/subnav.scss";
-@import "uikit/src/scss/components/breadcrumb.scss";
+// @import 'uikit/src/scss/components/navbar.scss'; // After: Card, Grid, Nav, Icon, Search// 2007
+// @import 'uikit/src/scss/components/subnav.scss';// 2007
+@import 'uikit/src/scss/components/breadcrumb.scss';
 // @import "uikit/src/scss/components/pagination.scss";
 
-@import "components/pagination"; //uikit pagination mod
+@import 'components/pagination'; //uikit pagination mod
 
-@import "uikit/src/scss/components/tab.scss";
-@import "uikit/src/scss/components/slidenav.scss"; // After: Icon
-@import "uikit/src/scss/components/dotnav.scss";
-@import "uikit/src/scss/components/thumbnav.scss";
+@import 'uikit/src/scss/components/tab.scss';
+// @import 'uikit/src/scss/components/slidenav.scss'; // After: Icon// 2007
+// @import 'uikit/src/scss/components/dotnav.scss';// 2007
+@import 'uikit/src/scss/components/thumbnav.scss'; // 2007
 
 // JavaScript
-@import "uikit/src/scss/components/accordion.scss";
-@import "uikit/src/scss/components/drop.scss"; // After: Card
-@import "uikit/src/scss/components/dropdown.scss"; // After: Card
+@import 'uikit/src/scss/components/accordion.scss'; // 2007
+@import 'uikit/src/scss/components/drop.scss'; // After: Card
+@import 'uikit/src/scss/components/dropdown.scss'; // After: Card
 // @import "uikit/src/scss/components/modal.scss"; // After: Close
-@import "uikit/src/scss/components/lightbox.scss"; // After: Close
-@import "uikit/src/scss/components/slideshow.scss";
-@import "uikit/src/scss/components/slider.scss";
-@import "uikit/src/scss/components/sticky.scss";
-@import "uikit/src/scss/components/offcanvas.scss";
-@import "uikit/src/scss/components/switcher.scss";
+@import 'uikit/src/scss/components/lightbox.scss'; // After: Close
+@import 'uikit/src/scss/components/slideshow.scss';
+@import 'uikit/src/scss/components/slider.scss';
+@import 'uikit/src/scss/components/sticky.scss';
+@import 'uikit/src/scss/components/offcanvas.scss';
+@import 'uikit/src/scss/components/switcher.scss';
 // @import "uikit/src/scss/components/leader.scss";
 // Scrollspy
 // Toggle
@@ -110,82 +108,83 @@ $offcanvas-bar-background: #fff;
 // @import "uikit/src/scss/components/countdown.scss";
 
 // Utilities
-@import "uikit/src/scss/components/animation.scss";
-@import "uikit/src/scss/components/width.scss";
+@import 'uikit/src/scss/components/animation.scss';
+@import 'uikit/src/scss/components/width.scss';
 // @import "uikit/src/scss/components/height.scss";
-@import "uikit/src/scss/components/text.scss";
-@import "uikit/src/scss/components/column.scss";
-@import "uikit/src/scss/components/cover.scss";
-@import "uikit/src/scss/components/background.scss";
+@import 'uikit/src/scss/components/text.scss';
+@import 'uikit/src/scss/components/column.scss';
+@import 'uikit/src/scss/components/cover.scss';
+@import 'uikit/src/scss/components/background.scss';
 // @import "uikit/src/scss/components/align.scss";
-@import "uikit/src/scss/components/svg.scss";
-@import "uikit/src/scss/components/utility.scss";
-@import "uikit/src/scss/components/margin.scss";
+@import 'uikit/src/scss/components/svg.scss';
+@import 'uikit/src/scss/components/utility.scss';
+@import 'uikit/src/scss/components/margin.scss';
 // @import "uikit/src/scss/components/padding.scss";
-@import "uikit/src/scss/components/position.scss";
-@import "uikit/src/scss/components/transition.scss";
-@import "uikit/src/scss/components/visibility.scss";
+@import 'uikit/src/scss/components/position.scss';
+@import 'uikit/src/scss/components/transition.scss';
+@import 'uikit/src/scss/components/visibility.scss';
 // @import "uikit/src/scss/components/inverse.scss"; //inverts offcanvas color
 
 // Need to be loaded last
-@import "uikit/src/scss/components/print.scss";
-
+@import 'uikit/src/scss/components/print.scss';
 
 // //////////////////////////////////////////////////////
 
 /* Desktop and bigger */
 @media (max-width: $breakpoint-small - 1) {
+  /* Horizontal */
+  .uk-grid {
+    margin-left: (-$grid-small-gutter-horizontal);
+  }
+  .uk-grid > * {
+    padding-left: $grid-small-gutter-horizontal;
+  }
 
-    /* Horizontal */
-    .uk-grid { margin-left: (-$grid-small-gutter-horizontal); }
-    .uk-grid > * { padding-left: $grid-small-gutter-horizontal; }
-
-    /* Vertical */
-    .uk-grid + .uk-grid,
-    .uk-grid > .uk-grid-margin,
-    * + .uk-grid-margin { margin-top: $grid-small-gutter-vertical; }
-
+  /* Vertical */
+  .uk-grid + .uk-grid,
+  .uk-grid > .uk-grid-margin,
+  * + .uk-grid-margin {
+    margin-top: $grid-small-gutter-vertical;
+  }
 }
-
 
 ////////////////////////////////////////////////////////
 
 // @import "sassline/sassline.scss";
 // @import "sassline/assets/sass/sassline-base/style.scss";
 
+@import 'swiper/swiper.scss';
 
-@import "swiper/swiper.scss";
+@import 'abstract/mixins'; //
+@import 'components/transsignal'; //base vars and styles
 
-@import "abstract/mixins"; //
-@import "components/transsignal"; //base vars and styles
+@import 'layouts/fonts';
+@import 'layouts/header';
+@import 'layouts/footer';
 
-@import "layouts/fonts";
-@import "layouts/header";
-@import "layouts/footer";
+@import 'components/headings';
+@import 'components/button';
+@import 'components/list';
+@import 'components/news';
+@import 'components/offcanvas';
+@import 'components/search';
+@import 'components/breadcrumbs';
+@import 'components/file';
+@import 'components/tag';
+@import 'components/form';
+@import 'components/modal';
+@import 'components/table';
+@import 'components/fitler';
 
-@import "components/headings";
-@import "components/button";
-@import "components/list";
-@import "components/news";
-@import "components/offcanvas";
-@import "components/search";
-@import "components/breadcrumbs";
-@import "components/file";
-@import "components/tag";
-@import "components/form";
-@import "components/modal";
-@import "components/table";
+@import 'uikit/src/scss/components/flex.scss'; // After: Utility, modal
 
-@import "uikit/src/scss/components/flex.scss"; // After: Utility, modal
-
-
-@import "pages/index";
-@import "pages/catalog";
-@import "pages/section";
-@import "pages/product";
-@import "pages/about";
-@import "pages/production";
-@import "pages/certificates";
-@import "pages/contacts";
-@import "pages/404";
-@import "pages/sitemap";
+@import 'pages/index';
+@import 'pages/catalog';
+@import 'pages/section';
+@import 'pages/product';
+@import 'pages/about';
+@import 'pages/production';
+@import 'pages/certificates';
+@import 'pages/contacts';
+@import 'pages/404';
+@import 'pages/sitemap';

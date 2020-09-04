@@ -1,123 +1,125 @@
-.table {
-	border-collapse: collapse;
-	border-spacing: 0;
-	width: 100%;
-	
-	@media (min-width: $breakpoint-small) {
-		min-width: 600px;
-	}
-	
-	& th {
-		padding: 23px 8px 18px;
-		font-size: 1rem;
-		text-transform: none;
-		text-align: left;
-		vertical-align: bottom;
-		font-weight: bold;
-		color: var(--color-black);
+.table,
+.product__description-right table,
+.product__tab-content table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
 
-		&:first-child {
-			padding-left: 0;
-		}
-	}
-	
-	& td {
-		padding: 11px 8px 15px;
-		font-size: 1rem;
-		vertical-align: top;
-	}
-	
-	& > tr:not(:first-child), 
-	& > :not(:first-child) > tr, 
-	& > :first-child > tr:not(:first-child) {
-		border-top: 1px solid var(--color-border);
-	}
+  @media (min-width: $breakpoint-small) {
+    min-width: 600px;
+  }
 
-	& > :last-child > tr:last-child {
-		border-bottom: 1px solid var(--color-border);
-	}
-	
-	
-	&_description {
-		
-		& tr > td:first-of-type {
-			color: var(--color-muted);
-		}
-		
-		& tr > td {
-			font-size: var(--text-large);
-			padding: 16px 8px 18px;
-			padding-left: 0;
-			
-			&:last-of-type {
-				padding-right: 0;
-			}
-		}
-		
-		& tr > th {
-			padding-left: 0;
-			
-			&:last-of-type {
-				padding-right: 0;
-			}
-		}
-	}
-	
-	&_specs {
-		
-		& th {
-			text-transform: none;
-			border-bottom: 2px solid rgba(0,0,0,0.4);
+  & th {
+    padding: 23px 8px 18px;
+    font-size: 1rem;
+    text-transform: none;
+    text-align: left;
+    vertical-align: bottom;
+    font-weight: bold;
+    color: var(--color-black);
 
-			&:first-child {
-				padding-left: 8px;
-			}
-		}
-		
-		& tr:not(:first-child) {
-			// border-color: rgba(0,0,0,0.1);
-		}
+    &:first-child {
+      padding-left: 0;
+    }
+  }
 
-		& tr > td {
-			padding: 16px 8px 18px;
-			font-size: var(--text-large);
-		}
-	}
-	
-	&--contacts {
-		& tr {
-			
-			&:first-child {
-				border-top: 1px solid var(--color-border);
-			}
+  & td {
+    padding: 11px 8px 15px;
+    font-size: 1rem;
+    vertical-align: top;
+  }
 
+  & > tr:not(:first-child),
+  & > :not(:first-child) > tr,
+  & > :first-child > tr:not(:first-child) {
+    border-top: 1px solid var(--color-border);
+  }
 
+  & > :last-child > tr:last-child {
+    border-bottom: 1px solid var(--color-border);
+  }
 
-			@media (min-width: $breakpoint-small) {
-			
-			}
-		}
-		& th, & td {
-			padding: 0;
-			vertical-align: top;
-			margin-bottom: .571rem;
-			display: block;
+  &_description {
+    & tr > td:first-of-type {
+      color: var(--color-muted);
+    }
 
-			&:first-child {
-				padding-top: 25px;
-			}
-			&:last-child {
-				padding-bottom: 28px;
-				margin-bottom: 0;
-			}
+    & tr > td {
+      font-size: var(--text-large);
+      padding: 16px 8px 18px;
+      padding-left: 0;
 
-			@media (min-width: $breakpoint-small) {
-				padding: 27px 8px 30px 0;
-				font-size: var(--text-large);
-				display: table-cell;
-				margin-bottom: 0;
-			}
-		}
-	}
-	
+      &:last-of-type {
+        padding-right: 0;
+      }
+    }
+
+    & tr > th {
+      padding-left: 0;
+
+      &:last-of-type {
+        padding-right: 0;
+      }
+    }
+  }
+
+  &_specs {
+    & th {
+      text-transform: none;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+
+      &:first-child {
+        padding-left: 8px;
+      }
+    }
+
+    & tr:not(:first-child) {
+      // border-color: rgba(0,0,0,0.1);
+    }
+
+    & tr > td {
+      padding: 16px 8px 18px;
+      font-size: var(--text-large);
+
+      &:nth-child(2) {
+        min-width: 145px;
+      }
+    }
+  }
+
+  &--contacts {
+    & tr {
+      &:first-child {
+        border-top: 1px solid var(--color-border);
+      }
+
+      @media (min-width: $breakpoint-small) {
+      }
+    }
+    & th,
+    & td {
+      padding: 0;
+      vertical-align: top;
+      margin-bottom: 0.571rem;
+      display: block;
+
+      &:first-child {
+        padding-top: 25px;
+      }
+      &:last-child {
+        padding-bottom: 28px;
+        margin-bottom: 0;
+      }
+
+      @media (min-width: $breakpoint-small) {
+        padding: 27px 8px 30px 0;
+        font-size: var(--text-large);
+        display: table-cell;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+.uk-table-expand {
+  min-width: 150px;
 }

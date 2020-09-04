@@ -1,8 +1,28 @@
 import '@babel/polyfill';
 
+// trying to import components separate
+// import UIkit from 'uikit/dist/js/uikit-core';
+// import Lightbox from 'uikit/dist/js/components/lightbox';
+
+// import boot from 'uikit/src/js/api/boot';
+// import UIkit from 'uikit/src/js/uikit-core';
+// import Parallax from 'uikit/src/js/components/parallax';
+// import Slider from 'uikit/src/js/components/slider';
+// import Slideshow from 'uikit/src/js/components/slideshow';
+
+// UIkit.use(Lightbox);
+// UIkit.component('lightbox', Lightbox);
+// UIkit.component('parallax', Parallax);
+// UIkit.component('slider', Slider);
+// UIkit.component('slideshow', Slideshow);
+
 import UIkit from 'uikit';
 import Icons from 'uikit/dist/js/uikit-icons';
+
 import Swiper from 'swiper/js/swiper.js';
+// import Swiper, { Navigation, EffectFade, Keyboard, Controller } from 'swiper';
+// Swiper.use([Navigation, EffectFade, Keyboard, Controller]);
+
 import ymaps from 'ymaps';
 // import $ from "jquery";
 // import Inputmask from "inputmask";
@@ -13,7 +33,7 @@ import objectFitImages from 'object-fit-images';
 window.UIkit = UIkit; // fix not difined bug
 
 cssVars({
-	// Options...
+  // Options...
 });
 
 // loads the Icon plugin
@@ -23,582 +43,638 @@ UIkit.use(Icons);
 // import 'uikit/dist/css/uikit.min.css';
 // import '../scss/style.scss';
 
-
 // UIkit.notification('Hello world.');
 // console.log('hello, world');
 
 const isIE = () => {
-	if (!!window.MSInputMethodContext && !!document.documentMode) return true;
-}
+  if (!!window.MSInputMethodContext && !!document.documentMode) return true;
+};
 
 if (window.NodeList && !NodeList.prototype.forEach) {
-	NodeList.prototype.forEach = Array.prototype.forEach;
+  NodeList.prototype.forEach = Array.prototype.forEach;
 } // ie 11 foreach
 
-
 document.addEventListener('DOMContentLoaded', () => {
+  const searchInput = document.querySelector('.header__search-form-input');
+  const searchResults = document.querySelector('.header__search-results');
 
+  searchInput.addEventListener('focus', (event) => {
+    searchResults.classList.add('header__search-results--show');
+  });
 
-	const searchInput = document.querySelector('.header__search-form-input');
-	const searchResults = document.querySelector('.header__search-results')
+  searchInput.addEventListener('blur', (event) => {
+    searchResults.classList.remove('header__search-results--show');
+  });
 
-	searchInput.addEventListener('focus', (event) => {
-		searchResults.classList.add('header__search-results--show')
-	});
+  // validate forms
+  var contactForm = document.querySelectorAll('.form');
 
-	searchInput.addEventListener('blur', (event) => {
-		searchResults.classList.remove('header__search-results--show')
-	});
+  if (contactForm) {
+    contactForm.forEach((form) => {
+      form.querySelectorAll('.validate--empty').forEach((input) => {
+        input.addEventListener('focusout', () => {
+          if (checkIfEmpty(input)) return;
+          return true;
+        });
+      });
 
-	// validate forms
-	var contactForm = document.querySelectorAll('.form');
-	
-	if (contactForm) {
-		contactForm.forEach( form => {
-			
-			form.querySelectorAll('.validate--empty').forEach( input => {
-				input.addEventListener('focusout', () => {
-					if (checkIfEmpty(input)) return;
-					return true;
-				});
-			});
+      const inputEmail = form.querySelector('.validate--email');
+      if (inputEmail) {
+        inputEmail.addEventListener('focusout', () => {
+          if (checkIfEmpty(inputEmail)) return;
+          if (checkIfEmail(inputEmail)) return;
+          return true;
+        });
+      }
 
-			const inputEmail = form.querySelector('.validate--email');
-			if (inputEmail) {
-				inputEmail.addEventListener('focusout', () => {
-					if (checkIfEmpty(inputEmail)) return;
-					if(checkIfEmail(inputEmail)) return;
-					return true;
-				});
-			}
-			
-			const inputPhone = form.querySelector('.validate--phone')
-			if (inputPhone) {
-				inputPhone.addEventListener('focusout', () => {
-					if (checkIfEmpty(inputPhone)) return;
-					if (checkIfOnlyDigits(inputPhone)) return;
-					return true;
-				});
-			}
-		});
+      const inputPhone = form.querySelector('.validate--phone');
+      if (inputPhone) {
+        inputPhone.addEventListener('focusout', () => {
+          if (checkIfEmpty(inputPhone)) return;
+          if (checkIfOnlyDigits(inputPhone)) return;
+          return true;
+        });
+      }
+    });
 
-		document.addEventListener('invalid', (function(){
-			return function(e) {
-				//prevent the browser from showing default error bubble / hint
-				e.preventDefault();
-				// optionally fire off some custom validation handler
-				// myValidation();
-			};
-		})(), true);
+    document.addEventListener(
+      'invalid',
+      (function() {
+        return function(e) {
+          //prevent the browser from showing default error bubble / hint
+          e.preventDefault();
+          // optionally fire off some custom validation handler
+          // myValidation();
+        };
+      })(),
+      true
+    );
 
-		const checkIfEmpty = (field) => {
-			if (isEmpty(field.value.trim())) {
-				setInvalid(field, "Обязательное поле");
-				return true;
-			} else {
-				setValid(field);
-				return false;
-			}
-		}
+    const checkIfEmpty = (field) => {
+      if (isEmpty(field.value.trim())) {
+        setInvalid(field, 'Обязательное поле');
+        return true;
+      } else {
+        setValid(field);
+        return false;
+      }
+    };
 
-		const isEmpty = (value) => {
-			if (value === '') return true;
-			return false;
-		}
+    const isEmpty = (value) => {
+      if (value === '') return true;
+      return false;
+    };
 
-		const setInvalid = (field, message) => {
-			field.classList.add('invalid');
-			field.nextElementSibling.innerHTML = message;
-			field.nextElementSibling.className = 'form__note form__note--red';
-		}
-		const setValid = (field) => {
-			field.classList.remove('invalid');
-			field.nextElementSibling.innerHTML = '';
-			field.nextElementSibling.className = 'form__note';
-		}
+    const setInvalid = (field, message) => {
+      field.classList.add('invalid');
+      field.nextElementSibling.innerHTML = message;
+      field.nextElementSibling.className = 'form__note form__note--red';
+    };
+    const setValid = (field) => {
+      field.classList.remove('invalid');
+      field.nextElementSibling.innerHTML = '';
+      field.nextElementSibling.className = 'form__note';
+    };
 
-		const checkIfOnlyLetters = (field) => {
-			if(/^[a-zA-Z ]+$/.test(field.value)) {
-				setValid(field);
-				return true;
-			} else {
-				setInvalid(field, "Должно содержать только буквы")
-			}
-		}
-		const checkIfOnlyDigits = (field) => {
-			if(/\+(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\d{1,14}$/.test(field.value)) {
-				setValid(field);
-				return true;
-			} else {
-				setInvalid(field, "Пожалуйста введите номер телефона в формате +XXXXXXXXXX")
-			}
-		}
-		const checkIfEmail = (field) => {
-			if(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(field.value)) {
-				setValid(field);
-				return true;
-			} else {
-				setInvalid(field, "Должно быть в формате email@domain.dom")
-			}
-		}
+    const checkIfOnlyLetters = (field) => {
+      if (/^[a-zA-Z ]+$/.test(field.value)) {
+        setValid(field);
+        return true;
+      } else {
+        setInvalid(field, 'Должно содержать только буквы');
+      }
+    };
+    const checkIfOnlyDigits = (field) => {
+      if (
+        /\+(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\d{1,14}$/.test(
+          field.value
+        )
+      ) {
+        setValid(field);
+        return true;
+      } else {
+        setInvalid(
+          field,
+          'Пожалуйста введите номер телефона в формате +XXXXXXXXXX'
+        );
+      }
+    };
+    const checkIfEmail = (field) => {
+      if (
+        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+          field.value
+        )
+      ) {
+        setValid(field);
+        return true;
+      } else {
+        setInvalid(field, 'Должно быть в формате email@domain.dom');
+      }
+    };
+  }
 
-		
-	}
+  // HOVER ON MAP LINKS OR MARKERS
+  const mapHover = () => {
+    if (!isIE()) {
+      document.querySelectorAll('.map a[data-hover]').forEach((el) => {
+        // set map region link href to region page
+        const regionCode = el.dataset.hover;
+        el.setAttribute(
+          'href',
+          document.querySelector(`.map__regions a[data-hover=${regionCode}]`)
+            .href
+        );
+        // highlight region link when hover on map
+        el.addEventListener('mouseenter', function() {
+          document
+            .querySelectorAll(`[data-hover=${el.dataset.hover}]`)
+            .forEach((link) => {
+              link.classList.add('hover');
+            });
+        });
+        // remove highlight
+        el.addEventListener('mouseout', function() {
+          document
+            .querySelectorAll(`[data-hover=${el.dataset.hover}]`)
+            .forEach((link) => {
+              link.classList.remove('hover');
+            });
+        });
+      });
+    }
+  };
 
-	// HOVER ON MAP LINKS OR MARKERS
-	const mapHover = () => {
-		if (!isIE()) {
-			document.querySelectorAll('.map a[data-hover]').forEach( (el) => {
-				const regionCode = el.dataset.hover;
-				el.setAttribute('href', document.querySelector(`.map__regions a[data-hover=${regionCode}]`).href);
-				el.addEventListener("mouseenter", function() {
-					document.querySelectorAll(`[data-hover=${el.dataset.hover}]`).forEach( (link) => {
-						link.classList.add("hover");
-					});
+  // for index page only
+  if (document.querySelector('.page--index')) {
+    var slideshowTop = new Swiper('.slideshow-main', {
+      loop: true,
+      loopedSlides: 6,
+      slidesPerView: '1',
+      grabCursor: true,
+      // clickable: true, //zrx photoswipe
+      // Navigation arrows
+      navigation: {
+        nextEl: '.slideshow-main__nav-next',
+        prevEl: '.slideshow-main__nav-prev',
+      },
+      allowTouchMove: true,
+      effect: 'slide',
+      fadeEffect: {
+        crossFade: true,
+      },
 
-				})
-				el.addEventListener("mouseout", function() {
-					document.querySelectorAll(`[data-hover=${el.dataset.hover}]`).forEach( (link) => {
-						link.classList.remove("hover");
-					});
-				});
-			});
-		}
-	}
+      on: {
+        // progress: move, // todo fix line blinking
+      },
+    });
 
-	// for index page only
-	if (document.querySelector('.page--index')) {
+    function move() {
+      var width = 1;
+      var autoplayTime = autoplayDelay / 100;
+      var id = setInterval(frame, autoplayTime);
+      function frame() {
+        if (width >= 100) {
+          clearInterval(id);
+        } else {
+          width++;
+          elem.style.width = width + '%';
+        }
+      }
+    }
 
+    var elem = document.querySelector('.slideshow-banner__progress');
+    const autoplayDelay = 5000;
 
-		var slideshowBanner = new Swiper('.slideshow-banner', {
-			loop: false,
-			loopedSlides: 6,
-			slidesPerView: '1',
-			grabCursor: true,
-			// clickable: true, //zrx photoswipe
-			// Navigation arrows
-			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev',
-			},
-			allowTouchMove: true,
-			effect: 'fade',
-			fadeEffect: {
-				crossFade: true
-			},
-		});
+    var slideshowBanner = new Swiper('.slideshow-banner', {
+      loop: true,
+      loopedSlides: 6,
+      slidesPerView: '1',
+      grabCursor: true,
+      // clickable: true, //zrx photoswipe
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      allowTouchMove: true,
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true,
+      },
+      autoplay: {
+        delay: autoplayDelay,
+      },
+      on: {
+        // progress: move, // todo fix line blinking
+      },
+    });
 
+    if (document.querySelector('.map')) {
+      mapHover();
+    }
 
+    // document.querySelector('.clients__title').appendChild(document.querySelector('.clients__nav'));
+  }
 
-		if (document.querySelector('.map')) {
-			mapHover();
-		}
+  if (document.querySelector('.page--product')) {
+    // slideset nav
+    const slidesetNav = function() {
+      // document.querySelectorAll('.product__description-slider-current > li').forEach( (el,i) => {
+      // 	el.innerHTML = i+1;
+      // });
 
-		// document.querySelector('.clients__title').appendChild(document.querySelector('.clients__nav'));
-	}
+      console.log(
+        document.querySelectorAll('.product__description-slider-current > li')
+          .length
+      );
 
+      document.querySelector(
+        '.product__description-slider-overall'
+      ).innerHTML = document.querySelectorAll(
+        '.product__description-slider-items > li'
+      ).length;
+    };
 
-	if (document.querySelector('.page--product')) {
+    slidesetNav();
 
-		// slideset nav
-		const slidesetNav = function() {
-			// document.querySelectorAll('.product__description-slider-current > li').forEach( (el,i) => {
-			// 	el.innerHTML = i+1;
-			// });
+    // UIkit.lightbox('.product__gallery-items', {
+    // 	animation: 'fade'
+    // });
 
-			console.log(document.querySelectorAll('.product__description-slider-current > li').length);
+    // UIkit.lightboxPanel(panelOptions);
+  }
 
-			document.querySelector('.product__description-slider-overall').innerHTML = document.querySelectorAll('.product__description-slider-items > li').length;
-		};
+  if (document.querySelector('.page--about')) {
+    if (!isIE()) {
+      var sliderAbout1 = new Swiper('.slider-about-1', {
+        loop: true,
+        loopedSlides: 6,
+        slidesPerView: '1',
+        grabCursor: true,
+        // clickable: true, //zrx photoswipe
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        allowTouchMove: true,
+        keyboard: {
+          enabled: true,
+        },
+        effect: 'slide',
+        breakpoints: {
+          640: {
+            slidesPerView: 'auto',
+          },
+          960: {
+            slidesPerView: 'auto',
+          },
+        },
+        onSlideChangeEnd: function(e) {
+          // sliderAbout1.update(true);
+        },
+      });
 
-		slidesetNav();
+      var sliderAbout3 = new Swiper('.slider-about-3', {
+        loop: true,
+        loopedSlides: 6,
+        slidesPerView: '1',
+        grabCursor: true,
+        // clickable: true, //zrx photoswipe
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        allowTouchMove: true,
+        keyboard: {
+          enabled: false,
+        },
+        effect: 'slide',
+        breakpoints: {
+          640: {
+            slidesPerView: 'auto',
+            spaceBetween: 28,
+          },
+          960: {
+            slidesPerView: 'auto',
+            spaceBetween: 40,
+          },
+        },
+        onSlideChangeEnd: function(e) {
+          // sliderAbout1.update(true);
+        },
+      });
 
+      var sliderAbout2 = new Swiper('.slider-about-2', {
+        loop: true,
+        loopedSlides: 6,
+        slidesPerView: '1',
+        grabCursor: false,
+        // clickable: true, //zrx photoswipe
+        // Navigation arrows
+        navigation: {
+          nextEl: '.slider-about-2-next',
+          prevEl: '.slider-about-2-prev',
+        },
+        allowTouchMove: false,
+        keyboard: {
+          enabled: true,
+        },
+        effect: 'fade',
+        fadeEffect: {
+          crossFade: true,
+        },
+        on: {
+          init: function() {
+            updateCurrentIndex(this);
+            document.querySelector(
+              '.slideshow__count-overall'
+            ).innerHTML = document.querySelectorAll(
+              '.slider-about-2 .swiper-slide:not(.swiper-slide-duplicate)'
+            ).length;
+          },
+        },
+      });
 
-		
-		// UIkit.lightbox('.product__gallery-items', {
-		// 	animation: 'fade'
-		// });
+      // update current slide number
+      sliderAbout2.on('slideChange', function() {
+        updateCurrentIndex(this);
+      });
+      function updateCurrentIndex(slider) {
+        document.querySelector('.slideshow__count-current').innerHTML =
+          slider.realIndex + 1;
+      }
 
-		// UIkit.lightboxPanel(panelOptions);
+      // control each slider with another
+      sliderAbout3.controller.control = sliderAbout1;
+      sliderAbout3.controller.control = sliderAbout2;
+      sliderAbout1.controller.control = sliderAbout2;
+      sliderAbout2.controller.control = [sliderAbout3, sliderAbout1]; // i dont know how, but it works!
 
-	}
+      // sliderAbout2.controller.control = sliderAbout1;
+      function updateSlideWidth() {
+        let slideWidth = document.querySelector('.slider-about-1__item')
+          .offsetWidth;
+        // console.log(slideWidth);
+        // document.querySelectorAll('.slider-about-1__item').forEach( el => {
+        // 	el.style.width = slideWidth + 'px';
+        // 	// console.log(el);
+        // });
+        document.querySelector('.slider-about-3').style.width =
+          slideWidth + 'px';
+        sliderAbout3.update();
+        sliderAbout1.update();
+        // console.log('updatewidth');
+      }
 
+      updateSlideWidth();
+      window.addEventListener('resize', () => {
+        updateSlideWidth();
+      });
+    } else {
+      // if ie
 
-	if (document.querySelector('.page--about')) {
+      var sliderAbout1 = new Swiper('.slider-about-1', {
+        loop: true,
+        loopedSlides: 6,
+        slidesPerView: '1',
+        grabCursor: true,
+        // clickable: true, //zrx photoswipe
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        allowTouchMove: true,
+        keyboard: {
+          enabled: true,
+        },
+        effect: 'fade',
+        fadeEffect: {
+          crossFade: true,
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 'auto',
+          },
+          960: {
+            slidesPerView: 'auto',
+          },
+        },
+        onSlideChangeEnd: function(e) {
+          // sliderAbout1.update(true);
+        },
+      });
 
-		if (!isIE()) {
-			var sliderAbout1 = new Swiper('.slider-about-1', {
-				loop: true,
-				loopedSlides: 6,
-				slidesPerView: '1',
-				grabCursor: true,
-				// clickable: true, //zrx photoswipe
-				// Navigation arrows
-				navigation: {
-					nextEl: '.swiper-button-next',
-					prevEl: '.swiper-button-prev',
-				},
-				allowTouchMove: true,
-				keyboard: {
-					enabled: true,
-				},
-				effect: 'slide',
-				breakpoints: {
-					640: {
-						slidesPerView: 'auto',
-					},
-					960: {
-						slidesPerView: 'auto',
-					},
-				},
-				onSlideChangeEnd:function(e){
-				// sliderAbout1.update(true);
-				},
-			});
+      var sliderAbout2 = new Swiper('.slider-about-2', {
+        loop: true,
+        loopedSlides: 6,
+        slidesPerView: '1',
+        grabCursor: false,
+        // clickable: true, //zrx photoswipe
+        // Navigation arrows
+        navigation: {
+          nextEl: '.slider-about-2-next',
+          prevEl: '.slider-about-2-prev',
+        },
+        allowTouchMove: false,
+        keyboard: {
+          enabled: true,
+        },
+        effect: 'fade',
+        fadeEffect: {
+          crossFade: true,
+        },
+        on: {
+          init: function() {
+            updateCurrentIndex(this);
+            document.querySelector(
+              '.slideshow__count-overall'
+            ).innerHTML = document.querySelectorAll(
+              '.slider-about-2 .swiper-slide:not(.swiper-slide-duplicate)'
+            ).length;
+          },
+        },
+      });
 
-			var sliderAbout3 = new Swiper('.slider-about-3', {
-				loop: true,
-				loopedSlides: 6,
-				slidesPerView: '1',
-				grabCursor: true,
-				// clickable: true, //zrx photoswipe
-				// Navigation arrows
-				navigation: {
-					nextEl: '.swiper-button-next',
-					prevEl: '.swiper-button-prev',
-				},
-				allowTouchMove: true,
-				keyboard: {
-					enabled: false,
-				},
-				effect: 'slide',
-				breakpoints: {
-					640: {
-						slidesPerView: 'auto',
-						spaceBetween: 28
-					},
-					960: {
-						slidesPerView: 'auto',
-						spaceBetween: 40
-					},
-				},
-				onSlideChangeEnd:function(e){
-					// sliderAbout1.update(true);
-				},
-			});
+      // update current slide number
+      sliderAbout2.on('slideChange', function() {
+        updateCurrentIndex(this);
+      });
+      function updateCurrentIndex(slider) {
+        document.querySelector('.slideshow__count-current').innerHTML =
+          slider.realIndex + 1;
+      }
 
-			var sliderAbout2 = new Swiper('.slider-about-2', {
-				loop: true,
-				loopedSlides: 6,
-				slidesPerView: '1',
-				grabCursor: false,
-				// clickable: true, //zrx photoswipe
-				// Navigation arrows
-				navigation: {
-					nextEl: '.slider-about-2-next',
-					prevEl: '.slider-about-2-prev',
-				},
-				allowTouchMove: false,
-				keyboard: {
-					enabled: true,
-				},
-				effect: 'fade',
-				fadeEffect: {
-					crossFade: true
-				},
-				on: {
-					init: function() {
-						updateCurrentIndex(this);
-						document.querySelector('.slideshow__count-overall').innerHTML = document.querySelectorAll('.slider-about-2 .swiper-slide:not(.swiper-slide-duplicate)').length;
-					},
-				}
-			});
+      // control each slider with another
+      // sliderAbout3.controller.control = sliderAbout1;
+      // sliderAbout3.controller.control = sliderAbout2;
+      sliderAbout1.controller.control = sliderAbout2;
+      sliderAbout2.controller.control = [sliderAbout3, sliderAbout1]; // i dont know how, but it works!
+    } // if isie
 
-			
-			// update current slide number
-			sliderAbout2.on('slideChange', function () {
-				updateCurrentIndex(this);
-			});
-			function updateCurrentIndex(slider) {
-				document.querySelector('.slideshow__count-current').innerHTML = slider.realIndex + 1;
-			}
-			
-			// control each slider with another
-			sliderAbout3.controller.control = sliderAbout1;
-			sliderAbout3.controller.control = sliderAbout2;
-			sliderAbout1.controller.control = sliderAbout2;
-			sliderAbout2.controller.control = [sliderAbout3, sliderAbout1]; // i dont know how, but it works!
+    if (document.querySelector('.map')) {
+      mapHover();
+    }
+  } //page--about
 
-			// sliderAbout2.controller.control = sliderAbout1;
-			function updateSlideWidth() {
-				let slideWidth = document.querySelector('.slider-about-1__item').offsetWidth;
-				// console.log(slideWidth);
-				// document.querySelectorAll('.slider-about-1__item').forEach( el => {
-				// 	el.style.width = slideWidth + 'px';
-				// 	// console.log(el);
-				// });
-				document.querySelector('.slider-about-3').style.width = slideWidth + 'px';
-				sliderAbout3.update();
-				sliderAbout1.update();
-				// console.log('updatewidth');
-				
-			}
+  if (document.querySelector('.page--production')) {
+    //TODO .product__gallery.length
 
-
-			updateSlideWidth();
-			window.addEventListener('resize', () => {
-				updateSlideWidth();
-			});
-
-		} else { // if ie
-
-			var sliderAbout1 = new Swiper('.slider-about-1', {
-				loop: true,
-				loopedSlides: 6,
-				slidesPerView: '1',
-				grabCursor: true,
-				// clickable: true, //zrx photoswipe
-				// Navigation arrows
-				navigation: {
-					nextEl: '.swiper-button-next',
-					prevEl: '.swiper-button-prev',
-				},
-				allowTouchMove: true,
-				keyboard: {
-					enabled: true,
-				},
-				effect: 'fade',
-				fadeEffect: {
-					crossFade: true
-				},
-				breakpoints: {
-					640: {
-						slidesPerView: 'auto',
-					},
-					960: {
-						slidesPerView: 'auto',
-					},
-				},
-				onSlideChangeEnd:function(e){
-				// sliderAbout1.update(true);
-				},
-			});
-
-			var sliderAbout2 = new Swiper('.slider-about-2', {
-				loop: true,
-				loopedSlides: 6,
-				slidesPerView: '1',
-				grabCursor: false,
-				// clickable: true, //zrx photoswipe
-				// Navigation arrows
-				navigation: {
-					nextEl: '.slider-about-2-next',
-					prevEl: '.slider-about-2-prev',
-				},
-				allowTouchMove: false,
-				keyboard: {
-					enabled: true,
-				},
-				effect: 'fade',
-				fadeEffect: {
-					crossFade: true
-				},
-				on: {
-					init: function() {
-						updateCurrentIndex(this);
-						document.querySelector('.slideshow__count-overall').innerHTML = document.querySelectorAll('.slider-about-2 .swiper-slide:not(.swiper-slide-duplicate)').length;
-					},
-				}
-			});
-
-			
-			// update current slide number
-			sliderAbout2.on('slideChange', function () {
-				updateCurrentIndex(this);
-			});
-			function updateCurrentIndex(slider) {
-				document.querySelector('.slideshow__count-current').innerHTML = slider.realIndex + 1;
-			}
-			
-			// control each slider with another
-			// sliderAbout3.controller.control = sliderAbout1;
-			// sliderAbout3.controller.control = sliderAbout2;
-			sliderAbout1.controller.control = sliderAbout2;
-			sliderAbout2.controller.control = [sliderAbout3, sliderAbout1]; // i dont know how, but it works!
-
-		} // if isie
-
-		if (document.querySelector('.map')) {
-			mapHover();
-		}
-		
-	} //page--about
-
-	if (document.querySelector('.page--production')) {
-
-		//TODO .product__gallery.length
-
-		var gallery1Thumbs = new Swiper('.gallery__thumbs_1', {
-			spaceBetween: 20,
-			slidesPerView: 'auto',
-			loop: true,
-			freeMode: true,
-			loopedSlides: 0, //looped slides should be the same
-			watchSlidesVisibility: true,
-			watchSlidesProgress: true,
-			// onSlideChangeEnd: function(s) {
-			//     if ( s.slides.length == s.activeIndex+1 ) s.swipeTo(0);
-			//     console.log(s.activeIndex);
-			// }  
-		});
-
-		var gallery1Top = new Swiper('.gallery__top_1', {
-			spaceBetween: 20,
-			loop:true,
-			loopedSlides: 0, //looped slides should be the same
-			navigation: {
-				nextEl: '.gallery__button-next_1',
-				prevEl: '.gallery__button-prev_1',
-			},
-			thumbs: {
-				swiper: gallery1Thumbs,
-			},
-		});
-
-
-		var gallery2Thumbs = new Swiper('.gallery__thumbs_2', {
-			spaceBetween: 20,
-			slidesPerView: 'auto',
-			loop: true,
-			freeMode: true,
+    var gallery1Thumbs = new Swiper('.gallery__thumbs_1', {
+      spaceBetween: 20,
+      slidesPerView: 'auto',
+      loop: true,
+      freeMode: true,
       loopedSlides: 0, //looped slides should be the same
       watchSlidesVisibility: true,
       watchSlidesProgress: true,
       // onSlideChangeEnd: function(s) {
       //     if ( s.slides.length == s.activeIndex+1 ) s.swipeTo(0);
       //     console.log(s.activeIndex);
-      // }  
+      // }
     });
 
-		var gallery2Top = new Swiper('.gallery__top_2', {
-			spaceBetween: 20,
-			loop:true,
+    var gallery1Top = new Swiper('.gallery__top_1', {
+      spaceBetween: 20,
+      loop: true,
       loopedSlides: 0, //looped slides should be the same
       navigation: {
-      	nextEl: '.gallery__button-next_2',
-      	prevEl: '.gallery__button-prev_2',
+        nextEl: '.gallery__button-next_1',
+        prevEl: '.gallery__button-prev_1',
       },
       thumbs: {
-      	swiper: gallery2Thumbs,
+        swiper: gallery1Thumbs,
       },
     });
 
-	}
+    var gallery2Thumbs = new Swiper('.gallery__thumbs_2', {
+      spaceBetween: 20,
+      slidesPerView: 'auto',
+      loop: true,
+      freeMode: true,
+      loopedSlides: 0, //looped slides should be the same
+      watchSlidesVisibility: true,
+      watchSlidesProgress: true,
+      // onSlideChangeEnd: function(s) {
+      //     if ( s.slides.length == s.activeIndex+1 ) s.swipeTo(0);
+      //     console.log(s.activeIndex);
+      // }
+    });
 
+    var gallery2Top = new Swiper('.gallery__top_2', {
+      spaceBetween: 20,
+      loop: true,
+      loopedSlides: 0, //looped slides should be the same
+      navigation: {
+        nextEl: '.gallery__button-next_2',
+        prevEl: '.gallery__button-prev_2',
+      },
+      thumbs: {
+        swiper: gallery2Thumbs,
+      },
+    });
+  }
 
-	if (document.querySelector('.page--content')) {
+  if (document.querySelector('.page--content')) {
+    //TODO .product__gallery.length
 
-		//TODO .product__gallery.length
+    var gallery1Thumbs = new Swiper('.gallery__thumbs_1', {
+      spaceBetween: 20,
+      slidesPerView: 'auto',
+      loop: true,
+      freeMode: true,
+      loopedSlides: 0, //looped slides should be the same
+      watchSlidesVisibility: true,
+      watchSlidesProgress: true,
+      // onSlideChangeEnd: function(s) {
+      //     if ( s.slides.length == s.activeIndex+1 ) s.swipeTo(0);
+      //     console.log(s.activeIndex);
+      // }
+    });
 
-		var gallery1Thumbs = new Swiper('.gallery__thumbs_1', {
-			spaceBetween: 20,
-			slidesPerView: 'auto',
-			loop: true,
-			freeMode: true,
-			loopedSlides: 0, //looped slides should be the same
-			watchSlidesVisibility: true,
-			watchSlidesProgress: true,
-			// onSlideChangeEnd: function(s) {
-			//     if ( s.slides.length == s.activeIndex+1 ) s.swipeTo(0);
-			//     console.log(s.activeIndex);
-			// }  
-		});
+    var gallery1Top = new Swiper('.gallery__top_1', {
+      spaceBetween: 20,
+      loop: true,
+      loopedSlides: 0, //looped slides should be the same
+      navigation: {
+        nextEl: '.gallery__button-next_1',
+        prevEl: '.gallery__button-prev_1',
+      },
+      thumbs: {
+        swiper: gallery1Thumbs,
+      },
+    });
+  }
 
-		var gallery1Top = new Swiper('.gallery__top_1', {
-			spaceBetween: 20,
-			loop:true,
-			loopedSlides: 0, //looped slides should be the same
-			navigation: {
-				nextEl: '.gallery__button-next_1',
-				prevEl: '.gallery__button-prev_1',
-			},
-			thumbs: {
-				swiper: gallery1Thumbs,
-			},
-		});
+  if (document.querySelector('.page--contacts')) {
+    let mapCenter;
 
+    const getMapCenter = () => {
+      // variables.scss
+      // $breakpoint-small: 640px;  // Phone landscape
+      // $breakpoint-medium: 960px;  // Tablet Landscape
+      // $breakpoint-large:1200px; // Desktop
+      // $breakpoint-xlarge:1600px; // Large Screens
 
-	}
+      if (window.innerWidth >= 1200) {
+        mapCenter = [56.349619, 43.80727];
+      } else if (window.innerWidth >= 640) {
+        mapCenter = [56.349619, 43.80727];
+      } else {
+        mapCenter = [56.349619, 43.80727];
+      }
+      // console.log(mapCenter);
+      return mapCenter;
+    };
 
+    ymaps
+      .load(
+        'https://api-maps.yandex.ru/2.1/?apikey=7831c6db-8a7f-49d5-a7b7-c567b1e05675&lang=ru_RU'
+      )
+      .then((maps) => {
+        const myMap = new maps.Map('map', {
+          center: getMapCenter(),
+          zoom: 16,
+          controls: [],
+        });
+        myMap.controls.add('zoomControl', {
+          left: 5,
+          top: 60,
+        });
+        myMap.behaviors.disable('scrollZoom');
 
-	if (document.querySelector('.page--contacts')) {
+        var myPlacemark1 = new maps.Placemark(
+          [56.349619, 43.80727],
+          {
+            hintContent: 'ул. Торфяная, 30',
+            balloonContent: '603139, г. Нижний Новгород, ул.Торфяная, 30 ',
+          },
+          {
+            iconLayout: 'default#image',
+            iconImageHref: '../assets/icon_geo@2x.png',
+            iconImageSize: [48, 58],
+            iconImageOffset: [-24, -58],
+          }
+        );
+        myMap.geoObjects.add(myPlacemark1);
+      })
+      .catch((error) => console.log('Failed to load Yandex Maps', error));
+  }
 
-		let mapCenter;
+  if (document.querySelector('.page--dealers')) {
+    var theHash = location.hash;
+    console.log(theHash);
 
-		const getMapCenter = () => {
-			// variables.scss
-			// $breakpoint-small: 640px;  // Phone landscape
-			// $breakpoint-medium: 960px;  // Tablet Landscape
-			// $breakpoint-large:1200px; // Desktop
-			// $breakpoint-xlarge:1600px; // Large Screens
-
-			if (window.innerWidth >= 1200) {
-				mapCenter = [56.349619, 43.807270];
-			} else if (window.innerWidth >= 640) {
-				mapCenter = [56.349619, 43.807270];
-			} else {
-				mapCenter = [56.349619, 43.807270];
-			};
-			// console.log(mapCenter);
-			return mapCenter;
-		};
-	
-
-	ymaps
-	  .load('https://api-maps.yandex.ru/2.1/?apikey=7831c6db-8a7f-49d5-a7b7-c567b1e05675&lang=ru_RU')
-	  .then(maps => {
-	    const myMap = new maps.Map('map', {
-	      center: getMapCenter(),
-	      zoom: 16,
-	      controls: []
-	    })
-	    ;
-	    myMap.controls.add('zoomControl', {
-	    	left: 5,
-	    	top: 60
-	    });
-			myMap.behaviors.disable('scrollZoom')
-
-	    var myPlacemark1 = new maps.Placemark([56.349619, 43.807270], 
-				{
-					hintContent: 'ул. Торфяная, 30',
-					balloonContent: '603139, г. Нижний Новгород, ул.Торфяная, 30 '}, 
-				{
-					iconLayout: 'default#image',
-					iconImageHref: '../assets/icon_geo@2x.png',
-					iconImageSize: [48, 58],
-					iconImageOffset: [-24, -58]
-				});
-			myMap.geoObjects.add(myPlacemark1);
-	  
-	  })
-	  .catch(error => console.log('Failed to load Yandex Maps', error));
-	}
-
-	if (document.querySelector('.page--dealers')) {
-		var theHash = location.hash;
-		console.log(theHash);
-		
     // add offset for any hash
     if (theHash) {
-        window.scrollBy(0, -110);
+      window.scrollBy(0, -110);
     }
+  }
 
-	}
-
-	// polyfill for ie
-	if (isIE()) {
-		objectFitImages();
-	}
-
+  // polyfill for ie
+  if (isIE()) {
+    objectFitImages();
+  }
 });
