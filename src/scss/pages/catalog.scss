@@ -126,7 +126,7 @@
       max-width: 100%;
       position: absolute;
       right: 0;
-      object-fit: cover;
+      object-fit: con;
     }
   }
 
@@ -152,8 +152,8 @@
       max-width: 100%;
       position: absolute;
       right: 0;
-      // object-fit: cover;
-      padding: 0px 10px;
+      object-fit: contain;
+      padding: 0px;
     }
   }
 

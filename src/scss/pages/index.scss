@@ -25,7 +25,6 @@
       @include object-fit-ie(cover, center);
     }
   }
-  
 }
 
 .index-banners {
@@ -94,6 +93,16 @@
 		@media (min-width: $breakpoint-medium) {
 			padding-bottom: 60%;
 		} */
+  }
+
+  &__insertbeforeme {
+    order: -1;
+    margin-bottom: var(--margin);
+
+    @media (min-width: $breakpoint-small) {
+      order: auto;
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -441,6 +450,12 @@
     @media (min-width: $breakpoint-medium) {
       // margin-left: calc(var(--margin) - var(--gutter-large));
       // line-height: 1.714rem;
+    }
+  }
+
+  &__teleport {
+    @media (max-width: $breakpoint-xsmall-max) {
+      margin-top: 0 !important;
     }
   }
 }

@@ -525,7 +525,7 @@ document.addEventListener('DOMContentLoaded', () => {
     var gallery1Thumbs = new Swiper('.gallery__thumbs_1', {
       spaceBetween: 20,
       slidesPerView: 'auto',
-      loop: true,
+      loop: false,
       freeMode: true,
       loopedSlides: 0, //looped slides should be the same
       watchSlidesVisibility: true,
@@ -538,7 +538,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     var gallery1Top = new Swiper('.gallery__top_1', {
       spaceBetween: 20,
-      loop: true,
+      loop: false,
       loopedSlides: 0, //looped slides should be the same
       navigation: {
         nextEl: '.gallery__button-next_1',
@@ -552,7 +552,7 @@ document.addEventListener('DOMContentLoaded', () => {
     var gallery2Thumbs = new Swiper('.gallery__thumbs_2', {
       spaceBetween: 20,
       slidesPerView: 'auto',
-      loop: true,
+      loop: false,
       freeMode: true,
       loopedSlides: 0, //looped slides should be the same
       watchSlidesVisibility: true,
@@ -565,7 +565,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     var gallery2Top = new Swiper('.gallery__top_2', {
       spaceBetween: 20,
-      loop: true,
+      loop: false,
       loopedSlides: 0, //looped slides should be the same
       navigation: {
         nextEl: '.gallery__button-next_2',
@@ -583,7 +583,7 @@ document.addEventListener('DOMContentLoaded', () => {
     var gallery1Thumbs = new Swiper('.gallery__thumbs_1', {
       spaceBetween: 20,
       slidesPerView: 'auto',
-      loop: true,
+      loop: false,
       freeMode: true,
       loopedSlides: 0, //looped slides should be the same
       watchSlidesVisibility: true,
@@ -596,7 +596,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     var gallery1Top = new Swiper('.gallery__top_1', {
       spaceBetween: 20,
-      loop: true,
+      loop: false,
       loopedSlides: 0, //looped slides should be the same
       navigation: {
         nextEl: '.gallery__button-next_1',

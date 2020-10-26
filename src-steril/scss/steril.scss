@@ -1,100 +1,100 @@
 // 1. Your custom variables and variable overwrites.
 
-$file-icon-bg: 5AC7CB;
-$file-icon-bg-2: 29A5AA;
+$file-icon-bg: 5ac7cb;
+$file-icon-bg-2: 29a5aa;
 $parallax-height: 100px;
+
+$watermark-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNjAiIGhlaWdodD0iMTc0IiB2aWV3Qm94PSIwIDAgMzYwIDE3NCI+DQogIDxnIGlkPSJsb2dvLXdhdGVybWFyayIgb3BhY2l0eT0iMC4xNCI+DQogICAgPHBhdGggaWQ9IlBhdGhfMSIgZGF0YS1uYW1lPSJQYXRoIDEiIGQ9Ik00NTcuMjIxLDMzNi44ODIsNDcyLjksMzE1LjkzNkg0NDguMzA4bDkuODgzLTcuODIxYTQ3LjI4MSw0Ny4yODEsMCwwLDEtNi44MzQuNDQ2SDQ0MC4zOGwtNS42NTgsNy4zNzVINDEzLjA2NUw0NDMuNywyNzUuOTcxaDI1LjFjNC4xNywwLDEwLjQuMTgyLDEyLjczMyw0LjM1NSwxLjg0LDMuMzU1LjMxMiw3LjMyLTEuNzY3LDEwLjdsMTkuMDE0LTE1LjA1NWMyMy42OTIsMCw0Ny4zOTItLjEyLDcxLjA5LS4xMlYyNjIuMTE0YzAtMi44NjUsMC02Ljg3Mi0zLjQzNy0xMC4zMDdzLTcuNDktMy40MzUtMTAuMzUzLTMuNDM1SDQ4NS42NmMtLjY3NywwLTEuNDIzLDAtMi4yMTMuMDQ0LTE4LjEzMi4xMzQtMjkuNzI5LDEuNTcyLTQxLjQ2MSwxNy4yMTJxLTE5LjQ2OCwyNS45NTktMzkuMDA3LDUyYy03LjQ0OCw5Ljg5Mi03LjQxNywxNy41MzksMCwyNy40NzJsMjAuNDc3LDI3LjNjMTAuNDMyLDEzLjksMjAuNzMxLDEzLjk2OCwzOC4wMjYsMTMuOTY4bDUxLjQ0NS0uMDI1aDQ0LjA1MWMyLjg2MywwLDYuOTIsMCwxMC4zNTUtMy40MzdzMy40MzUtNy40NCwzLjQzNS0xMC4zVjM1OC44NjJINDY3LjM4M2ExMy43MjUsMTMuNzI1LDAsMCwxLTEwLjE2Mi0yMS45OG0xNzYuMiwzLjYySDYyMS4yMDhsNy4yOTMtNS44ODcsNS44Mi00LjdoMi4yNjdabS0xLjA3NS0xNy4zMjUtMy44NDUsMy4wMzktMjUuNjIsMjAuMjM2LTguNjg5LDYuODU5aDEwLjgzNWw3LjE2Ny01LjU1NGgxOC42NDNsLTEuNyw1LjU1NGg5LjMxM2w4LjE4OC0zMC4xMzRabTM3LjgsMGMtOC41LDExLjA0Mi0xMy42NDUsMTcuNTU4LTE1LjUzNywxOS40NWE4LjY0NSw4LjY0NSwwLDAsMS02LjY5MiwyLjg5bC00LjA3Niw1LjMtMS45MjIsMi41aDUuMDM2YzMuMzQ1LDAsNi41NTEtMS4wNzksMTAuNjUtNC4zOCw0LjAxOC0zLjIzOCw5LjExLTkuMjQ2LDE1LjgxMi0xNy45NThINjg5LjlMNjcyLjcwOCwzNTMuMzFoOS4yNzFsMjMuMTkxLTMwLjEzNFptLTEyOC41Niw3LjhINTYyLjQ1bDYtNy44SDUzOC4zMTRsLTE2LjA4MywyMC45LTcuMTA2LDkuMjMySDUyNC40Wm02OS45ODMtNy44aC05LjI3M0w1OTQuMTIyLDMzMy44SDU3NC4xbDguMTczLTEwLjYyM0g1NzNMNTU5LjEzMiwzNDEuMmwtOS4zMjIsMTIuMTA3aDkuMjc1bC4wNDYtLjA1OUw1NjguMSwzNDEuNmgyMC4wMjJsLTkuMDE2LDExLjcxNWg5LjI3MWwxNC41LTE4Ljg0N1ptLTk3LjA3OSw3LjgxN2ExNi40NDUsMTYuNDQ1LDAsMCwwLTEuNjI2LDEuNTRMNDk2Ljg3NiwzNTMuMzFoOS4yNzFsMTYuMDg0LTIwLjksNy4xLTkuMjMzSDUxNC4xNjVsLTMzLjAwNywyMi4zYy0uNDI1LjMzNy0uODMuNjU4LTEuMjA5Ljk2OGEyLjc0MSwyLjc0MSwwLDAsMS0xLjE1LjY3M2wuMDM2LS4yMWExNC45NTIsMTQuOTUyLDAsMCwxLDEuMTA3LTEuMDUycTEuNzc5LTEuNiwyLjAwOC0xLjlsMTUuOTg4LTIwLjc3OWgtOS4yNzFMNDY1LjQ3NCwzNTMuMzFoMTUuMTczbDMzLjA0Ny0yMi4yOTRxLjY0NC0uNTA5LDEuMzc0LTEuMDc3YTIuMzkyLDIuMzkyLDAsMCwxLC45ODctLjU2NmwtLjAzNi4yMTJjLS4xMDkuMTM4LS42MTguNjEyLTEuNTMsMS40MDgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0zNDguNzM4IC0yMTIuNTc0KSIgZmlsbD0iIzAwNzRkMyIvPg0KICAgIDxwYXRoIGlkPSJQYXRoXzIiIGRhdGEtbmFtZT0iUGF0aCAyIiBkPSJNNTI3LDMxNy4wNDdINTE0Ljc4Nmw3LjMtNS44ODUsNS44MTctNC42OTRoMi4yN1ptLTEuMDc3LTE3LjMyMS0zLjg0MywzLjAzNUw0OTYuNDU5LDMyM2wtOC42ODcsNi44NjNoMTAuODMzbDcuMTY5LTUuNTU4aDE4LjY0MWwtMS43LDUuNTU4aDkuMzEzbDguMTg0LTMwLjEzNlptNzEuOC0uMTI0aC05LjI3M2wtOC4xNDIsMTAuNjIxSDU2MC4yOWw4LjE0NC0xMC42MjFoLTkuMjcxbC0yMS40MTYsMjcuOTMxLTEuNjg3LDIuMjA5aDkuMjc0bDguOTgtMTEuNzE5aDIwLjAybC04Ljk4LDExLjcxOWg5LjI3MWwxNy4xOTEtMjIuNDI4Wm0zNS4yLDExLjU5M3E2LjE0Mi04LjAwNiw0Ljk0OC05Ljg2NC0xLjM0NS0yLjE1LTE0LjI0LTIuMTUtMTIuOTg2LDAtMTcuNjgzLDIuNDQ4LTQuMzU0LDIuMjctMTIuNTk1LDEzLjAyLS44MTcsMS4wNjYtMS41NDIsMi4wNDYtNi42MzksOC45NzgtNS44MiwxMS4xMDUuNTY2LDEuNDY4LDUuODIsMi4wMjRhNzkuMjgsNzkuMjgsMCwwLDAsOC4wNzEuMzM1cTEyLjk4MiwwLDE3LjYyMi0yLjE1LDMuOTE3LTEuODExLDEwLjA4OS05Ljg2aC05LjI3MWE5LjcsOS43LDAsMCwxLTQuMjA2LDMuNDc3cS0yLjEuNzM2LTguMjU3LjczOC02LjgyNywwLTcuMjI4LS45OTF0My45NjMtNi42ODFxNC4zMjgtNS42NDYsNi4zMjMtNi42Nzl0OC43MzctMS4wMzFxNi4wNywwLDcuMTE5Ljg4N2MuNTg5LjQ3NC4yMTYsMS41ODctMS4xMTksMy4zMjhabS0xNTAuMTUsMy4zNjhoLTEzLjRsNS40OTUtNy4xNjNoMTMuNGE1LjI3OCw1LjI3OCwwLDAsMSwuODQuMDYxLDEuNCwxLjQsMCwwLDEsMS4xNzYuNzE5cS4zMjQuNzY3LTEuMTc2LDIuNzQzbC0uMDQ2LjA1OWE5LjczMSw5LjczMSwwLDAsMS0zLjIxMSwyLjg2Nyw2LjYxMyw2LjYxMywwLDAsMS0zLjA3Ni43MTVtNi4zMzMsNS40YTI3LjU1OCwyNy41NTgsMCwwLDAsNi4yODEtNS40MTVxMS40NC0xLjYsMi45NDYtMy41NjUsNS41ODktNy4yOSw0LjM0LTkuNTY1LS45MzEtMS42NjktNy4yODctMS44Yy0uMzY3LS4wMDYtLjc0OC0uMDEzLTEuMTQyLS4wMTNINDcxLjU3M2wtMjMuMSwzMC4xNGg5LjI3M2w1LjY1NC03LjM3OWgxMy40cTEuNjEzLDAsMy4wNTgtLjA4OGEyMi40MTgsMjIuNDE4LDAsMCwwLDguMjI2LTEuNzY2cS41MDktLjI0NiwxLjAyNy0uNTQ3TTU2OC45LDI1OC44VjI0NS4wNThjMC0yLjg2MywwLTYuODctMy40MzktMTAuM0ExMS41NjMsMTEuNTYzLDAsMCwwLDU1OCwyMzEuNDE1di0uMTI0SDM4NS4wODh2LjEyNGExMS41NjcsMTEuNTY3LDAsMCwwLTcuNDcxLDMuMzM5Yy0zLjQzNSwzLjQzNS0zLjQzNSw3LjQ0Mi0zLjQzNSwxMC4zVjI1OC44aDMyLjU5NGwtMjIsMjkuNjczYy00LjUzNyw2LjIwNS0zLjE5NCwxMS44NzQuODI2LDE3LjNxOC41NzYsMTIuMDI0LDE3LjE0OSwyNC4wNDhjNi44NTEsOS4xLDEzLjE2Myw3LjIsMTkuMjMyLjMxNmw1My41LTcxLjMzN1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0zNzQuMTgyIC0yMzEuMjkxKSIgZmlsbD0iIzAwNzRkMyIvPg0KICAgIDxyZWN0IGlkPSJSZWN0YW5nbGVfMjUxMiIgZGF0YS1uYW1lPSJSZWN0YW5nbGUgMjUxMiIgd2lkdGg9IjM2MCIgaGVpZ2h0PSIxNzQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMCkiIGZpbGw9Im5vbmUiLz4NCiAgPC9nPg0KPC9zdmc+DQo=');
 
 // 2. Import default variables and available mixins.
 // @import "uikit/src/scss/variables-theme.scss";
 
-@import "uikit/src/scss/mixins-theme.scss";
+@import 'uikit/src/scss/mixins-theme.scss';
 
-@import "abstract/variables-theme.scss";
+@import 'abstract/variables-theme.scss';
 
 // 3. Your custom mixin overwrites.
-@mixin hook-card() { color: #000; }
+@mixin hook-card() {
+  color: #000;
+}
 
 // 4. Import UIkit.
 // @import "theme/_import.scss";
 
 // @import "components/_import.scss";
 
-
 // Base
 // @import "uikit/src/scss/components/variables.scss";
-@import "../../src/scss/abstract/variables";
-
-
+@import '../../src/scss/abstract/variables';
 
 // VARIABLES redefine
 
-$dropdown-margin:	0;
+$dropdown-margin: 0;
 $offcanvas-bar-background: #fff;
 
-
-@import "uikit/src/scss/components/mixin.scss";
+@import 'uikit/src/scss/components/mixin.scss';
 // @import "uikit/src/scss/components/base.scss";
-@import "../../src/scss/components/base";
+@import '../../src/scss/components/base';
 
 // Elements
-@import "uikit/src/scss/components/link.scss";
-@import "uikit/src/scss/components/heading.scss";
+@import 'uikit/src/scss/components/link.scss';
+@import 'uikit/src/scss/components/heading.scss';
 // @import "uikit/src/scss/components/divider.scss";
-@import "uikit/src/scss/components/list.scss";
-@import "uikit/src/scss/components/description-list.scss";
-@import "uikit/src/scss/components/table.scss";
-@import "uikit/src/scss/components/icon.scss";
+@import 'uikit/src/scss/components/list.scss';
+@import 'uikit/src/scss/components/description-list.scss';
+@import 'uikit/src/scss/components/table.scss';
+@import 'uikit/src/scss/components/icon.scss';
 // @import "uikit/src/scss/components/form-range.scss";
-@import "uikit/src/scss/components/form.scss"; // After: Icon, Form Range
-@import "uikit/src/scss/components/button.scss";
+@import 'uikit/src/scss/components/form.scss'; // After: Icon, Form Range
+@import 'uikit/src/scss/components/button.scss';
 
 // Layout
 // @import "uikit/src/scss/components/section.scss";
-@import "uikit/src/scss/components/container.scss";
-@import "uikit/src/scss/components/grid.scss";
+@import 'uikit/src/scss/components/container.scss';
+@import 'uikit/src/scss/components/grid.scss';
 // @import "uikit/src/scss/components/tile.scss";
 // @import "uikit/src/scss/components/card.scss";
 
 // Common
-@import "uikit/src/scss/components/close.scss"; // After: Icon
+@import 'uikit/src/scss/components/close.scss'; // After: Icon
 // @import "uikit/src/scss/components/spinner.scss"; // After: Icon
 // @import "uikit/src/scss/components/totop.scss"; // After: Icon
 // @import "uikit/src/scss/components/marker.scss"; // After: Icon
 // @import "uikit/src/scss/components/alert.scss"; // After: Close
 // @import "uikit/src/scss/components/badge.scss";
-@import "uikit/src/scss/components/label.scss";
-@import "uikit/src/scss/components/overlay.scss"; // After: Icon
-@import "uikit/src/scss/components/article.scss"; // After: Subnav
+@import 'uikit/src/scss/components/label.scss';
+@import 'uikit/src/scss/components/overlay.scss'; // After: Icon
+@import 'uikit/src/scss/components/article.scss'; // After: Subnav
 // @import "uikit/src/scss/components/comment.scss"; // After: Subnav
-@import "uikit/src/scss/components/search.scss"; // After: Icon
+@import 'uikit/src/scss/components/search.scss'; // After: Icon
 
 // Navs
 // @import "uikit/src/scss/components/nav.scss";
-@import "../../src/scss/components/nav.scss"; // uikit nav mod
+@import '../../src/scss/components/nav.scss'; // uikit nav mod
 
-@import "uikit/src/scss/components/navbar.scss"; // After: Card, Grid, Nav, Icon, Search
-@import "uikit/src/scss/components/subnav.scss";
-@import "uikit/src/scss/components/breadcrumb.scss";
+@import 'uikit/src/scss/components/navbar.scss'; // After: Card, Grid, Nav, Icon, Search
+@import 'uikit/src/scss/components/subnav.scss';
+@import 'uikit/src/scss/components/breadcrumb.scss';
 // @import "uikit/src/scss/components/pagination.scss";
 
-@import "../../src/scss/components/pagination"; //uikit pagination mod
+@import '../../src/scss/components/pagination'; //uikit pagination mod
 
-@import "uikit/src/scss/components/tab.scss";
-@import "uikit/src/scss/components/slidenav.scss"; // After: Icon
-@import "uikit/src/scss/components/dotnav.scss";
-@import "uikit/src/scss/components/thumbnav.scss";
+@import 'uikit/src/scss/components/tab.scss';
+@import 'uikit/src/scss/components/slidenav.scss'; // After: Icon
+@import 'uikit/src/scss/components/dotnav.scss';
+@import 'uikit/src/scss/components/thumbnav.scss';
 
 // JavaScript
-@import "uikit/src/scss/components/accordion.scss";
-@import "uikit/src/scss/components/drop.scss"; // After: Card
-@import "uikit/src/scss/components/dropdown.scss"; // After: Card
+@import 'uikit/src/scss/components/accordion.scss';
+@import 'uikit/src/scss/components/drop.scss'; // After: Card
+@import 'uikit/src/scss/components/dropdown.scss'; // After: Card
 // @import "uikit/src/scss/components/modal.scss"; // After: Close
-@import "uikit/src/scss/components/lightbox.scss"; // After: Close
-@import "uikit/src/scss/components/slideshow.scss";
-@import "uikit/src/scss/components/slider.scss";
-@import "uikit/src/scss/components/sticky.scss";
-@import "uikit/src/scss/components/offcanvas.scss";
-@import "uikit/src/scss/components/switcher.scss";
+@import 'uikit/src/scss/components/lightbox.scss'; // After: Close
+@import 'uikit/src/scss/components/slideshow.scss';
+@import 'uikit/src/scss/components/slider.scss';
+@import 'uikit/src/scss/components/sticky.scss';
+@import 'uikit/src/scss/components/offcanvas.scss';
+@import 'uikit/src/scss/components/switcher.scss';
 // @import "uikit/src/scss/components/leader.scss";
 // Scrollspy
 // Toggle
@@ -110,81 +110,81 @@ $offcanvas-bar-background: #fff;
 // @import "uikit/src/scss/components/countdown.scss";
 
 // Utilities
-@import "uikit/src/scss/components/animation.scss";
-@import "uikit/src/scss/components/width.scss";
+@import 'uikit/src/scss/components/animation.scss';
+@import 'uikit/src/scss/components/width.scss';
 // @import "uikit/src/scss/components/height.scss";
-@import "uikit/src/scss/components/text.scss";
-@import "uikit/src/scss/components/column.scss";
-@import "uikit/src/scss/components/cover.scss";
-@import "uikit/src/scss/components/background.scss";
+@import 'uikit/src/scss/components/text.scss';
+@import 'uikit/src/scss/components/column.scss';
+@import 'uikit/src/scss/components/cover.scss';
+@import 'uikit/src/scss/components/background.scss';
 // @import "uikit/src/scss/components/align.scss";
-@import "uikit/src/scss/components/svg.scss";
-@import "uikit/src/scss/components/utility.scss";
-@import "uikit/src/scss/components/flex.scss"; // After: Utility
-@import "uikit/src/scss/components/margin.scss";
+@import 'uikit/src/scss/components/svg.scss';
+@import 'uikit/src/scss/components/utility.scss';
+@import 'uikit/src/scss/components/flex.scss'; // After: Utility
+@import 'uikit/src/scss/components/margin.scss';
 // @import "uikit/src/scss/components/padding.scss";
-@import "uikit/src/scss/components/position.scss";
-@import "uikit/src/scss/components/transition.scss";
-@import "uikit/src/scss/components/visibility.scss";
+@import 'uikit/src/scss/components/position.scss';
+@import 'uikit/src/scss/components/transition.scss';
+@import 'uikit/src/scss/components/visibility.scss';
 // @import "uikit/src/scss/components/inverse.scss"; //inverts offcanvas color
 
 // Need to be loaded last
-@import "uikit/src/scss/components/print.scss";
-
+@import 'uikit/src/scss/components/print.scss';
 
 // //////////////////////////////////////////////////////
 
 /* Desktop and bigger */
 @media (max-width: $breakpoint-small - 1) {
+  /* Horizontal */
+  .uk-grid {
+    margin-left: (-$grid-small-gutter-horizontal);
+  }
+  .uk-grid > * {
+    padding-left: $grid-small-gutter-horizontal;
+  }
 
-    /* Horizontal */
-    .uk-grid { margin-left: (-$grid-small-gutter-horizontal); }
-    .uk-grid > * { padding-left: $grid-small-gutter-horizontal; }
-
-    /* Vertical */
-    .uk-grid + .uk-grid,
-    .uk-grid > .uk-grid-margin,
-    * + .uk-grid-margin { margin-top: $grid-small-gutter-vertical; }
-
+  /* Vertical */
+  .uk-grid + .uk-grid,
+  .uk-grid > .uk-grid-margin,
+  * + .uk-grid-margin {
+    margin-top: $grid-small-gutter-vertical;
+  }
 }
-
 
 ////////////////////////////////////////////////////////
 
 // @import "sassline/sassline.scss";
 // @import "sassline/assets/sass/sassline-base/style.scss";
 
+@import 'swiper/swiper.scss';
 
-@import "swiper/swiper.scss";
+@import '../../src/scss/abstract/mixins'; //base vars and styles
+@import '../../src/scss/components/transsignal-steril'; //base vars and styles
 
-@import "../../src/scss/abstract/mixins"; //base vars and styles
-@import "../../src/scss/components/transsignal-steril"; //base vars and styles
+@import '../../src/scss/layouts/fonts';
+@import 'layouts/header';
+@import '../../src/scss/layouts/footer';
 
-@import "../../src/scss/layouts/fonts";
-@import "layouts/header";
-@import "../../src/scss/layouts/footer";
+@import '../../src/scss/components/headings';
+@import '../../src/scss/components/button';
+@import '../../src/scss/components/list';
+@import '../../src/scss/components/news';
+@import '../../src/scss/components/offcanvas';
+@import 'components/search';
+@import 'components/breadcrumbs';
+@import '../../src/scss/components/file';
+@import '../../src/scss/components/tag';
+@import '../../src/scss/components/form';
+@import '../../src/scss/components/modal';
+@import '../../src/scss/components/table';
 
-@import "../../src/scss/components/headings";
-@import "../../src/scss/components/button";
-@import "../../src/scss/components/list";
-@import "../../src/scss/components/news";
-@import "../../src/scss/components/offcanvas";
-@import "components/search";
-@import "components/breadcrumbs";
-@import "../../src/scss/components/file";
-@import "../../src/scss/components/tag";
-@import "../../src/scss/components/form";
-@import "../../src/scss/components/modal";
-@import "../../src/scss/components/table";
-
-
-@import "pages/index";
-@import "../../src/scss/pages/catalog";
-@import "pages/section";
-@import "../../src/scss/pages/product";
-@import "../../src/scss/pages/about";
-@import "../../src/scss/pages/production";
-@import "../../src/scss/pages/certificates";
-@import "pages/contacts";
-@import "../../src/scss/pages/404";
-@import "../../src/scss/pages/sitemap";
+@import 'pages/index';
+@import '../../src/scss/pages/catalog';
+@import 'pages/section';
+@import '../../src/scss/pages/product';
+@import '../../src/scss/pages/about';
+@import '../../src/scss/pages/production';
+@import '../../src/scss/pages/certificates';
+@import 'pages/contacts';
+@import '../../src/scss/pages/404';
+@import '../../src/scss/pages/sitemap';
