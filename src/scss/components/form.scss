@@ -68,6 +68,8 @@
     transition-property: color, background-color, border;
     font-family: 'PT Sans', sans-serif;
 
+    -webkit-appearance: none; // fuck ios styling
+
     @media (min-width: $breakpoint-small) {
       font-size: var(--text-large);
     }

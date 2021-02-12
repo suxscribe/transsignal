@@ -30,7 +30,7 @@ const config = {
     filename: './js/bundle.js',
     // publicPath: 'http://suxscribe.tmweb.ru/transsignal/'
   },
-  devtool: 'source-map',
+  devtool: '#inline-source-map',
   mode: 'production',
   // optimization: {
   //   minimizer: [

@@ -1,6 +1,9 @@
 .slideshow-main {
   position: relative;
 
+  &__wrapper {
+    align-items: stretch;
+  }
   &__nav {
     position: absolute;
     right: 20px;
@@ -28,10 +31,14 @@
       }
     }
   }
+  &__item {
+    height: auto;
+  }
 }
 
 .banner-top {
   min-height: 300px;
+  height: 100%;
   position: relative;
 
   display: flex;
@@ -64,7 +71,7 @@
       top: 0;
       bottom: 0;
       display: block;
-      background-color: rgba(0, 0, 0, 0.2);
+      background-color: rgba(0, 0, 0, 0.1);
       z-index: 1;
     }
 
@@ -1020,21 +1027,11 @@
 
 .service-block {
   position: relative;
-  padding: 45px 0 30px;
-
-  @media (min-width: $breakpoint-small) {
-    padding-top: 71px;
-    padding-bottom: 0;
-  }
-  @media (min-width: $breakpoint-medium) {
-    padding-top: 79px;
-    padding-bottom: 0;
-  }
 
   &:before {
     content: '';
     position: absolute;
-    background: var(--color-light);
+    background: rgb(15, 158, 180);
     top: 0;
     right: -2000px;
     bottom: 0;
@@ -1047,8 +1044,37 @@
     z-index: 1;
   }
 
+  & a {
+    color: var(--color-white);
+
+    &:hover,
+    &:focus {
+      opacity: 0.8;
+    }
+  }
+
+  &__inner {
+    padding: 45px 0 55px;
+    position: relative;
+    z-index: 1;
+    max-width: none;
+
+    @media (min-width: $breakpoint-small) {
+      padding-top: 71px;
+      padding-bottom: 90px;
+      max-width: 70%;
+    }
+    @media (min-width: $breakpoint-medium) {
+      padding-top: 79px;
+      padding-bottom: 99px;
+      max-width: 50%;
+    }
+  }
+
   &__title {
     margin-bottom: 20px;
+    color: var(--color-white);
+
     @media (min-width: $breakpoint-small) {
       margin-bottom: 32px;
     }
@@ -1078,6 +1104,8 @@
 
   &__desc {
     font-size: var(--font-size);
+    color: var(--color-white);
+
     margin-bottom: 31px;
 
     @media (min-width: $breakpoint-small) {
@@ -1090,13 +1118,29 @@
   }
 
   &__image {
+    position: absolute;
+    top: 0;
+    right: calc((100% - 100vw) / 2);
+    left: calc((100% - 100vw) / 2);
+    height: 100%;
+    z-index: 0;
+    display: none;
+    overflow: hidden;
+
     text-align: center;
     @media (min-width: $breakpoint-small) {
-      margin-right: -20px;
     }
 
     @media (min-width: $breakpoint-medium) {
-      margin-top: -35px;
+      display: block;
+    }
+
+    & img {
+      width: 100%;
+      height: calc(100% + 100px);
+      object-fit: cover;
+      object-position: right center;
+      @include object-fit-ie(cover, center);
     }
   }
 }

@@ -1,6 +1,7 @@
 input[type='button'],
 input[type='submit'] {
   // font-family: 'Roboto Condensed', sans-serif;
+  -webkit-appearance: none;
 }
 
 .button {
@@ -20,6 +21,7 @@ input[type='submit'] {
   border: none;
   cursor: pointer;
   border-radius: 0;
+  -webkit-appearance: none; // fuck ios styling
 
   &:hover {
     background: var(--color-accent-light);

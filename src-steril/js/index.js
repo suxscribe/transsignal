@@ -179,11 +179,15 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('.map a[data-hover]').forEach((el) => {
         // set map region link href to region page
         const regionCode = el.dataset.hover;
-        el.setAttribute(
-          'href',
+        if (
           document.querySelector(`.map__regions a[data-hover=${regionCode}]`)
-            .href
-        );
+        ) {
+          el.setAttribute(
+            'href',
+            document.querySelector(`.map__regions a[data-hover=${regionCode}]`)
+              .href
+          );
+        }
         // highlight region link when hover on map
         el.addEventListener('mouseenter', function() {
           document
@@ -206,27 +210,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // for index page only
   if (document.querySelector('.page--index')) {
-    var slideshowTop = new Swiper('.slideshow-main', {
-      loop: true,
-      loopedSlides: 6,
-      slidesPerView: '1',
-      grabCursor: true,
-      // clickable: true, //zrx photoswipe
-      // Navigation arrows
-      navigation: {
-        nextEl: '.slideshow-main__nav-next',
-        prevEl: '.slideshow-main__nav-prev',
-      },
-      allowTouchMove: true,
-      effect: 'slide',
-      fadeEffect: {
-        crossFade: true,
-      },
-
-      on: {
-        // progress: move, // todo fix line blinking
-      },
-    });
+    if (document.querySelectorAll('.slideshow-main__item').length > 1) {
+      var slideshowTop = new Swiper('.slideshow-main', {
+        loop: true,
+        loopedSlides: 6,
+        slidesPerView: '1',
+        grabCursor: true,
+        // autoplay: {
+        //   delay: 5000,
+        // },
+        // clickable: true, //zrx photoswipe
+        // Navigation arrows
+        navigation: {
+          nextEl: '.slideshow-main__nav-next',
+          prevEl: '.slideshow-main__nav-prev',
+        },
+        allowTouchMove: true,
+        effect: 'slide',
+        fadeEffect: {
+          crossFade: true,
+        },
+      });
+    } else {
+      document.querySelector('.slideshow-main__nav').classList.add('uk-hidden'); // hide nav if one slide
+    }
 
     function move() {
       var width = 1;
@@ -282,20 +289,18 @@ document.addEventListener('DOMContentLoaded', () => {
       // document.querySelectorAll('.product__description-slider-current > li').forEach( (el,i) => {
       // 	el.innerHTML = i+1;
       // });
-
-      console.log(
-        document.querySelectorAll('.product__description-slider-current > li')
-          .length
-      );
-
-      document.querySelector(
-        '.product__description-slider-overall'
-      ).innerHTML = document.querySelectorAll(
-        '.product__description-slider-items > li'
-      ).length;
+      // console.log(
+      //   document.querySelectorAll('.product__description-slider-current > li')
+      //     .length
+      // );
+      // document.querySelector(
+      //   '.product__description-slider-overall'
+      // ).innerHTML = document.querySelectorAll(
+      //   '.product__description-slider-items > li'
+      // ).length;
     };
 
-    slidesetNav();
+    // slidesetNav();
 
     // UIkit.lightbox('.product__gallery-items', {
     // 	animation: 'fade'
@@ -672,6 +677,19 @@ document.addEventListener('DOMContentLoaded', () => {
       window.scrollBy(0, -110);
     }
   }
+
+  // Cookie popup window
+  (function() {
+    if (!localStorage.getItem('cookieconsent')) {
+      document.querySelector('.popup-cookies').classList.remove('uk-hidden');
+
+      document.querySelector('.popup-cookies a').onclick = function(e) {
+        e.preventDefault();
+        document.querySelector('.popup-cookies').style.display = 'none';
+        localStorage.setItem('cookieconsent', true);
+      };
+    }
+  })();
 
   // polyfill for ie
   if (isIE()) {

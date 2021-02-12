@@ -159,6 +159,9 @@ document.addEventListener('DOMContentLoaded', () => {
       loopedSlides: 6,
       slidesPerView: '1',
       grabCursor: true,
+      autoplay: {
+        delay: 5000,
+      },
       // clickable: true, //zrx photoswipe
       // Navigation arrows
       navigation: {
@@ -629,6 +632,19 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .catch((error) => console.log('Failed to load Yandex Maps', error));
   }
+
+  // Cookie popup window
+  (function() {
+    if (!localStorage.getItem('cookieconsent')) {
+      document.querySelector('.popup-cookies').classList.remove('uk-hidden');
+
+      document.querySelector('.popup-cookies a').onclick = function(e) {
+        e.preventDefault();
+        document.querySelector('.popup-cookies').style.display = 'none';
+        localStorage.setItem('cookieconsent', true);
+      };
+    }
+  })();
 
   // polyfill for ie
   if (!!window.MSInputMethodContext && !!document.documentMode) {
