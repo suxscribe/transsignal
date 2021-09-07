@@ -590,7 +590,8 @@
           object-position: center;
           pointer-events: none;
           // @include object-fit-ie(cover, center);
-          max-height: 375px;
+          // max-height: 375px;
+          height: 375px;
         }
       }
 
