@@ -21,17 +21,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchResults = document.querySelector('.header__search-results');
 
   // focus on search input when click search link in header
-  document.querySelector('.header__offcanvas-search-link').addEventListener('click', (event) => {
-    document.querySelector('.burger__search-form-input').focus();
-  });
+  const searchLink = document.querySelector('.header__offcanvas-search-link');
+  const burgerSearchInput = document.querySelector('.burger__search-form-input');
+  if (searchLink) {
+    searchLink.addEventListener('click', (event) => {
+      if (burgerSearchInput) {
+        burgerSearchInput.focus();
+      }
+    });
+  }
 
-  searchInput.addEventListener('focus', (event) => {
-    searchResults.classList.add('header__search-results--show');
-  });
+  if (searchInput && searchResults) {
+    searchInput.addEventListener('focus', (event) => {
+      searchResults.classList.add('header__search-results--show');
+    });
 
-  searchInput.addEventListener('blur', (event) => {
-    searchResults.classList.remove('header__search-results--show');
-  });
+    searchInput.addEventListener('blur', (event) => {
+      searchResults.classList.remove('header__search-results--show');
+    });
+  }
 
   // validate forms
   var contactForm = document.querySelectorAll('.form');
@@ -147,8 +155,6 @@ document.addEventListener('DOMContentLoaded', () => {
       autoplay: {
         delay: 5000,
       },
-      // clickable: true, //zrx photoswipe
-      // Navigation arrows
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -165,8 +171,6 @@ document.addEventListener('DOMContentLoaded', () => {
       loopedSlides: 6,
       slidesPerView: '1',
       grabCursor: true,
-      // clickable: true, //zrx photoswipe
-      // Navigation arrows
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -204,8 +208,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     indexMoveBanner();
     window.addEventListener('resize', indexMoveBanner);
-
-    // document.querySelector('.clients__title').appendChild(document.querySelector('.clients__nav'));
   }
 
   if (document.querySelector('.page--section')) {
@@ -234,19 +236,24 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.querySelector('.page--product')) {
     // slideset nav
     const slidesetNav = function() {
-      document.querySelector(
-        '.product__description-slider-overall'
-      ).innerHTML = document.querySelectorAll('.product__description-slider-items > li').length;
+      const overall = document.querySelector('.product__description-slider-overall');
+      if (overall) {
+        overall.innerHTML = String(
+          document.querySelectorAll('.product__description-slider-items > li').length
+        );
+      }
     };
 
     //slidesetNav(); // disable product slide nav
 
     //wrap table in description tab with responsive handler
     const descriptionTable = document.querySelector('.product__description-right table');
-    const descriptionTableWrapper = document.createElement('div');
-    descriptionTableWrapper.classList.add('uk-overflow-auto');
-    descriptionTable.parentNode.insertBefore(descriptionTableWrapper, descriptionTable);
-    descriptionTableWrapper.appendChild(descriptionTable);
+    if (descriptionTable) {
+      const descriptionTableWrapper = document.createElement('div');
+      descriptionTableWrapper.classList.add('uk-overflow-auto');
+      descriptionTable.parentNode?.insertBefore(descriptionTableWrapper, descriptionTable);
+      descriptionTableWrapper.appendChild(descriptionTable);
+    }
   }
 
   if (document.querySelector('.page--about')) {
@@ -255,8 +262,6 @@ document.addEventListener('DOMContentLoaded', () => {
       loopedSlides: 6,
       slidesPerView: '1',
       grabCursor: true,
-      // clickable: true, //zrx photoswipe
-      // Navigation arrows
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -331,9 +336,13 @@ document.addEventListener('DOMContentLoaded', () => {
       on: {
         init: function() {
           updateCurrentIndex(this);
-          document.querySelector('.slideshow__count-overall').innerHTML = document.querySelectorAll(
+          const countElement = document.querySelector('.slideshow__count-overall');
+          const slideCount = document.querySelectorAll(
             '.slider-about-2 .swiper-slide:not(.swiper-slide-duplicate)'
           ).length;
+          if (countElement) {
+            countElement.innerHTML = String(slideCount);
+          }
         },
       },
     });
@@ -342,27 +351,35 @@ document.addEventListener('DOMContentLoaded', () => {
       updateCurrentIndex(this);
     });
     function updateCurrentIndex(slider) {
-      document.querySelector('.slideshow__count-current').innerHTML = slider.realIndex + 1;
+      const countElement = document.querySelector('.slideshow__count-current');
+      if (countElement) {
+        countElement.innerHTML = slider.realIndex + 1;
+      }
     }
 
     // control each slider with another
     sliderAbout3.controller.control = sliderAbout1;
     sliderAbout3.controller.control = sliderAbout2;
     sliderAbout1.controller.control = sliderAbout2;
-    sliderAbout2.controller.control = [sliderAbout3, sliderAbout1]; // i dont know how, but it works!
+    sliderAbout2.controller.control = [sliderAbout3, sliderAbout1];
 
     // sliderAbout2.controller.control = sliderAbout1;
     function updateSlideWidth() {
-      let slideWidth = document.querySelector('.slider-about-1__item').offsetWidth;
+      const slideElement = document.querySelector('.slider-about-1__item');
+      if (!slideElement) return;
+      let slideWidth = slideElement.offsetWidth;
       console.log(slideWidth);
       document.querySelectorAll('.slider-about-1__item').forEach((el) => {
         el.style.width = slideWidth + 'px';
         // console.log(el);
       });
-      document.querySelector('.slider-about-3').style.width = slideWidth + 'px';
-      sliderAbout3.update();
-      sliderAbout1.update();
-      console.log('updatewidth');
+      const sliderAbout3Element = document.querySelector('.slider-about-3');
+      if (sliderAbout3Element) {
+        sliderAbout3Element.style.width = slideWidth + 'px';
+        sliderAbout3.update();
+        sliderAbout1.update();
+        // console.log('updatewidth');
+      }
     }
     updateSlideWidth();
     window.addEventListener('resize', () => {
@@ -402,10 +419,6 @@ document.addEventListener('DOMContentLoaded', () => {
       loopedSlides: 0, //looped slides should be the same
       watchSlidesVisibility: true,
       watchSlidesProgress: true,
-      // onSlideChangeEnd: function(s) {
-      //     if ( s.slides.length == s.activeIndex+1 ) s.swipeTo(0);
-      //     console.log(s.activeIndex);
-      // }
     });
 
     var gallery2Top = new Swiper('.gallery__top_2', {
@@ -505,14 +518,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Cookie popup window
   (function() {
-    if (!localStorage.getItem('cookieconsent')) {
-      document.querySelector('.popup-cookies').classList.remove('uk-hidden');
+    const cookiePopup = document.querySelector('.popup-cookies');
+    const cookieConsent = localStorage.getItem('cookieconsent');
 
-      document.querySelector('.popup-cookies a').onclick = function(e) {
-        e.preventDefault();
-        document.querySelector('.popup-cookies').style.display = 'none';
-        localStorage.setItem('cookieconsent', true);
-      };
+    if (!cookieConsent && cookiePopup) {
+      cookiePopup.classList.remove('uk-hidden');
+
+      const acceptButton = cookiePopup.querySelector('a');
+      if (acceptButton) {
+        acceptButton.addEventListener('click', (e) => {
+          e.preventDefault();
+          cookiePopup.style.display = 'none';
+          localStorage.setItem('cookieconsent', 'accepted');
+        });
+      }
     }
   })();
 
