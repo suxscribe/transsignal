@@ -1,12 +1,9 @@
-import '@babel/polyfill';
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 import UIkit from 'uikit';
 import Icons from 'uikit/dist/js/uikit-icons';
-// import Swiper from 'swiper';
 import Swiper from 'swiper/js/swiper.js';
 import ymaps from 'ymaps';
-// import $ from "jquery";
-// import Inputmask from "inputmask";
-// import ValidForm from '@pageclip/valid-form';
 import cssVars from 'css-vars-ponyfill';
 import objectFitImages from 'object-fit-images';
 
@@ -19,23 +16,14 @@ cssVars({
 // loads the Icon plugin
 UIkit.use(Icons);
 
-// components can be called from the imported UIkit reference
-// import 'uikit/dist/css/uikit.min.css';
-// import '../scss/style.scss';
-
-// UIkit.notification('Hello world.');
-// console.log('hello, world');
-
 document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.querySelector('.header__search-form-input');
   const searchResults = document.querySelector('.header__search-results');
 
   // focus on search input when click search link in header
-  document
-    .querySelector('.header__offcanvas-search-link')
-    .addEventListener('click', (event) => {
-      document.querySelector('.burger__search-form-input').focus();
-    });
+  document.querySelector('.header__offcanvas-search-link').addEventListener('click', (event) => {
+    document.querySelector('.burger__search-form-input').focus();
+  });
 
   searchInput.addEventListener('focus', (event) => {
     searchResults.classList.add('header__search-results--show');
@@ -132,10 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setValid(field);
         return true;
       } else {
-        setInvalid(
-          field,
-          'Пожалуйста введите номер телефона в формате +XXXXXXXXXX'
-        );
+        setInvalid(field, 'Пожалуйста введите номер телефона в формате +XXXXXXXXXX');
       }
     };
     const checkIfEmail = (field) => {
@@ -201,9 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const bannerTeleport = document.querySelector('.index-banner__teleport');
       const bannerFirst = document.querySelector('.index-banners__first');
       const bannerSecond = document.querySelector('.index-banners__second');
-      const bannerBefore = document.querySelector(
-        '.index-banners__insertbeforeme'
-      );
+      const bannerBefore = document.querySelector('.index-banners__insertbeforeme');
 
       if (window.matchMedia('(min-width: 960px)').matches) {
         if (bannerTeleport.parentNode != bannerFirst) {
@@ -229,9 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // hide filter toggle if no filter form found
     const filterForm = document.querySelector('form.smartfilter');
     if (!filterForm) {
-      document
-        .querySelector('.section__items-filter-link')
-        .classList.add('uk-hidden');
+      document.querySelector('.section__items-filter-link').classList.add('uk-hidden');
     }
 
     const filterOffcanvas = document.querySelector('#filter-menu');
@@ -253,35 +234,19 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.querySelector('.page--product')) {
     // slideset nav
     const slidesetNav = function() {
-      // document.querySelectorAll('.product__description-slider-current > li').forEach( (el,i) => {
-      // 	el.innerHTML = i+1;
-      // });
-
       document.querySelector(
         '.product__description-slider-overall'
-      ).innerHTML = document.querySelectorAll(
-        '.product__description-slider-items > li'
-      ).length;
+      ).innerHTML = document.querySelectorAll('.product__description-slider-items > li').length;
     };
 
     //slidesetNav(); // disable product slide nav
 
     //wrap table in description tab with responsive handler
-    const descriptionTable = document.querySelector(
-      '.product__description-right table'
-    );
+    const descriptionTable = document.querySelector('.product__description-right table');
     const descriptionTableWrapper = document.createElement('div');
     descriptionTableWrapper.classList.add('uk-overflow-auto');
-    descriptionTable.parentNode.insertBefore(
-      descriptionTableWrapper,
-      descriptionTable
-    );
+    descriptionTable.parentNode.insertBefore(descriptionTableWrapper, descriptionTable);
     descriptionTableWrapper.appendChild(descriptionTable);
-
-    // UIkit.lightbox('.product__gallery-items', {
-    // 	animation: 'fade'
-    // });
-    // UIkit.lightboxPanel(panelOptions);
   }
 
   if (document.querySelector('.page--about')) {
@@ -366,9 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
       on: {
         init: function() {
           updateCurrentIndex(this);
-          document.querySelector(
-            '.slideshow__count-overall'
-          ).innerHTML = document.querySelectorAll(
+          document.querySelector('.slideshow__count-overall').innerHTML = document.querySelectorAll(
             '.slider-about-2 .swiper-slide:not(.swiper-slide-duplicate)'
           ).length;
         },
@@ -379,8 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
       updateCurrentIndex(this);
     });
     function updateCurrentIndex(slider) {
-      document.querySelector('.slideshow__count-current').innerHTML =
-        slider.realIndex + 1;
+      document.querySelector('.slideshow__count-current').innerHTML = slider.realIndex + 1;
     }
 
     // control each slider with another
@@ -391,8 +353,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // sliderAbout2.controller.control = sliderAbout1;
     function updateSlideWidth() {
-      let slideWidth = document.querySelector('.slider-about-1__item')
-        .offsetWidth;
+      let slideWidth = document.querySelector('.slider-about-1__item').offsetWidth;
       console.log(slideWidth);
       document.querySelectorAll('.slider-about-1__item').forEach((el) => {
         el.style.width = slideWidth + 'px';
@@ -410,8 +371,6 @@ document.addEventListener('DOMContentLoaded', () => {
   } //page--about
 
   if (document.querySelector('.page--production')) {
-    //TODO .product__gallery.length
-
     var gallery1Thumbs = new Swiper('.gallery__thumbs_1', {
       spaceBetween: 20,
       slidesPerView: 'auto',
@@ -420,10 +379,6 @@ document.addEventListener('DOMContentLoaded', () => {
       loopedSlides: 0, //looped slides should be the same
       watchSlidesVisibility: true,
       watchSlidesProgress: true,
-      // onSlideChangeEnd: function(s) {
-      //     if ( s.slides.length == s.activeIndex+1 ) s.swipeTo(0);
-      //     console.log(s.activeIndex);
-      // }
     });
 
     var gallery1Top = new Swiper('.gallery__top_1', {
@@ -478,10 +433,6 @@ document.addEventListener('DOMContentLoaded', () => {
       loopedSlides: 0, //looped slides should be the same
       watchSlidesVisibility: true,
       watchSlidesProgress: true,
-      // onSlideChangeEnd: function(s) {
-      //     if ( s.slides.length == s.activeIndex+1 ) s.swipeTo(0);
-      //     console.log(s.activeIndex);
-      // }
     });
 
     var gallery1Top = new Swiper('.gallery__top_1', {
@@ -499,89 +450,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (document.querySelector('.page--contacts')) {
-    // let ymaps = require('ymaps');
-    // let mapCenter;
-
-    // const getMapCenter = () => {
-    // 	// variables.scss
-    // 	// $breakpoint-small: 640px;  // Phone landscape
-    // 	// $breakpoint-medium: 960px;  // Tablet Landscape
-    // 	// $breakpoint-large:1200px; // Desktop
-    // 	// $breakpoint-xlarge:1600px; // Large Screens
-
-    // 	if (window.innerWidth >= 1200) {
-    // 		mapCenter = [56.349619, 43.798270];
-    // 	} else if (window.innerWidth >= 640) {
-    // 		mapCenter = [56.349619, 43.803270];
-    // 	} else {
-    // 		mapCenter = [56.351919, 43.807270];
-    // 	};
-    // 	console.log(mapCenter);
-    // 	return mapCenter;
-    // };
-
-    // ymaps.ready(init);
-    // function init() {
-    // 	var myMap = new ymaps.Map('map', {
-    // 			center: getMapCenter(),
-    // 			zoom: 16,
-    // 			controls: []
-    // 		}),
-    // 		// collection = new ymaps.GeoObjectCollection(),
-    // 		// bounds = myMap.getBounds();
-    // 	myMap.controls.add('zoomControl', {
-    // 		left: 5,
-    // 		top: 60
-    // 	});
-    // 	myMap.behaviors.disable('scrollZoom')
-    // 	add('mapTools', {
-    // 		left: 35,
-    // 		top: 60
-    // 	})
-    // 	var myPlacemark1 = new ymaps.Placemark([56.349619, 43.807270],
-    // 		{
-    // 			hintContent: 'ул. Торфяная, 30',
-    // 			balloonContent: '603139, г. Нижний Новгород, ул.Торфяная, 30 '},
-    // 		{
-    // 			iconLayout: 'default#image',
-    // 			iconImageHref: '../assets/icon_geo@2x.png',
-    // 			iconImageSize: [48, 58],
-    // 			iconImageOffset: [-24, -58]
-    // 		});
-    // 	myMap.geoObjects.add(myPlacemark1);
-    // };
-
-    // /* PHONE */
-
-    // let inputPhone = document.querySelector('.form__input--phone');
-
-    // // Inputmask({"mask": "+7 (999) 999-9999", autoclear: false, showMaskOnHover: false}).mask(inputPhone);
-    // // inputPhone.removeAttribute('required');
-
-    // var forms = document.querySelectorAll('.form');
-    // forms.forEach(function (form) {
-    // 	ValidForm(form, {
-
-    // 		errorPlacement: 'after',
-    // 		customMessages: {
-    // 			valueMissing: "Обязательное поле",
-    // 			// Special mismatches for different input types: `${type}Mismatch`
-    // 			emailMismatch: "Пожалуйста введите правильный email"
-    // 		}
-    // 	});
-    // });
-
     let mapCenter;
     const mapBlock = document.getElementById('map');
 
-    // console.log(JSON.parse(decodeURIComponent(mapBlock.dataset.coordinates)));
-
     const getMapCenter = () => {
-      // variables.scss
-      // $breakpoint-small: 640px;  // Phone landscape
-      // $breakpoint-medium: 960px;  // Tablet Landscape
-      // $breakpoint-large:1200px; // Desktop
-      // $breakpoint-xlarge:1600px; // Large Screens
       mapCenter = JSON.parse(decodeURIComponent(mapBlock.dataset.coordinates));
 
       if (window.innerWidth >= 1200) {
@@ -594,7 +466,6 @@ document.addEventListener('DOMContentLoaded', () => {
         mapCenter[0] += 0.0023;
         mapCenter[1] += 0.009;
       }
-      // console.log(mapCenter);
       return mapCenter;
     };
 
@@ -622,8 +493,7 @@ document.addEventListener('DOMContentLoaded', () => {
           },
           {
             iconLayout: 'default#image',
-            iconImageHref:
-              '/local/templates/transsignal/assets/icon_geo@2x.png',
+            iconImageHref: '/local/templates/transsignal/assets/icon_geo@2x.png',
             iconImageSize: [48, 58],
             iconImageOffset: [-24, -58],
           }

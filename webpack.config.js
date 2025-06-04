@@ -92,6 +92,10 @@ const config = {
             loader: 'sass-loader',
             options: {
               sourceMap: true,
+              implementation: require('sass'),
+              sassOptions: {
+                outputStyle: 'expanded',
+              },
             },
           },
         ],

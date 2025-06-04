@@ -1,14 +1,15 @@
 {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-            "debug":true,
-            "targets": {
-              "ie": "11"
-            },
-            "useBuiltIns": "entry"
-        }
-      ]
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "debug": true,
+        "targets": {
+          "ie": "11"
+        },
+        "useBuiltIns": "entry",
+        "corejs": 3
+      }
     ]
-  }
+  ]
+}
