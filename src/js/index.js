@@ -460,6 +460,28 @@ document.addEventListener('DOMContentLoaded', () => {
         swiper: gallery1Thumbs,
       },
     });
+    var gallery2Thumbs = new Swiper('.gallery__thumbs_2', {
+      spaceBetween: 20,
+      slidesPerView: 'auto',
+      loop: false,
+      freeMode: true,
+      loopedSlides: 0, //looped slides should be the same
+      watchSlidesVisibility: true,
+      watchSlidesProgress: true,
+    });
+
+    var gallery2Top = new Swiper('.gallery__top_2', {
+      spaceBetween: 20,
+      loop: false,
+      loopedSlides: 0, //looped slides should be the same
+      navigation: {
+        nextEl: '.gallery__button-next_2',
+        prevEl: '.gallery__button-prev_2',
+      },
+      thumbs: {
+        swiper: gallery2Thumbs,
+      },
+    });
   }
 
   if (document.querySelector('.page--contacts')) {
