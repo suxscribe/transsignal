@@ -1,5 +1,4 @@
-import 'core-js/stable';
-import 'regenerator-runtime/runtime';
+// Polyfills now handled by Babel with usage-based loading
 import UIkit from 'uikit';
 import Icons from 'uikit/dist/js/uikit-icons';
 import Swiper from 'swiper/js/swiper.js';
@@ -38,6 +37,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     searchInput.addEventListener('blur', (event) => {
       searchResults.classList.remove('header__search-results--show');
+    });
+  }
+
+  const burgerParentLinks = document.querySelectorAll('.burger__nav-link');
+  if (burgerParentLinks) {
+    burgerParentLinks.forEach((link) => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+      });
     });
   }
 
