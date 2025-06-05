@@ -30,16 +30,8 @@ const config = {
     filename: './js/bundle.js',
     // publicPath: 'http://suxscribe.tmweb.ru/transsignal/'
   },
-  devtool: '#inline-source-map',
   mode: 'production',
-  // optimization: {
-  //   minimizer: [
-  //     new TerserPlugin({
-  //       sourceMap: true,
-  //       extractComments: true
-  //     })
-  //   ]
-  // },
+
   resolve: {
     alias: {
       'uikit-util': path.resolve(__dirname, 'node_modules/uikit/src/js/util'),
@@ -116,10 +108,10 @@ const config = {
         from: './src/fonts',
         to: './fonts',
       },
-      {
-        from: './src/favicon',
-        to: './favicon',
-      },
+      // {
+      //   from: './src/favicon',
+      //   to: './favicon',
+      // },
       {
         from: './src/assets',
         to: './assets',
@@ -133,7 +125,10 @@ module.exports = (env, argv) => {
     // ymaps: 'ymaps'
   }
   if (argv.mode === 'production') {
+    config.devtool = false;
     config.plugins.push(new CleanWebpackPlugin());
+  } else {
+    config.devtool = '#inline-source-map';
   }
   return config;
 };

@@ -11,18 +11,20 @@
     "watch-steril": "webpack --config webpack-steril.config.js --mode development --watch",
     "build-steril": "webpack --config webpack-steril.config.js --mode production && prettier --parser html --write dist-steril/*.html",
     "start-steril": "webpack-dev-server --config webpack-steril.config.js --mode development --open firefox",
-    "deploy-steril-js": "node deploy-steril-js"
+    "deploy-steril-js": "node deploy-steril-js",
+    "analyze": "npx webpack --mode production --profile --json > stats.json && npx webpack-bundle-analyzer stats.json",
+    "analyze-simple": "npx webpack-bundle-analyzer dist/js/bundle.js"
   },
   "keywords": [],
   "author": "Enteragency",
   "license": "ISC",
   "dependencies": {
     "core-js": "^3.38.1",
-    "regenerator-runtime": "^0.14.1",
     "css-vars-ponyfill": "^2.2.1",
     "inputmask": "^5.0.3",
     "jquery": "^3.4.1",
     "object-fit-images": "^3.2.4",
+    "regenerator-runtime": "^0.14.1",
     "swiper": "^5.2.0",
     "uikit": "^3.2.3",
     "ymaps": "^0.2.1"
@@ -45,10 +47,11 @@
     "postcss-loader": "^3.0.0",
     "prettier": "^1.19.1",
     "raw-loader": "^3.1.0",
-    "sass": "^1.80.6",
     "sass-loader": "^8.0.0",
+    "sass": "^1.77.5",
     "url-loader": "^2.2.0",
     "webpack": "^4.41.2",
+    "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"
   }
