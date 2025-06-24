@@ -26,9 +26,6 @@ importers:
       regenerator-runtime:
         specifier: ^0.14.1
         version: 0.14.1
-      sass:
-        specifier: 1.77.5
-        version: 1.77.5
       swiper:
         specifier: ^5.2.0
         version: 5.4.5
@@ -90,6 +87,9 @@ importers:
       raw-loader:
         specifier: ^3.1.0
         version: 3.1.0(webpack@4.47.0)
+      sass:
+        specifier: ^1.77.5
+        version: 1.77.5
       sass-loader:
         specifier: ^8.0.0
         version: 8.0.2(node-sass@4.14.1)(sass@1.77.5)(webpack@4.47.0)
