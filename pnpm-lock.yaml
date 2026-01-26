@@ -26,9 +26,6 @@ importers:
       regenerator-runtime:
         specifier: ^0.14.1
         version: 0.14.1
-      sass:
-        specifier: 1.77.5
-        version: 1.77.5
       swiper:
         specifier: ^5.2.0
         version: 5.4.5
@@ -90,6 +87,9 @@ importers:
       raw-loader:
         specifier: ^3.1.0
         version: 3.1.0(webpack@4.47.0)
+      sass:
+        specifier: ^1.77.5
+        version: 1.77.5
       sass-loader:
         specifier: ^8.0.0
         version: 8.0.2(node-sass@4.14.1)(sass@1.77.5)(webpack@4.47.0)
@@ -4392,7 +4392,7 @@ packages:
 
   tar@2.2.2:
     resolution: {integrity: sha512-FCEhQ/4rE1zYv9rYXJw/msRqsnmlje5jHP6huWeBZ704jUTy02c5AZyWujpMR1ax6mVw9NyJMfuK2CMDWVIfgA==}
-    deprecated: This version of tar is no longer supported, and will not receive security updates. Please upgrade asap.
+    deprecated: Old versions of tar are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exhorbitant rates) by contacting i@izs.me
 
   temp-dir@1.0.0:
     resolution: {integrity: sha512-xZFXEGbG7SNC3itwBzI3RYjq/cEhBkx2hJuKGIUOcEULmkQExXiHat2z/qkISYsuR+IKumhEfKKbV5qXmhICFQ==}
